@@ -1,110 +1,71 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title> Fos Ordering System </title>
+<head>
+    <title> Fos Ordering System </title>
+    <link rel="stylesheet" href="./css/mainpage.css">
 
-        <style>
-         
+</head>
 
-            .loader-center
-            {
-             position:fixed;
-             z-index: 999999;
-             background:#fff;
-             width: 100%;
-             height: 100%;
-            }
+<body data-spy="scroll" data-target="#navbar-menu" data-offset="100">
 
-            .loader-center
-            {
-            border: 0 solid transparent ;
-            border-radius:50%;
-            width:150 px;
-            height:150 px;
-            position: absoulute;
-            top:calc(50vh - 75px);
-            left:calc(50vw - 75px); 
-            }
-            
-            .loader-center:before,.loader-center:after
-            {
-                content:'';
-                border: lem solid #ff5733;
-                
-            }
-        
-
-
-
-
-
-
-
-
-
-        </style>
-    </head>
-
-    <body data-spy="scroll" data-target="#navbar-menu" data-offset="100">
-
-        <!-- Preloader --> 
-        <div id="loading">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object" id="object_one"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_three"></div>
-                    <div class="object" id="object_four"></div>
-                    <div class="object" id="object_five"></div>
-                    <div class="object" id="object_six"></div>
-                    <div class="object" id="object_seven"></div>
-                    <div class="object" id="object_eight"></div>
-                    <div class="object" id="object_big"></div>
-                </div>
+    <!-- Preloader -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_five"></div>
+                <div class="object" id="object_six"></div>
+                <div class="object" id="object_seven"></div>
+                <div class="object" id="object_eight"></div>
+                <div class="object" id="object_big"></div>
             </div>
         </div>
-        <!--End Preloader -->
-        
-        <!-- Navbar -->
-        <nav class="navbar navbar-default bootsnav no-background navbar-fixed black">
-            <div class="container">  
+    </div>
+    <!--End Preloader -->
 
-                <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
-                    </ul>
-                </div>        
-                <!-- End Atribute Navigation -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-default bootsnav no-background navbar-fixed black">
+        <div class="container">
 
-                <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt=""></a>
-                </div>
-                <!-- End Header Navigation -->
-            </div>   
-
-            <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <div class="widget">
-                    <h6 class="title">Menu</h6>
-                    <ul class="link">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Sign Up</a></li>
-                        
-                    </ul>
-                </div>
+            <!-- Start Atribute Navigation -->
+            <div class="attr-nav">
+                <ul>
+                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+                </ul>
             </div>
-            <!-- End Side Menu -->
-        </nav>
+            <!-- End Atribute Navigation -->
 
-         <!-- Header -->
-         <header id="hello">
-         <!-- Container -->
-         <div class="container">
+            <!-- Start Header Navigation -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt=""></a>
+            </div>
+            <!-- End Header Navigation -->
+        </div>
+
+        <!-- Start Side Menu -->
+        <div class="side">
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <div class="widget">
+                <h6 class="title">Menu</h6>
+                <ul class="link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Sign Up</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- End Side Menu -->
+    </nav>
+
+    <!-- Header -->
+    <header id="hello">
+        <!-- Container -->
+        <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="banner">
@@ -113,8 +74,10 @@
 
                         <div class="inner_banner">
                             <div class="banner_content">
-                                <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame seed bun and topped with melty American cheese, crisp lettuce, minced onions and tangy pickles.</p>
-                                <p>*Based on pre-cooked patty weight.</p>							
+                                <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame
+                                    seed bun and topped with melty American cheese, crisp lettuce, minced onions and
+                                    tangy pickles.</p>
+                                <p>*Based on pre-cooked patty weight.</p>
                             </div>
                             <div class="stamp">
                                 <img src="images/stamp.png" alt="" />
@@ -127,8 +90,8 @@
         <p class="caption">*Limited Time Only</p>
     </header><!-- Header end -->
 
-     <!-- First section -->
-     <div class="row">
+    <!-- First section -->
+    <div class="row">
         <div class="col-sm-8">
             <div class="feature">
                 <div class="shack_burger">
@@ -137,7 +100,8 @@
                     </div>
 
                     <h2>Shack Burger </h2>
-                    <p>Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,” served in a grilled potato bun</p>
+                    <p>Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,” served in
+                        a grilled potato bun</p>
                 </div>
                 <p class="caption">*Limited Time Only</p>
             </div>
@@ -165,7 +129,9 @@
                     <h3>House-ground hamburger</h3>
                     <p>(served in a grilled rosemary focaccia).</p>
 
-                    <p class="overlay_content">Instead of traditional cucumber pickles, legendary chef-owner Judy Rodgers accents her burgers with thin-cut zucchini strips pickled in apple cider vinegar, mustard seeds and turmeric.</p>
+                    <p class="overlay_content">Instead of traditional cucumber pickles, legendary chef-owner Judy
+                        Rodgers accents her burgers with thin-cut zucchini strips pickled in apple cider vinegar,
+                        mustard seeds and turmeric.</p>
                 </div>
             </div>
         </div>
@@ -185,9 +151,15 @@
                     <hr />
 
                     <ul class="list-unstyled nutrition">
-                        <li><a href=""><span class="flaticon flaticon-protein"></span><p>Protein - 33g</p></a></li>
-                        <li><a href=""><span class="flaticon flaticon-carbohydrate"></span><p>Carbohydrates - 46gm</p></a></li>
-                        <li><a href=""><span class="flaticon flaticon-calories"></span><p>Calories - 750 kcal</p></a></li>
+                        <li><a href=""><span class="flaticon flaticon-protein"></span>
+                                <p>Protein - 33g</p>
+                            </a></li>
+                        <li><a href=""><span class="flaticon flaticon-carbohydrate"></span>
+                                <p>Carbohydrates - 46gm</p>
+                            </a></li>
+                        <li><a href=""><span class="flaticon flaticon-calories"></span>
+                                <p>Calories - 750 kcal</p>
+                            </a></li>
                     </ul>
                     <div class="info_btn_shadow">
                         <a href="" class="info_btn">info & nutrition</a>
@@ -229,7 +201,8 @@
                     <h2>Cheddar JUnky</h2>
                     <h3>Stuffed Burgers</h3>
 
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
+                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
+                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
 
                     <div class="info_btn_shadow">
                         <a href="" class="info_btn">info & nutrition</a>
@@ -243,7 +216,8 @@
                     <h2>Cheddar JUnky</h2>
                     <h3>Stuffed Burgers</h3>
 
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
+                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
+                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
 
                     <div class="info_btn_shadow">
                         <a href="" class="info_btn">info & nutrition</a>
@@ -257,7 +231,8 @@
                     <h2>Cheddar JUnky</h2>
                     <h3>Stuffed Burgers</h3>
 
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
+                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
+                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
 
                     <div class="info_btn_shadow">
                         <a href="" class="info_btn">info & nutrition</a>
@@ -294,11 +269,12 @@
             </div>
         </div>
     </div><!-- forth section end -->
-</div>
-</section><!-- Block Content end-->
+    </div>
+    </section><!-- Block Content end-->
 
 
 
 
 </body>
+
 </html>
