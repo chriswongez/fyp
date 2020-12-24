@@ -1,0 +1,5 @@
+The purpose of this project is to develop a computerized food ordering system that can used to transform the traditional ordering that currently implemented in majority of the food and beverage industry. Most of the traditional systems used in the food and beverage industry are traditional manual ordering systems, which means that all work and procedures are manually recorded and include a lot of invalid and efficient written work.This cause the business to encounter trouble which regarding human error due to the huge amount of manpower manual work that operating in each business routine. Thus, this computerized food ordering system is designed to assist the business routine in term of having better management as well as easier to handle daily business operation. 
+
+ 
+
+This system is designed for small medium enterprise food  
