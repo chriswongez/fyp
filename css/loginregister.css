@@ -45,3 +45,10 @@ input[type="submit"]:active {
 .w3-container {
   /* border: 1px black dashed; */
 }
+
+.adminloginbutton {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transition: background-color 0.2s, color 0.2s;
+}
