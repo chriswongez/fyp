@@ -10,6 +10,7 @@
 .loginregister {
   display: flex;
   position: relative;
+  margin-bottom: 15px;
 }
 
 input {
@@ -22,15 +23,14 @@ input:focus {
 }
 
 input[type="submit"] {
-  border: 0;
+  border: none;
   width: 20%;
-  border-radius: 10px;
   padding: 5px;
   cursor: pointer;
 }
 
-input[type="submit"]:active {
-  border: none;
+input[type="submit"]:focus {
+  outline: none;
 }
 
 .vl {
@@ -40,10 +40,6 @@ input[type="submit"]:active {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 90%;
-}
-
-.w3-container {
-  /* border: 1px black dashed; */
 }
 
 .adminloginbutton {
