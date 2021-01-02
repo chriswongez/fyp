@@ -9,7 +9,7 @@
 
             .loader
             {
-            border: 0 solid transparent ;
+            border: 0 soild transparent ;
             border-radius:50%;
             width:150px;
             height:150px;
@@ -18,7 +18,7 @@
             left:calc(50vw - 75px); 
             }
             
-            .loader:before , .loader:after
+            .loader :before ,.loader :after
             {
                 content:'';
                 border: lem solid #ff5733;

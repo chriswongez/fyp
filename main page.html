@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title> Fos Ordering System </title>
@@ -7,23 +7,11 @@
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-menu" data-offset="100">
+<body>
 
     <!-- Preloader -->
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="object_one"></div>
-                <div class="object" id="object_two"></div>
-                <div class="object" id="object_three"></div>
-                <div class="object" id="object_four"></div>
-                <div class="object" id="object_five"></div>
-                <div class="object" id="object_six"></div>
-                <div class="object" id="object_seven"></div>
-                <div class="object" id="object_eight"></div>
-                <div class="object" id="object_big"></div>
-            </div>
-        </div>
+    <div class="loader_bg">
+        <div class="loader"></div>
     </div>
     <!--End Preloader -->
 
@@ -274,7 +262,12 @@
 
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function () {
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
 </body>
 
 </html>
