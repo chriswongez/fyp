@@ -4,6 +4,11 @@
 <head>
     <title> Food Ordering System </title>
     <link rel="stylesheet" href="./css/mainpage.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+
 
 
 </head>
@@ -14,250 +19,113 @@
 
     <!--End Preloader -->
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-default bootsnav no-background navbar-fixed black">
-        <div class="container">
 
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
-                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
-                </ul>
-            </div>
-            <!-- End Atribute Navigation -->
 
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt=""></a>
-            </div>
-            <!-- End Header Navigation -->
-        </div>
+    <div class="logo">
+        <a href="#"><img src="images/logo.png"></a>
+    </div>
 
-        <!-- Start Side Menu -->
-        <div class="side">
-            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-            <div class="widget">
-                <h6 class="title">Menu</h6>
-                <ul class="link">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
+    <nav>
+        <ul>
+            <li><a href="#Track order">Track Order</a></li>
+            <li><a href="#Sign in">Sign in</a></li>
+            <li><a href="#sign up">Sign up</a></li>
+            <li><a href="#Food Menu">Food Menu</a></li>
+            <li><a class="active" href="#home">Home</a></li>
 
-                </ul>
-            </div>
-        </div>
-        <!-- End Side Menu -->
+        </ul>
     </nav>
 
-    <!-- Header -->
-    <header id="hello">
-        <!-- Container -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="Fbanner">
-                        <h3>-Introducing-</h3>
-                        <h1>HAPPY FATTY BURGER</h1>
+    <section id="home">
+        <h1 class="main-odering">Welcome to FOS</h1>
+        <p>Discover Restaurants<br>
+            That deliver near You</p>
 
-                        <div class="inner_banner_FOS">
-                            <div class="banner_content">
-                                <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame
-                                    seed bun and topped with melty American cheese, crisp lettuce, minced onions and
-                                    tangy pickles.</p>
-                                <p>*Based on pre-cooked patty weight.</p>
-                            </div>
-                            <div class="stamp">
-                                <img src="images/stamp.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <button class="btn">Oder Now</button>
+
+    </section>
+
+    <section id="services-container">
+
+        <h1 class="main-services">-INTRODUCING-<br>Our Special Buger</h1>
+        <div class="services">
+
+            <div class="box">
+                <img src="" alt="">
+                <h2 class="main-secondary center">-SPICY BEEF BUGER-</h2>
+                <p class="center"></p>
             </div>
-        </div><!-- Container end -->
-        <p class="caption">*Limited Time Only</p>
-    </header><!-- Header end -->
 
-    <!-- First section -->
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="feature">
-                <div class="shack_burger">
-                    <div class="chicken">
-                        <img src="images/chicken.png" alt="Chicken" />
-                    </div>
-
-                    <h2>Shack Burger </h2>
-                    <p>Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,” served in
-                        a grilled potato bun</p>
-                </div>
-                <p class="caption">*Limited Time Only</p>
+            <div class="box">
+                <img src="" alt="">
+                <h2 class="main-secondary center">-FATTY BUGER-</h2>
+                <p class="center"></p>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="signature">
-                <div class="shape">
-                    <span class="flaticon flaticon-burger"></span>
-                    <p>signature</p>
-                </div>
-                <div class="signature_content">
-                    <p>It used to be a Secret but not any more! Our tribute to the King is a Cheddar Beef Patty,</p>
-                </div>
+
+            <div class="box">
+                <img src="" alt="">
+                <h2 class="main-secondary center">-DOUBLE CHEESE CHICKEN BUGER-</h2>
+                <p class="center"></p>
             </div>
-        </div>
-    </div><!-- first section end -->
 
-    <!-- Second section -->
-    <div class="row">
-        <div class="col-md-6">
-            <div class="classic">
-                <a href="" class="classic_btn">classic</a>
-
-                <div class="overlay">
-                    <h3>House-ground hamburger</h3>
-                    <p>(served in a grilled rosemary focaccia).</p>
-
-                    <p class="overlay_content">Instead of traditional cucumber pickles, legendary chef-owner Judy
-                        Rodgers accents her burgers with thin-cut zucchini strips pickled in apple cider vinegar,
-                        mustard seeds and turmeric.</p>
-                </div>
-            </div>
         </div>
 
-        <div class="col-md-6">
-            <!-- Carousel -->
-            <div id="small_carousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#small_carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#small_carousel" data-slide-to="1"></li>
-                    <li data-target="#small_carousel" data-slide-to="2"></li>
-                </ol>
+    </section>
 
-                <div class="carousel-caption">
-                    <h3>The Original Burger</h3>
-                    <hr />
+    <section id="client-section">
+        <h1 class="main-services">Our Clients</h1>
+        <div id="clients">
 
-                    <ul class="list-unstyled nutrition">
-                        <li><a href=""><span class="flaticon flaticon-protein"></span>
-                                <p>Protein - 33g</p>
-                            </a></li>
-                        <li><a href=""><span class="flaticon flaticon-carbohydrate"></span>
-                                <p>Carbohydrates - 46gm</p>
-                            </a></li>
-                        <li><a href=""><span class="flaticon flaticon-calories"></span>
-                                <p>Calories - 750 kcal</p>
-                            </a></li>
-                    </ul>
-                    <div class="info_btn_shadow">
-                        <a href="" class="info_btn">info & nutrition</a>
-                    </div>
-                </div>
+            <div class="client-item">
+                <img src="" alt="">
+            </div>
 
-                <!-- carousel inner -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="images/small_slider_bg.jpg" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="images/small_slider_bg.jpg" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="images/small_slider_bg.jpg" alt="" />
-                    </div>
-                </div><!-- carousel inner end -->
-            </div><!-- Carousel end-->
+            <div class="client-item">
+                <img src="" alt="">
+            </div>
+
         </div>
-    </div><!-- second section end -->
+    </section>
 
-    <!-- Third section -->
-    <!-- Carousel -->
-    <div id="carousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
+    <section id="contact">
+        <h1 class="main-services">Contact Us</h1>
+        <div class="contact-box">
+            <form action="">
 
-        <!-- carousel inner -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="images/large_slider_img.jpg" alt="Burger">
-
-                <div class="carousel-caption">
-                    <h2>Cheddar JUnky</h2>
-                    <h3>Stuffed Burgers</h3>
-
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
-                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
-
-                    <div class="info_btn_shadow">
-                        <a href="" class="info_btn">info & nutrition</a>
-                    </div>
+                <div class="form-group">
+                    <label for="name">Name :</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name">
                 </div>
-            </div>
-            <div class="item">
-                <img src="images/large_slider_img.jpg" alt="Burger">
 
-                <div class="carousel-caption">
-                    <h2>Cheddar JUnky</h2>
-                    <h3>Stuffed Burgers</h3>
-
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
-                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
-
-                    <div class="info_btn_shadow">
-                        <a href="" class="info_btn">info & nutrition</a>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" name="name" id="email" placeholder="Enter your email">
                 </div>
-            </div>
-            <div class="item">
-                <img src="images/large_slider_img.jpg" alt="Burger">
 
-                <div class="carousel-caption">
-                    <h2>Cheddar JUnky</h2>
-                    <h3>Stuffed Burgers</h3>
-
-                    <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked
-                        patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
-
-                    <div class="info_btn_shadow">
-                        <a href="" class="info_btn">info & nutrition</a>
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number :</label>
+                    <input type="phone" name="name" id="phone" placeholder="Enter your phone number">
                 </div>
-            </div>
-        </div><!-- carousel inner end -->
-    </div><!-- Carousel end-->
 
-    <!-- Forth section -->
-    <div class="row forth_sec">
-        <div class="col-sm-4">
-            <div class="menu">
-                <div class="inner_content">
-                    <span class="flaticon flaticon-burger"></span>
-                    <h2>menu</h2>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class="col-sm-4">
-            <div class="drinks">
-                <div class="inner_content">
-                    <span class="flaticon flaticon-drink"></span>
-                    <h2>drinks</h2>
-                </div>
-            </div>
+
+    </section>
+
+    <footeer>
+        <div class="center">
+            copyright&copy;www.FOS.com.All right reserved!
         </div>
-        <div class="col-sm-4">
-            <div class="sides">
-                <div class="inner_content">
-                    <span class="flaticon flaticon-food"></span>
-                    <h2>sides</h2>
-                </div>
-            </div>
-        </div>
-    </div><!-- forth section end -->
-    </div>
-    </section><!-- Block Content end-->
+    </footeer>
+
+
+
+
+
 
 
 
