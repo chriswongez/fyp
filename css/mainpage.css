@@ -183,6 +183,7 @@ nav a:hover {
 #client-section {
   position: relative;
   z-index: -1;
+  background-image: url("/images/lock_bg.jpg");
 }
 
 /* #client-section::before {
