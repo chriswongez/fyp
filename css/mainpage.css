@@ -184,6 +184,7 @@ nav a:hover {
   position: relative;
   z-index: -1;
   background-image: url("/images/lock_bg.jpg");
+ 
 }
 
 /* #client-section::before {
@@ -196,6 +197,8 @@ nav a:hover {
 } */
 .client.item {
   padding: 34px;
+  flex: 33.33%;
+  padding: 5px;;
   
 }
 #clients img {
