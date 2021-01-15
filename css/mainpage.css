@@ -31,21 +31,15 @@
   }
 }
 
-body {
-  color: #666666;
-  font-size: 14px;
-  font-family: Arial;
-  line-height: 1.80857;
-  font-weight: normal;
-  margin: 0;
-}
-
 .nav-con {
-  width: 97%;
+  width: 98%;
   position: fixed;
+
   left: 50%;
+  top: 10px;
   transform: translateX(-50%);
   margin: 0 auto;
+  z-index: 99;
 }
 
 nav {
@@ -54,12 +48,12 @@ nav {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   border-radius: 5px;
 }
-ul {
+nav ul {
   padding: 0;
   margin: 0 0 0 150px;
   list-style: none;
 }
-li {
+nav li {
   float: right;
 }
 
@@ -68,8 +62,7 @@ li {
   display: inline-block;
   top: 50%;
   transform: translateY(-50%);
-  left: 10px;
-  height: 80%;
+  height: 100%;
   border-radius: 5px;
 }
 
@@ -82,7 +75,7 @@ li {
 nav a {
   width: 115px;
   display: block;
-  padding: 10px;
+  padding: 15px 10px;
   font-size: 14pt;
   text-decoration: none;
   font-family: Arial;
@@ -108,7 +101,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   padding: 3px 200px;
-  height: 550px;
+  height: 480px;
   justify-content: center;
   align-items: center;
   text-shadow: black 2px 2px 3px;
@@ -117,6 +110,39 @@ nav a:hover {
   /* background-color: rgb(0, 0, 0, 0.5); */
 }
 
+#home .btn-con {
+  height: 100px;
+  position: relative;
+}
+
+#home .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 6px 20px;
+  width: 200px;
+  border: 2px solid white;
+  background-color: brown;
+  color: white;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#home .btn:hover {
+  padding: 6px 20px;
+  background-color: rgb(102, 23, 23);
+  color: white;
+  font-size: 1.7rem;
+  transition: 0.3s;
+  width: 220px;
+}
+
+#home .btn:focus {
+  outline: none;
+}
 /* #home::before {
   content: "";
   position: absolute;
@@ -134,6 +160,7 @@ nav a:hover {
   text-align: center;
   font-size: 36pt;
   font-family: "Bree Serif", serif;
+  -webkit-text-stroke: 0.5px black;
 }
 
 #home p {
@@ -182,9 +209,13 @@ nav a:hover {
 
 #client-section {
   position: relative;
-  z-index: -1;
   background-image: url("/images/lock_bg.jpg");
- 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#client-section h1 {
+  padding-top: 20px;
 }
 
 /* #client-section::before {
@@ -195,17 +226,21 @@ nav a:hover {
   z-index: -1;
   opacity: 0.3;
 } */
-.client.item {
-  padding: 34px;
-  flex: 33.33%;
-  padding: 5px;;
-  
+#clients {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
 }
-#clients img {
-  height: 65px;
 
-  
-  
+.client-item {
+  margin: 5px 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#clients img {
+  height: 100px;
 }
 
 /* contact section */
@@ -215,7 +250,10 @@ nav a:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
 
+#contact h1 {
+  padding-top: 20px;
 }
 /* #contact::before {
   content: "";
@@ -242,15 +280,14 @@ nav a:hover {
   font-size: 1.3rem;
   font-family: "Bree Serif ", serif;
   color: white;
+  text-shadow: 2px 2px 2px black;
 }
 
-input[type="submit"] 
-{
+input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover 
-{
+input[type="submit"]:hover {
   cursor: pointer;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   transition: 0.5s;
@@ -268,14 +305,4 @@ footer {
   font-family: "Bree Serif", serif;
   font-size: 2.3rem;
   padding: 12px;
-}
-.btn {
-  padding: 6px 20px;
-  border: 2px solid white;
-  background-color: brown;
-  color: white;
-  margin: 17px;
-  font-size: 1.5rem;
-  border-radius: 10px;
-  cursor: pointer;
 }
