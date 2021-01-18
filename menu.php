@@ -8,5 +8,17 @@
     <link rel="stylesheet" href="./css/menu.css" />
     <link rel="stylesheet" href="./css/w3.css" />
   </head>
-  <body></body>
+
+  <body>
+    <?php include "./php/navbar.php";?>
+    <div>
+
+    </div>
+  </body>
 </html>
+
+<script>
+      window.onload = () => {
+        document.getElementById("menu-btn").classList.add("active");
+      };
+    </script>

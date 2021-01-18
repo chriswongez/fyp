@@ -15,15 +15,20 @@
         <a href="#"><img src="images/logo.png" class="logo" /></a>
         <nav>
           <ul>
-            <li><a href="#Track order">Track Order</a></li>
-            <li><a href="#Sign in">Sign in</a></li>
-            <li><a href="#sign up">Sign up</a></li>
-            <li><a href="#Food Menu">Food Menu</a></li>
-            <li><a class="active" href="#home">Home</a></li>
+            <li><a id="track-btn" href="#Track order">Track Order</a></li>
+            <li><a id="login-btn" href="#Login">Login</a></li>
+            <li><a id="menu-btn" href="#Food Menu">Food Menu</a></li>
+            <li><a id="home-btn" href="#home">Home</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
+    <script>
+      window.onload = () => {
+        document.getElementById("home-btn").classList.add("active");
+      };
+    </script>
 
     <section id="home">
       <h1 class="main-odering">Welcome to Foodie</h1>
