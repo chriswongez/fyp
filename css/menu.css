@@ -1,0 +1,46 @@
+#dinein-con {
+  z-index: 99;
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s;
+}
+
+.dinein {
+  position: fixed;
+  width: 60%;
+  height: auto;
+  background-color: white;
+  opacity: 0;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dinein h1 {
+  padding: 0 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.opacityto1 {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.gotobuttom {
+  bottom: -50%;
+  transition: all 0.5s;
+}
+
+.dinein-btn {
+  display: flex;
+}
+
+.dinein-btn button {
+  width: 50%;
+  height: 250px;
+  margin: 30px;
+  font-size: xx-large;
+}

@@ -4,21 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Make Orders</title>
+
+    <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/menu.css" />
-    <link rel="stylesheet" href="./css/w3.css" />
   </head>
 
   <body>
     <?php include "./php/navbar.php";?>
-    <div>
-
+    <div id="dinein-con">
+      <div id="dinein" class="dinein w3-round-large w3-card">
+        <h1>Do you want to dine in or take away?</h1>
+        <div class="dinein-btn">
+          <button id="dine_in" onclick="goToBottom()">Dine in</button>
+          <button id="take_away" onclick="goToBottom()">Take away</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
 
 <script>
-      window.onload = () => {
-        document.getElementById("menu-btn").classList.add("active");
-      };
-    </script>
+  window.onload = () => {
+    document.getElementById("menu-btn").classList.add("active");
+  };
+</script>
+<script src="./js/menu.js"></script>

@@ -8,7 +8,7 @@
   top: 10px;
   transform: translateX(-50%);
   margin: 0 auto;
-  z-index: 99;
+  z-index: 3;
   box-sizing: unset;
 }
 
