@@ -43,4 +43,12 @@
   height: 250px;
   margin: 30px;
   font-size: xx-large;
+  cursor: pointer;
+  border: 0px;
+  outline: none;
+  border-radius: 10px;
+}
+
+.dinein-btn button:hover {
+  border: black 5px solid;
 }
