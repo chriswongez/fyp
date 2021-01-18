@@ -3,12 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/loginregister.css" />
     <title>Login and Register page</title>
   </head>
   <body class="w3-khaki">
+    <header>
+      <div class="nav-con">
+        <a href="#"><img src="images/logo.png" class="logo" /></a>
+        <nav>
+          <ul>
+            <li><a id="track-btn" href="#Track order">Track Order</a></li>
+            <li><a id="login-btn" href="#Login">Login</a></li>
+            <li><a id="menu-btn" href="#Food Menu">Food Menu</a></li>
+            <li><a id="home-btn" href="#home">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <button
       class="adminloginbutton w3-button w3-orange w3-card w3-round w3-hover-sand"
       type="button"
@@ -96,4 +110,10 @@
       </div>
     </div>
   </body>
+
+  <script>
+    window.onload = () => {
+      document.getElementById("login-btn").classList.add("active");
+    };
+  </script>
 </html>

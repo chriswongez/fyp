@@ -1,54 +1,5 @@
-.login {
-  width: 60%;
-
-  left: 50%;
-  top: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.loginregister {
-  display: flex;
-  position: relative;
-  margin-bottom: 15px;
-}
-
-input {
-  border: black 2px solid;
-  transition: box-shadow 0.5s;
-}
-
-input:focus {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-input[type="submit"] {
-  border: none;
-  width: 20%;
-  padding: 5px;
-  cursor: pointer;
-}
-
-input[type="submit"]:focus {
-  outline: none;
-}
-
-.vl {
-  border-left: black 1px solid;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 90%;
-}
-
-.adminloginbutton {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  transition: background-color 0.2s, color 0.2s;
-}
-/* navbar */
+<style>
+    /* navbar */
 .nav-con {
   width: 98%;
   position: fixed;
@@ -57,7 +8,7 @@ input[type="submit"]:focus {
   top: 10px;
   transform: translateX(-50%);
   margin: 0 auto;
-  z-index: 99;
+  z-index: 3;
   box-sizing: unset;
 }
 
@@ -114,3 +65,18 @@ nav a:hover {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 /* navbar */
+</style>
+
+<header>
+      <div class="nav-con">
+        <a href="#"><img src="images/logo.png" class="logo" /></a>
+        <nav>
+          <ul>
+            <li><a id="track-btn" href="#Track order">Track Order</a></li>
+            <li><a id="login-btn" href="#Login">Login</a></li>
+            <li><a id="menu-btn" href="#Menu">Menu</a></li>
+            <li><a id="home-btn" href="#home">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
