@@ -2,7 +2,11 @@ setTimeout(() => {
   document.getElementById("dinein").className += " opacityto1";
 }, 500);
 
-function goToBottom() {
+function getSelection(id) {
+  localStorage.setItem("selection", JSON.stringify(id));
+}
+
+function goToBottom(id) {
   document.getElementById("dinein").style.top = "-100%";
   setTimeout(() => {
     document.getElementById("dinein-con").style.opacity = "0";
@@ -10,4 +14,5 @@ function goToBottom() {
   setTimeout(() => {
     document.getElementById("dinein-con").style.display = "none";
   }, 300);
+  getSelection(id);
 }
