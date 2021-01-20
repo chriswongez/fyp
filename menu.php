@@ -26,8 +26,80 @@
         </div>
       </div>
     </div>
+<div class="menu-wrapper">
+<div id="menu" class="menu w3-card">
+      <p class="menu-title">Please choose your food.</p>
+      <div class="menu-con">
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
+        <div class="food-con-wrapper">
+          <div id="food_0001" class="food-con w3-card">
+            <img src="./images/food-img.png" alt="" srcset="">
+            <p class="food-title" >Food title</p>
+            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <button class="btn-addtocart ">Add to cart</button>
+          </div>
+        </div>
 
-    <section></section>
+
+      </div>
+    </div>
+</div>
+
   </body>
 </html>
 
