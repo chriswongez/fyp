@@ -84,11 +84,13 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.menu-con {
+/* food menu */
+.food-menu-con {
   display: flex;
   flex-wrap: wrap;
   width: auto;
   height: auto;
+  transition: all 0.5s;
   /* border: black 1px solid; */
 }
 
@@ -154,4 +156,38 @@
 .food-desc {
   font-size: 12pt;
   padding: 0 10px;
+}
+/* beverage menu */
+.beve-menu-con {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
+
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: all 0.5s;
+  /* border: black 1px solid; */
+}
+
+/* select beverage button */
+#select-beve {
+  position: absolute;
+  padding: 5px 20px;
+  right: 30px;
+  top: 30px;
+  background-color: blue;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16pt;
+  color: white;
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+#select-beve:hover {
+  background-color: blueviolet;
+  font-size: 18pt;
 }

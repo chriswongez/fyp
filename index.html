@@ -3,7 +3,7 @@
   <head>
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="./css/mainpage.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
@@ -12,12 +12,12 @@
     <!--End Preloader -->
     <header>
       <div class="nav-con">
-        <a href="#"><img src="images/logo.png" class="logo" /></a>
+        <a href="./index.html"><img src="images/logo.png" class="logo" /></a>
         <nav>
           <ul>
             <li><a id="track-btn" href="#Track order">Track Order</a></li>
             <li><a id="login-btn" href="#Login">Login</a></li>
-            <li><a id="menu-btn" href="#Food Menu">Food Menu</a></li>
+            <li><a id="menu-btn" href="./menu.php">Menu</a></li>
             <li><a id="home-btn" href="#home">Home</a></li>
           </ul>
         </nav>
@@ -171,27 +171,4 @@
       <div class="center">copyright&copy;www.FOS.com.All right reserved!</div>
     </footer>
   </body>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
-
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyBAwhHvjSMz7wC-gB9u8Gq4MrDYzWHC2Jc",
-      authDomain: "foodie-d31.firebaseapp.com",
-      projectId: "foodie-d31",
-      storageBucket: "foodie-d31.appspot.com",
-      messagingSenderId: "340819484847",
-      appId: "1:340819484847:web:59facacf262c8b8bce745a",
-      measurementId: "G-QV5C8N40DD",
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
 </html>
