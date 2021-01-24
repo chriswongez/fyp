@@ -5,28 +5,14 @@
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="./css/cart.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
     <!-- Preloader -->
 
     <!--End Preloader -->
-    <header>
-        <div class="nav-con">
-            <a href="#"><img src="images/logo.png" class="logo" /></a>
-            <nav>
-                <ul>
-                    <li><a href="#Track order">Track Order</a></li>
-                    <li><a href="#Sign in">Sign in</a></li>
-                    <li><a href="#sign up">Sign up</a></li>
-                    <li><a href="#Food Menu">Food Menu</a></li>
-                    <li><a class="active" href="#home">Home</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php include "./navbar.php"; ?>
 
     <section id="home">
         <h1 class="main-odering">CART PRODUCTS</h1>
@@ -53,8 +39,7 @@
                                 <td>
                                     <div class="main">
                                         <div class="d-flex">
-                                            <!--W=145 H=98--> <img src="images/spicy_beef_burger.jpg" alt=""
-                                                style="width:145px" style="height:98px">
+                                            <!--W=145 H=98--> <img src="images/spicy_beef_burger.jpg" alt="" style="width:145px" style="height:98px">
                                         </div>
                                         <div class="des">
                                             <p>lorem ipsum</p>
@@ -80,8 +65,7 @@
                                 <td>
                                     <div class="main">
                                         <div class="d-flex">
-                                            <img src="images/cheesy-double-chicken-burger.png" alt=""
-                                                style="width: 145px" height="98px">
+                                            <img src="images/cheesy-double-chicken-burger.png" alt="" style="width: 145px" height="98px">
                                         </div>
                                         <div class="des">
                                             <p>Cheess double Chiken Burger</p>
