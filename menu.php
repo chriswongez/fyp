@@ -1,4 +1,5 @@
 <script type="text/javascript" src="./js/menu.js"></script>
+<script src="./js/jquery-3.5.1.min.js"></script>
 
 <?php
 session_start();
@@ -7,6 +8,7 @@ require_once('./php/dbconnect.php');
 $status = "";
 if (isset($_POST['reset'])) {
   unset($_SESSION["cart"]);
+  unset($_SESSION["bevebutton"]);
 }
 if (isset($_POST['food']) && $_POST['food'] != "") {
   $foodCode = $_POST['food'];
@@ -33,7 +35,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
     $status = "<div class='box'>Product is added to your cart!</div>";
   } else {
     $array_keys = array_keys($_SESSION["cart"]);
-    $debug = implode("|", $array_keys);
+
     if (in_array($foodCode, $array_keys)) {
       $status = "<div class='box' style='color:red;'>
 		Product is already added to your cart!</div>";
@@ -82,6 +84,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
 
     <div id="menu" class="menu w3-card">
       <?php print_r($_SESSION["cart"]); ?>
+      <?php print_r($_SESSION["bevebutton"]); ?>
       <button id="select-beve" onclick="hideFood()">Select Beverage</button>
       <form action="" method="post">
         <input type="hidden" name="reset">
@@ -89,7 +92,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
       </form>
       <p class="menu-title"></p>
       <span><?php print_r($status) ?></span>
-      <span><?php print_r($debug) ?></span>
+
       <div id="food-menu-con" class="food-menu-con">
         <?php
         $result = mysqli_query($con, "SELECT * FROM `food`");
@@ -133,12 +136,26 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
   window.onload = () => {
     document.getElementById("menu-btn").classList.add("active");
   };
+  $('#select-beve').on('click', function(e) {
+    $.ajax({
+      type: 'POST',
+      url: './php/bevesetone.php',
+      data: {
+        clicked: 1
+      },
+    });
+  });
 </script>
 
 <?php
 //$_SESSION["cart"] = array("hi");
 //unset($_SESSION["cart"]);
-if (!empty($_SESSION["cart"])) {
+if (!empty($_SESSION["cart"]) && $_SESSION["bevebutton"] == 1) {
+  echo '<script type="text/javascript">',
+  'goToBottom("test");',
+  'hideFood();',
+  '</script>';
+} else if (!empty($_SESSION["cart"])) {
   echo '<script type="text/javascript">',
   'goToBottom("test");',
   '</script>';
