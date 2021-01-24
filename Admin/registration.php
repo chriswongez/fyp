@@ -1,55 +1,49 @@
 <?php
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <?php
     require('db.php');
-    session_start();
     // If form submitted, insert values into the database.
-    if (isset($_POST['username'])) {
-
+    if (isset($_REQUEST['username'])) {
         $username = stripslashes($_REQUEST['username']); // removes backslashes
         $username = mysqli_real_escape_string($con, $username); //escapes special characters in a string
+        $email = stripslashes($_REQUEST['email']);
+        $email = mysqli_real_escape_string($con, $email);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
 
-        //Checking is user existing in the database or not
-        $query = "SELECT * FROM `users` WHERE username='$username' and password=' $password  '";
-        $result = mysqli_query($con, $query) or die(mysql_error());
-        $rows = mysqli_num_rows($result);
-        if ($rows == 1) {
-            $_SESSION['username'] = $username;
-            header("Location: index.php"); // Redirect user to index.php
-        } else {
-            echo "<div class='form'><h3>Username/password is incorrect.</h3><br/>Click here to <a href='login.php'>Login</a></div>";
+        $trn_date = date("Y-m-d H:i:s");
+        $query = "INSERT into `users` (username, password, email, trn_date) VALUES ('$username', '$password  ', '$email', '$trn_date')";
+        $result = mysqli_query($con, $query);
+        if ($result) {
+            echo "<div class='form'><h3>You are registered successfully.</h3><br/>Click here to <a href='login.php'>Login</a></div>";
         }
     } else {
     ?>
         <div class="form">
-            <h1>Log In</h1>
-            <form action="" method="post" name="login">
+            <h1>Registration</h1>
+            <form name="registration" action="" method="post">
                 <input type="text" name="username" placeholder="Username" required />
+                <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <input name="submit" type="submit" value="Login" />
+                <input type="submit" name="submit" value="Register" />
             </form>
-            <p>Not registered yet? <a href='/Admin/registration.php'>Register Here</a></p>
-
             <br /><br />
             <a href="http://www.allphptricks.com/simple-user-registration-login-script-in-php-and-mysqli/">Tutorial Link</a> <br /><br />
             For More Web Development Tutorials Visit: <a href="http://www.allphptricks.com/">AllPHPTricks.com</a>
         </div>
     <?php } ?>
-
-
 </body>
 
 </html>
