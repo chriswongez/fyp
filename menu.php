@@ -2,6 +2,40 @@
 
 <?php
 session_start();
+require_once('./php/dbconnect.php');
+if (isset($_POST['code']) && $_POST['code'] != "") {
+  $code = $_POST['code'];
+  $result = mysqli_query($con, "SELECT * FROM `products` WHERE `code`='$code'");
+  $row = mysqli_fetch_assoc($result);
+  $name = $row['name'];
+  $code = $row['code'];
+  $price = $row['price'];
+  $image = $row['image'];
+
+  $cartArray = array(
+    $code => array(
+      'name' => $name,
+      'code' => $code,
+      'price' => $price,
+      'quantity' => 1,
+      'image' => $image
+    )
+  );
+
+  if (empty($_SESSION["shopping_cart"])) {
+    $_SESSION["shopping_cart"] = $cartArray;
+    $status = "<div class='box'>Product is added to your cart!</div>";
+  } else {
+    $array_keys = array_keys($_SESSION["shopping_cart"]);
+    if (in_array($code, $array_keys)) {
+      $status = "<div class='box' style='color:red;'>
+		Product is already added to your cart!</div>";
+    } else {
+      $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"], $cartArray);
+      $status = "<div class='box'>Product is added to your cart!</div>";
+    }
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,148 +73,40 @@ session_start();
       <button id="select-beve" onclick="hideFood()">Select Beverage</button>
       <p class="menu-title"></p>
       <div id="food-menu-con" class="food-menu-con">
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/food-img.png" alt="" srcset="">
-            <p class="food-title">Food title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-
-
+        <?php
+        $result = mysqli_query($con, "SELECT * FROM `food`");
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<form action='' method='post' class='food-con-wrapper'>
+                <div  class='food-con w3-card'>
+			          <input type='hidden' name=" . $row['foodCode'] . " value=" . $row['foodID'] . " />
+			          <img src='./images/food-img.png'>
+                <p class='food-title'>$" . $row['foodPrice'] . " " . $row['foodName'] . "</p>
+                <p class='food-desc'>" . $row['foodDescription'] . "</p>
+                <button type='submit' class='btn-addtocart '>Add to cart</button>
+                </div>
+        </form>";
+        }
+        ?>
       </div>
-
       <!-- beverage menu below -->
-
-
       <div id="beve-menu-con" class="beve-menu-con">
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-        <div class="food-con-wrapper">
-          <div id="food_0001" class="food-con w3-card">
-            <img src="./images/beve-img.png" alt="" srcset="">
-            <p class="food-title">Beverage Title</p>
-            <p class="food-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <button class="btn-addtocart ">Add to cart</button>
-          </div>
-        </div>
-
-
+        <?php
+        $result = mysqli_query($con, "SELECT * FROM `beverage`");
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<form action='' method='post' class='food-con-wrapper'>
+                <div  class='food-con w3-card'>
+			          <input type='hidden' name=" . $row['beverageCode'] . " value=" . $row['beverageID'] . " />
+			          <img src='./images/beve-img.png'>
+                <p class='food-title'>$" . $row['beveragePrice'] . " " . $row['beverageName'] . "</p>
+                <p class='food-desc'>" . $row['beverageDescription'] . "</p>
+                <button type='submit' class='btn-addtocart '>Add to cart</button>
+                </div>
+                </form>";
+        }
+        ?>
       </div>
     </div>
   </div>
-
 </body>
 
 </html>
