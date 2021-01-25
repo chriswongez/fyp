@@ -1,6 +1,6 @@
 <style>
-  /* navbar */
-  .nav-con {
+/* navbar */
+.nav-con {
     width: 98%;
     position: fixed;
 
@@ -10,41 +10,41 @@
     margin: 0 auto;
     z-index: 3;
     box-sizing: unset;
-  }
+}
 
-  nav {
+nav {
     background-color: white;
     overflow: hidden;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-  }
+}
 
-  nav ul {
+nav ul {
     padding: 0;
     margin: 0 0 0 150px;
     list-style: none;
-  }
+}
 
-  nav li {
+nav li {
     float: right;
-  }
+}
 
-  .logo {
+.logo {
     position: absolute;
     display: inline-block;
     top: 50%;
     transform: translateY(-50%);
     height: 100%;
     border-radius: 5px;
-  }
+}
 
-  .logo:hover {
+.logo:hover {
     background-color: gray;
     border-radius: 5px;
     transition: 0.5s;
-  }
+}
 
-  nav a {
+nav a {
     width: 115px;
     display: block;
     padding: 15px 10px;
@@ -55,33 +55,33 @@
 
     text-align: center;
     border-radius: 5px;
-  }
+}
 
-  .active {
+.active {
     text-decoration: underline;
-  }
+}
 
-  nav a:hover {
+nav a:hover {
     background-color: grey;
     color: white;
     transition: 0.5s;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  }
+}
 
-  /* navbar */
+/* navbar */
 </style>
 
 <header>
-  <div class="nav-con">
-    <a href="./index.html"><img src="images/logo.png" class="logo" /></a>
-    <nav>
-      <ul>
-        <li><a id="track-btn" href="#Track order">Cart <span id="cartcount"></span> </a></li>
-        <li><a id="login-btn" href="#Login">Login</a></li>
-        <li><a id="menu-btn" href="#Menu">Menu</a></li>
-        <li><a id="home-btn" href="./index.html">Home</a></li>
-      </ul>
-    </nav>
-  </div>
+    <div class="nav-con">
+        <a href="./index.html"><img src="images/logo.png" class="logo" /></a>
+        <nav>
+            <ul>
+                <li><a id="track-btn" href="#Track order">Cart <span id="cartcount"></span> </a></li>
+                <li><a id="login-btn" href="#Login">Login</a></li>
+                <li><a id="menu-btn" href="#Menu">Menu</a></li>
+                <li><a id="home-btn" href="./index.html">Home</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
