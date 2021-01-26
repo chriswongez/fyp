@@ -190,5 +190,27 @@
 
 #select-beve:hover {
   background-color: blueviolet;
-  font-size: 18pt;
+}
+
+/* select food button */
+#select-food {
+  position: absolute;
+  padding: 5px 20px;
+  right: 30px;
+  top: 30px;
+  background-color: blue;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16pt;
+  color: white;
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  opacity: 0;
+  display: none;
+}
+
+#select-food:hover {
+  background-color: blueviolet;
 }
