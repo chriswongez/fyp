@@ -6,11 +6,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Admin Login</title>
     <link rel="stylesheet" href="./css/Admin_login.css" />
+    <script src="https://kit.fontawesome.com/08d8dbd162.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+
     <?php
     require('db.php');
     session_start();
@@ -37,11 +40,20 @@
         <div class="form">
             <h1>Log In</h1>
             <form action="" method="post" name="login">
-                <input type="text" name="username" placeholder="Username" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <div class="textbox">
+                    <input type="text" name="username" placeholder="Username" required />
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <div class="textbox">
+                    <input type="password" name="password" placeholder="Password" required />
+                    <i class="fas fa-key"></i>
+                </div>
+
                 <input name="submit" type="submit" value="Login" />
             </form>
-            <p>Not registered yet? <a href='/Admin/registration.php'>Register Here</a></p>
+            <p>Not registered yet? <a href='./registration.php'>Register Here</a></p>
+            <p></p>
 
             <br /><br />
 

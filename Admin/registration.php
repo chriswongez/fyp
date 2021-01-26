@@ -8,7 +8,8 @@
 <head>
     <meta charset="utf-8">
     <title>Registration</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/Admin_login.css" />
+    <script src="https://kit.fontawesome.com/08d8dbd162.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -34,14 +35,22 @@
         <div class="form">
             <h1>Registration</h1>
             <form name="registration" action="" method="post">
-                <input type="text" name="username" placeholder="Username" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <div class="textbox">
+                    <input type="text" name="username" placeholder="Username" required />
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="textbox">
+                    <input type="email" name="email" placeholder="Email" required />
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="textbox">
+                    <input type="password" name="password" placeholder="Password" required />
+                    <i class="fas fa-key"></i>
+                </div>
                 <input type="submit" name="submit" value="Register" />
             </form>
             <br /><br />
-            <a href="http://www.allphptricks.com/simple-user-registration-login-script-in-php-and-mysqli/">Tutorial Link</a> <br /><br />
-            For More Web Development Tutorials Visit: <a href="http://www.allphptricks.com/">AllPHPTricks.com</a>
+
         </div>
     <?php } ?>
 </body>
