@@ -31,7 +31,9 @@ session_start();
       That deliver near You
     </p>
     <div class="btn-con">
-      <button class="btn">Order Now</button>
+      <form method="get" action="./menu.php">
+        <button class="btn">Order Now</button>
+      </form>
     </div>
   </section>
 

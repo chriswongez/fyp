@@ -90,6 +90,7 @@ if (!empty($_SESSION['cart'])) {
                 <li><a id="login-btn" href="userlogin.php">Login</a></li>
                 <li><a id="menu-btn" href="./menu.php">Menu</a></li>
                 <li><a id="home-btn" href="./index.php">Home</a></li>
+
             </ul>
         </nav>
     </div>
