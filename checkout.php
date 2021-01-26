@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!empty($_SESSION['cart'])) {
+    $cart_count = "(" . count(array_keys($_SESSION['cart'])) . ")";
+} else
+    $cart_count = "";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,9 +16,8 @@
 
 <body>
 
-    <h2>Responsive Checkout Form</h2>
-    <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack
-        on top of each other instead of next to each other.</p>
+    <h2>Shopping Cart</h2>
+
     <div class="row">
         <div class="col-75">
             <div class="container">
@@ -76,16 +82,35 @@
                 </form>
             </div>
         </div>
+
         <div class="col-25">
             <div class="container">
-                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span>
+                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cart_count ?></b></span>
                 </h4>
-                <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+                <?php
+
+                if (!empty($_SESSION["cart"])) {
+                    foreach ($_SESSION["cart"] as $product) {
+                ?>
+                        <p><a href="#"><?php echo $product["name"]; ?></a> <span class="price"><?php echo "RM " . number_format((float)($product["price"] * $product["quantity"]), 2, '.', ''); ?></span></p>
+                <?php
+                        if (empty($total_price)) {
+                            $total_price = 0;
+                            $total_price += ($product["price"] * $product["quantity"]);
+                        } else
+                            $total_price += ($product["price"] * $product["quantity"]);
+                    }
+                }
+                ?>
+
                 <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                <?php
+                if (empty($total_price)) {
+                    echo "<span>RM 0.00</span>";
+                } else
+                    echo "<p>Total <span class='price' style='color:black'> <b>RM" . number_format((float)$total_price, 2, '.', '') . "</b></span></p>";
+                ?>
+
             </div>
         </div>
     </div>

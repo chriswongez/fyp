@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,19 +16,7 @@
   <!-- Preloader -->
 
   <!--End Preloader -->
-  <header>
-    <div class="nav-con">
-      <a href="./index.html"><img src="images/logo.png" class="logo" /></a>
-      <nav>
-        <ul>
-          <li><a id="track-btn" href="#Track order">Track Order</a></li>
-          <li><a id="login-btn" href="#Login">Login</a></li>
-          <li><a id="menu-btn" href="./menu.php">Menu</a></li>
-          <li><a id="home-btn" href="#home">Home</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <?php include "./navbar.php"; ?>
 
   <script>
     window.onload = () => {

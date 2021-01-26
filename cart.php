@@ -32,8 +32,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="./css/cart.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -41,6 +40,12 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 
     <!--End Preloader -->
     <?php include "./navbar.php"; ?>
+
+    <script>
+        window.onload = () => {
+            document.getElementById("cart-btn").classList.add("active");
+        };
+    </script>
 
     <section id="home">
         <h1 class="main-odering">CART PRODUCTS</h1>
@@ -70,59 +75,51 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
                                 ?>
 
 
-                            <!-- ----- -->
-                            <tr>
-                                <td>
-                                    <div class="main" style="position: relative;">
-                                        <div class="d-flex">
-                                            <img src="./product/<?php echo $product["productImg"]; ?>" alt=""
-                                                style="width:145px" style="height:98px">
-                                        </div>
-                                        <form method='post' style="position: absolute; right: 50px; top: 0;">
-                                            <input type='hidden' name='code'
-                                                value="<?php echo $product["productCode"]; ?>" />
-                                            <input type='hidden' name='action' value="remove" />
-                                            <button type='submit' class='remove'>Remove Item</button>
-                                        </form>
-                                        <div class="des">
-                                            <p><?php echo $product["name"]; ?></p>
+                                    <!-- ----- -->
+                                    <tr>
+                                        <td>
+                                            <div class="main" style="position: relative;">
+                                                <div class="d-flex">
+                                                    <img src="./product/<?php echo $product["productImg"]; ?>" alt="" style="width:145px" style="height:98px">
+                                                </div>
+                                                <form method='post' style="position: absolute; right: 50px; top: 0;">
+                                                    <input type='hidden' name='code' value="<?php echo $product["productCode"]; ?>" />
+                                                    <input type='hidden' name='action' value="remove" />
+                                                    <button type='submit' class='remove'>Remove Item</button>
+                                                </form>
+                                                <div class="des">
+                                                    <p><?php echo $product["name"]; ?></p>
 
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h6><?php echo "RM " . $product["price"]; ?></h6>
-                                </td>
-                                <td>
-                                    <div class="">
-                                        <form method='post' action=''>
-                                            <input type='hidden' name='code'
-                                                value="<?php echo $product["productCode"]; ?>" />
-                                            <input type='hidden' name='action' value="change" />
-                                            <select name='quantity' class='quantity' onchange="this.form.submit()">
-                                                <option <?php if ($product["quantity"] == 1) echo "selected"; ?>
-                                                    value="1">1
-                                                </option>
-                                                <option <?php if ($product["quantity"] == 2) echo "selected"; ?>
-                                                    value="2">2
-                                                </option>
-                                                <option <?php if ($product["quantity"] == 3) echo "selected"; ?>
-                                                    value="3">3
-                                                </option>
-                                                <option <?php if ($product["quantity"] == 4) echo "selected"; ?>
-                                                    value="4">4
-                                                </option>
-                                                <option <?php if ($product["quantity"] == 5) echo "selected"; ?>
-                                                    value="5">5
-                                                </option>
-                                            </select>
-                                        </form>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h6><?php echo "RM " . $product["price"] * $product["quantity"]; ?></h6>
-                                </td>
-                            </tr>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h6><?php echo "RM " . $product["price"]; ?></h6>
+                                        </td>
+                                        <td>
+                                            <div class="">
+                                                <form method='post' action=''>
+                                                    <input type='hidden' name='code' value="<?php echo $product["productCode"]; ?>" />
+                                                    <input type='hidden' name='action' value="change" />
+                                                    <select name='quantity' class='quantity' onchange="this.form.submit()">
+                                                        <option <?php if ($product["quantity"] == 1) echo "selected"; ?> value="1">1
+                                                        </option>
+                                                        <option <?php if ($product["quantity"] == 2) echo "selected"; ?> value="2">2
+                                                        </option>
+                                                        <option <?php if ($product["quantity"] == 3) echo "selected"; ?> value="3">3
+                                                        </option>
+                                                        <option <?php if ($product["quantity"] == 4) echo "selected"; ?> value="4">4
+                                                        </option>
+                                                        <option <?php if ($product["quantity"] == 5) echo "selected"; ?> value="5">5
+                                                        </option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h6><?php echo "RM " . $product["price"] * $product["quantity"]; ?></h6>
+                                        </td>
+                                    </tr>
                             <?php
                                         if (empty($total_price)) {
                                             $total_price = 0;
@@ -159,6 +156,6 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
                     ?>
                 </li>
             </ul>
-            <a href="#" class="proceed-btn"> Proceed to Checkout</a>
+            <a href="./checkout.php" class="proceed-btn"> Proceed to Checkout</a>
         </div>
     </div>
