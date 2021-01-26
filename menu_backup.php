@@ -12,20 +12,20 @@ if (isset($_POST['reset'])) {
 }
 if (isset($_POST['food']) && $_POST['food'] != "") {
   $foodCode = $_POST['food'];
-  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'");
+  $result = mysqli_query($con, "SELECT * FROM food WHERE foodCode ='$foodCode'");
   $row = mysqli_fetch_assoc($result);
-  $name = $row['productName'];
-  $foodCode = $row['productCode'];
-  $price = $row['productPrice'];
-  $productImg = $row['productImg'];
+  $name = $row['foodName'];
+  $foodCode = $row['foodCode'];
+  $price = $row['foodPrice'];
+  // $image = $row['image'];
 
   $cartArray = array(
     $foodCode => array(
       'name' => $name,
-      'productCode' => $foodCode,
+      'foodCode' => $foodCode,
       'price' => $price,
       'quantity' => 1,
-      'productImg' => $productImg
+      // 'image' => $image
     )
   );
   // $status = $foodCode;
@@ -85,7 +85,6 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
         <div id="menu" class="menu w3-card">
             <?php print_r($_SESSION["cart"]); ?>
             <?php print_r($_SESSION["bevebutton"]); ?>
-            <span id="bevebutcount"></span>
             <button id="select-beve" onclick="hideFood()">Select Beverage</button>
             <form action="" method="post">
                 <input type="hidden" name="reset">
@@ -96,14 +95,14 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
 
             <div id="food-menu-con" class="food-menu-con">
                 <?php
-        $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'food'");
+        $result = mysqli_query($con, "SELECT * FROM `food`");
         while ($row = mysqli_fetch_assoc($result)) {
           echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
-			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
-			          <img src='./product/" . $row['productImg'] . "'>
-                <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
-                <p class='food-desc'>" . $row['productDesc'] . "</p>
+			          <input type='hidden' name='food' value=" . $row['foodCode'] . " />
+			          <img src='./images/food-img.png'>
+                <p class='food-title'>RM " . $row['foodPrice'] . " " . $row['foodName'] . "</p>
+                <p class='food-desc'>" . $row['foodDescription'] . "</p>
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
                 </div>
         </form>";
@@ -113,14 +112,14 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
             <!-- beverage menu below -->
             <div id="beve-menu-con" class="beve-menu-con">
                 <?php
-        $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'beve'");
+        $result = mysqli_query($con, "SELECT * FROM `beverage`");
         while ($row = mysqli_fetch_assoc($result)) {
           echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
-			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
-			          <img src='./product/" . $row['productImg'] . "'>
-                <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
-                <p class='food-desc'>" . $row['productDesc'] . "</p>
+			          <input type='hidden' name=" . $row['beverageCode'] . " value=" . $row['beverageID'] . " />
+			          <img src='./images/beve-img.png'>
+                <p class='food-title'>RM " . $row['beveragePrice'] . " " . $row['beverageName'] . "</p>
+                <p class='food-desc'>" . $row['beverageDescription'] . "</p>
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
                 </div>
                 </form>";
@@ -144,9 +143,6 @@ $('#select-beve').on('click', function(e) {
         data: {
             clicked: 1
         },
-        success: (e) => {
-            document.getElementById('bevebutcount').innerHTML = e;
-        }
     });
 });
 </script>

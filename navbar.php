@@ -62,24 +62,33 @@ nav a {
 }
 
 nav a:hover {
-    background-color: grey;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* color: white; */
     transition: 0.5s;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#cart-num {
+    color: red;
 }
 
 /* navbar */
 </style>
-
+<?php
+if (!empty($_SESSION['cart'])) {
+    $cart_count = "(" . count(array_keys($_SESSION['cart'])) . ")";
+} else
+    $cart_count = "";
+?>
 <header>
     <div class="nav-con">
         <a href="./index.html"><img src="images/logo.png" class="logo" /></a>
         <nav>
             <ul>
-                <li><a id="track-btn" href="#Track order">Cart <span id="cartcount"></span> </a></li>
+                <li><a id="track-btn" href="./cart.php">Cart <span id="cart-num"><?php echo $cart_count ?></span> </a>
+                </li>
                 <li><a id="login-btn" href="#Login">Login</a></li>
-                <li><a id="menu-btn" href="#Menu">Menu</a></li>
+                <li><a id="menu-btn" href="./menu.php">Menu</a></li>
                 <li><a id="home-btn" href="./index.html">Home</a></li>
             </ul>
         </nav>
