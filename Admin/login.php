@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/Admin_login.css" />
 </head>
 
 <body>
@@ -44,10 +44,8 @@
             <p>Not registered yet? <a href='/Admin/registration.php'>Register Here</a></p>
 
             <br /><br />
-            <a href="http://www.allphptricks.com/simple-user-registration-login-script-in-php-and-mysqli/">Tutorial Link</a> <br /><br />
-            For More Web Development Tutorials Visit: <a href="http://www.allphptricks.com/">AllPHPTricks.com</a>
-        </div>
-    <?php } ?>
+
+        <?php } ?>
 
 
 </body>
