@@ -11,6 +11,15 @@ if (isset($_POST['reset'])) {
   unset($_SESSION["menustat"]);
 }
 if (isset($_POST['food']) && $_POST['food'] != "") {
+  if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
+    unset($_SESSION["cart"]);
+    unset($_SESSION["menustat"]);
+    echo "<script>
+    alert('You are not logged in!\\nRedirecting you to login page...');
+    window.location.href = './userlogin.php';
+    </script>";
+    exit;
+  }
   $foodCode = $_POST['food'];
   $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'");
   $row = mysqli_fetch_assoc($result);
@@ -84,7 +93,6 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
 
         <div id="menu" class="menu w3-card">
             <?php print_r($_SESSION["cart"]); ?>
-            <?php print_r($_SESSION["menustat"]); ?>
             <span id="bevebutcount"></span>
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>

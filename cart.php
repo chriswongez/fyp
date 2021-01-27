@@ -1,6 +1,13 @@
 <?php
 session_start();
 $status = "";
+if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
+    echo "<script>
+    alert('You are not logged in!\\nRedirecting you to login page...');
+    window.location.href = './userlogin.php';
+    </script>";
+}
+
 if (isset($_POST['action']) && $_POST['action'] == "remove") {
     if (!empty($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $value) {

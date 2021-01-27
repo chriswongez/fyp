@@ -44,8 +44,8 @@ input[type="submit"]:focus {
 
 .adminloginbutton {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 10px;
+  top: 10px;
   transition: background-color 0.2s, color 0.2s;
 }
 /* navbar */
