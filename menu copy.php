@@ -6,20 +6,29 @@ session_start();
 require_once('./php/dbconnect.php');
 //unset($_SESSION["cart"]);
 $status = "";
-if (isset($_POST['reset'])) {
+if (isset($_POST['reset'])) { //debug reset button
   unset($_SESSION["cart"]);
-  unset($_SESSION["bevebutton"]);
+  unset($_SESSION["menustat"]);
 }
-if (isset($_POST['food']) && $_POST['food'] != "") {
-  $foodCode = $_POST['food'];
-  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'");
+if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
+  if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login state
+    unset($_SESSION["cart"]);
+    unset($_SESSION["menustat"]);
+    echo "<script>
+    alert('You are not logged in!\\nRedirecting you to login page...');
+    window.location.href = './userlogin.php';
+    </script>";
+    exit;
+  }
+  $foodCode = $_POST['food']; //get product by id
+  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'"); //retreive product information from the database with id
   $row = mysqli_fetch_assoc($result);
   $name = $row['productName'];
   $foodCode = $row['productCode'];
   $price = $row['productPrice'];
   $productImg = $row['productImg'];
 
-  $cartArray = array(
+  $cartArray = array( //set product information to array
     $foodCode => array(
       'name' => $name,
       'productCode' => $foodCode,
@@ -30,16 +39,16 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
   );
   // $status = $foodCode;
 
-  if (empty($_SESSION['cart'])) {
+  if (empty($_SESSION['cart'])) { //check if cart session empty
     $_SESSION["cart"] = $cartArray;
     $status = "<div class='box'>Product is added to your cart!</div>";
   } else {
-    $array_keys = array_keys($_SESSION["cart"]);
+    $array_keys = array_keys($_SESSION["cart"]); //get cart array from cart session
 
-    if (in_array($foodCode, $array_keys)) {
+    if (in_array($foodCode, $array_keys)) { //check if item already in cart carry
       $status = "<div class='box' style='color:red;'>
 		Product is already added to your cart!</div>";
-    } else {
+    } else { //set array to cart session
 
       // $_SESSION["cart"] = array_merge($_SESSION["cart"], $cartArray);
       $_SESSION["cart"] = $_SESSION["cart"] + $cartArray;
@@ -84,9 +93,9 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
 
         <div id="menu" class="menu w3-card">
             <?php print_r($_SESSION["cart"]); ?>
-            <?php print_r($_SESSION["bevebutton"]); ?>
             <span id="bevebutcount"></span>
-            <button id="select-beve" onclick="hideFood()">Select Beverage</button>
+            <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
+            <button id="select-food" value="food" onclick="showFood()">Select Food</button>
             <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
@@ -137,12 +146,29 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
 window.onload = () => {
     document.getElementById("menu-btn").classList.add("active");
 };
-$('#select-beve').on('click', function(e) {
+$('#select-beve').on('click', function() {
+    var val = $(this).attr("value");
     $.ajax({
+
         type: 'POST',
-        url: './php/bevesetone.php',
+        url: './php/buttonstat.php',
         data: {
-            clicked: 1
+            clicked: val
+        },
+        success: (e) => {
+            document.getElementById('bevebutcount').innerHTML = e;
+        }
+    });
+});
+
+$('#select-food').on('click', function() {
+    var val = $(this).attr("value");
+    $.ajax({
+
+        type: 'POST',
+        url: './php/buttonstat.php',
+        data: {
+            clicked: val
         },
         success: (e) => {
             document.getElementById('bevebutcount').innerHTML = e;
@@ -154,15 +180,15 @@ $('#select-beve').on('click', function(e) {
 <?php
 //$_SESSION["cart"] = array("hi");
 //unset($_SESSION["cart"]);
-if (!empty($_SESSION["cart"]) && $_SESSION["bevebutton"] == 1) {
-  echo '<script type="text/javascript">',
-  'goToBottom("test");',
-  'hideFood();',
-  '</script>';
-} else if (!empty($_SESSION["cart"])) {
+if (!empty($_SESSION["cart"])) {
   echo '<script type="text/javascript">',
   'goToBottom("test");',
   '</script>';
+  if (isset($_SESSION['menustat']) && $_SESSION['menustat'] == 'beve') {
+    echo '<script type="text/javascript">',
+    'showBeve("test");',
+    '</script>';
+  }
 } else {
   echo '<script type="text/javascript">',
   'start();',

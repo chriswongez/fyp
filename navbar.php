@@ -1,5 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <style>
 /* navbar */
 .nav-con {
@@ -117,7 +115,7 @@ nav li #acc-drop-btn:hover {
 /* navbar */
 </style>
 <?php
-if (!empty($_SESSION['cart'])) {
+if (!empty($_SESSION['cart'])) { //count cart item
     $cart_count = "(" . count(array_keys($_SESSION['cart'])) . ")";
 } else
     $cart_count = "";
@@ -128,13 +126,14 @@ if (!empty($_SESSION['cart'])) {
         <nav>
             <ul>
                 <?php
-                if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {
+                if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) { //check login state then show cart cart
                     echo "<li><a id='cart-btn' href='./cart.php'>Cart <span id='cart-num'>" . $cart_count  . "</span> </a></li>";
                 } else {
                     echo "<li><a id='cart-btn' onclick='nologin()'>Cart <span id='cart-num'>" . $cart_count  . "</span> </a></li>";
                 }
                 ?>
-                <?php
+
+                <?php //check login state and change the login button to user/admin button
                 if (isset($_SESSION['username']) && isset($_SESSION['userlevel']) && $_SESSION['userlevel'] == "user") {
 
                     echo "<li class='dropdown-btn'><a id='acc-btn'>Account</a>
@@ -156,20 +155,20 @@ if (!empty($_SESSION['cart'])) {
                 }
 
                 ?>
-
-
-
-
                 <li><a id="menu-btn" href="./menu.php">Menu</a></li>
                 <li><a id="home-btn" href="./index.php">Home</a></li>
-
+                <?php
+                if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {
+                    echo "<li><a style='width: auto; cursor: auto;'>Welcome, " . $_SESSION['username'] . "</a></li>";
+                }
+                ?>
             </ul>
         </nav>
     </div>
 </header>
 
 <script>
-function nologin() {
+function nologin() { //if not login redirect login page
     alert("You are not logged in!\nRedirecting you to login page...");
     window.location.href = "./userlogin.php";
 }

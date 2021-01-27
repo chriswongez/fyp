@@ -3,75 +3,77 @@ session_start();
 require('./php/dbconnect.php');
 //reset login session
 if (isset($_POST['reset'])) {
-  unset($_SESSION["username"]);
-  unset($_SESSION["userlevel"]);
+    unset($_SESSION["username"]);
+    unset($_SESSION["userlevel"]);
 }
 //login
 if (isset($_POST['logusername'])) {
 
-  $username = stripslashes($_REQUEST['logusername']); // removes backslashes
-  $username = mysqli_real_escape_string($con, $username); //escapes special characters in a string
-  $password = stripslashes($_REQUEST['logpassword']);
-  $password = mysqli_real_escape_string($con, $password);
+    $username = stripslashes($_REQUEST['logusername']); // removes backslashes
+    $username = mysqli_real_escape_string($con, $username); //escapes special characters in a string
+    $password = stripslashes($_REQUEST['logpassword']);
+    $password = mysqli_real_escape_string($con, $password);
 
-  //Checking is user existing in the database or not
-  $query = "SELECT * FROM `users` WHERE username='$username' and userpass='$password'";
-  $result = mysqli_query($con, $query);
-  $rows = mysqli_num_rows($result);
-  $row = mysqli_fetch_assoc($result);
-  // $_SESSION['result'] = $row['userlevel'] . " " . $row['username'];
-  if ($rows == 1) {
-    $_SESSION['username'] = $username;
-    $_SESSION['userlevel'] = $row['userlevel'];
-    echo "<script>
+    //Checking is user existing in the database or not
+    $query = "SELECT * FROM `users` WHERE username='$username' and userpass='$password'";
+    $result = mysqli_query($con, $query);
+    $rows = mysqli_num_rows($result);
+    $row = mysqli_fetch_assoc($result);
+    // $_SESSION['result'] = $row['userlevel'] . " " . $row['username'];
+    if ($rows == 1) {
+        $_SESSION['username'] = $username;
+        $_SESSION['userlevel'] = $row['userlevel'];
+        unset($_SESSION["cart"]);
+        unset($_SESSION["menustat"]);
+        echo "<script>
       alert('You are now logged in as " . $_SESSION['username'] . "');
       window.location.href='./index.php';
       </script>";
-  } else {
-    echo "<script>
+    } else {
+        echo "<script>
       alert('Username/password is incorrect.');
       window.location.href='./userlogin.php';
       </script>";
-  }
+    }
 }
 
 //register
 if (isset($_REQUEST['regusername'])) {
-  $username = stripslashes($_REQUEST['regusername']); // removes backslashes
-  $username = mysqli_real_escape_string($con, $username); //escapes special characters in a string
-  $email = stripslashes($_REQUEST['regemail']);
-  $email = mysqli_real_escape_string($con, $email);
-  $password = stripslashes($_REQUEST['regpassword']);
-  $password = mysqli_real_escape_string($con, $password);
-  $conpassword = stripslashes($_REQUEST['regconpassword']);
-  $conpassword = mysqli_real_escape_string($con, $conpassword);
+    $username = stripslashes($_REQUEST['regusername']); // removes backslashes
+    $username = mysqli_real_escape_string($con, $username); //escapes special characters in a string
+    $email = stripslashes($_REQUEST['regemail']);
+    $email = mysqli_real_escape_string($con, $email);
+    $password = stripslashes($_REQUEST['regpassword']);
+    $password = mysqli_real_escape_string($con, $password);
+    $conpassword = stripslashes($_REQUEST['regconpassword']);
+    $conpassword = mysqli_real_escape_string($con, $conpassword);
 
-  if ($password == $conpassword) { //check password match with confirm password
-    $query = "SELECT * FROM `users` WHERE username='$username'";
-    $result = mysqli_query($con, $query);
-    $rows = mysqli_num_rows($result);
-    if ($rows == 1) { //check username in use
-      echo "<script>
+    if ($password == $conpassword) { //check password match with confirm password
+        $query = "SELECT * FROM `users` WHERE username='$username'";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_num_rows($result);
+        if ($rows == 1) { //check username in use
+            echo "<script>
         alert('Username in used!\\nPlease try again.');
         window.location.href='./userlogin.php';
         </script>";
-    } else {
-      //if password match and no username in use, register account to system
-      $query = "INSERT into `users` (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
-      $result = mysqli_query($con, $query);
-      if ($result) {
-        echo "<script>
+        } else {
+            //if password match and no username in use, register account to system
+            $query = "INSERT into `users` (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
+            $result = mysqli_query($con, $query);
+            if ($result) {
+                echo "<script>
           alert('You are registered successfully!\\nPlease login.');
           window.location.href='./userlogin.php';
           </script>";
-      }
-    }
-  } else { //password not matched
-    echo "<script>
+            }
+        }
+    } else { //password not matched
+        echo "<script>
         alert('Password and Confirm Password not matched\\nPlease try again.');
         window.location.href='./userlogin.php';
         </script>";
-  }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -133,13 +135,16 @@ if (isset($_REQUEST['regusername'])) {
 
                 </table>
                 <input type="submit" class="w3-orange w3-text-white w3-round" value="Login" />
-                <?php echo $_SESSION['username'] . $_SESSION['userlevel'] ?>
+
+                <?php//debug
+                // echo $_SESSION['username'] . $_SESSION['userlevel'];
+                ?>
 
             </form>
-            <form action="" method="post">
+            <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
-            </form>
+            </form> -->
 
             <div class="vl"></div>
             <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">

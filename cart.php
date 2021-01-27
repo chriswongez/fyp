@@ -1,14 +1,29 @@
 <?php
 session_start();
 $status = "";
-if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
+if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login status
     echo "<script>
     alert('You are not logged in!\\nRedirecting you to login page...');
     window.location.href = './userlogin.php';
     </script>";
 }
 
-if (isset($_POST['action']) && $_POST['action'] == "remove") {
+if (empty($_SESSION["cart"])) {
+    echo "<script>
+    alert('Your cart is empty! Please choose at least one item');
+    window.location.href='./menu.php';
+    </script>";
+}
+if (isset($_POST['clearall'])) {
+    unset($_SESSION["cart"]);
+    unset($_SESSION["menustat"]);
+    echo "<script>
+    window.location.href='./menu.php';
+    </script>";
+    exit;
+}
+
+if (isset($_POST['action']) && $_POST['action'] == "remove") { //remove item from cart
     if (!empty($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $value) {
             if ($_POST["code"] == $key) {
@@ -22,7 +37,7 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
     }
 }
 
-if (isset($_POST['action']) && $_POST['action'] == "change") {
+if (isset($_POST['action']) && $_POST['action'] == "change") { //change the quantity of the product
     foreach ($_SESSION["cart"] as &$value) {
         $_SESSION["debug"] = $value;
         if ($value['productCode'] === $_POST["code"]) {
@@ -32,7 +47,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
     }
 }
 
-if (isset($_POST['proceed']) && !empty($_SESSION["cart"])) {
+if (isset($_POST['proceed']) && !empty($_SESSION["cart"])) { //check cart item, if empty redirect to menu
     header('Location: ./checkout.php');
 } else if (isset($_POST['proceed']) && empty($_SESSION["cart"])) {
     echo "<script>
@@ -73,6 +88,58 @@ if (isset($_POST['proceed']) && !empty($_SESSION["cart"])) {
 
     <!--Cart section-->
     <!--Cart Section-->
+    <style>
+    .clear-btn-form {
+        position: fixed;
+        right: 2%;
+        top: 90%;
+    }
+
+    .clear-btn {
+        padding: 5px 20px;
+        margin: 10px;
+        background-color: white;
+        border: 1px black solid;
+        border-radius: 10px;
+        transition: all 0.3s;
+        box-shadow: 2px 2px 2px black;
+    }
+
+    .clear-btn:hover {
+        color: white;
+        background-color: red;
+    }
+
+    .go-back-btn {
+        position: fixed;
+        left: 2%;
+        top: 90%;
+        padding: 5px 20px;
+        margin: 10px;
+        background-color: white;
+        border: 1px black solid;
+        border-radius: 10px;
+        transition: all 0.3s;
+        box-shadow: -2px 2px 2px black;
+    }
+
+    .go-back-btn:hover {
+        color: black;
+        background-color: lightblue;
+    }
+    </style>
+    <?php
+    if (!empty($_SESSION["cart"])) {
+        echo "<form class='clear-btn-form' method='post'>
+        <input type='hidden' name='clearall'>
+        <input class='clear-btn' type='submit' value='Clear all item in the cart'>
+    </form>";
+    }
+    ?>
+
+    <button class="go-back-btn" onclick="location.href = './menu.php';">Go Back to Menu</button>
+
+
     <section class="mt-5">
 
         <div class="container">

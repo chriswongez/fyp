@@ -6,12 +6,12 @@ session_start();
 require_once('./php/dbconnect.php');
 //unset($_SESSION["cart"]);
 $status = "";
-if (isset($_POST['reset'])) {
+if (isset($_POST['reset'])) { //debug reset button
   unset($_SESSION["cart"]);
   unset($_SESSION["menustat"]);
 }
-if (isset($_POST['food']) && $_POST['food'] != "") {
-  if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
+if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
+  if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login state
     unset($_SESSION["cart"]);
     unset($_SESSION["menustat"]);
     echo "<script>
@@ -20,15 +20,15 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
     </script>";
     exit;
   }
-  $foodCode = $_POST['food'];
-  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'");
+  $foodCode = $_POST['food']; //get product by id
+  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'"); //retreive product information from the database with id
   $row = mysqli_fetch_assoc($result);
   $name = $row['productName'];
   $foodCode = $row['productCode'];
   $price = $row['productPrice'];
   $productImg = $row['productImg'];
 
-  $cartArray = array(
+  $cartArray = array( //set product information to array
     $foodCode => array(
       'name' => $name,
       'productCode' => $foodCode,
@@ -39,20 +39,22 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
   );
   // $status = $foodCode;
 
-  if (empty($_SESSION['cart'])) {
+  if (empty($_SESSION['cart'])) { //check if cart session empty
     $_SESSION["cart"] = $cartArray;
     $status = "<div class='box'>Product is added to your cart!</div>";
   } else {
-    $array_keys = array_keys($_SESSION["cart"]);
+    $array_keys = array_keys($_SESSION["cart"]); //get cart array from cart session
 
-    if (in_array($foodCode, $array_keys)) {
+    if (in_array($foodCode, $array_keys)) { //check if item already in cart carry
       $status = "<div class='box' style='color:red;'>
-		Product is already added to your cart!</div>";
-    } else {
+    Product is already added to your cart!<br/>
+    <h6>Note: You can change the quantity of added product in the cart</h1>
+    </div>";
+    } else { //set array to cart session
 
       // $_SESSION["cart"] = array_merge($_SESSION["cart"], $cartArray);
       $_SESSION["cart"] = $_SESSION["cart"] + $cartArray;
-      "<div class='box'>Product is added to your cart!</div>";
+      $status = "<div class='box'>Product is added to your cart!</div>";
     }
   }
 }
@@ -92,16 +94,19 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
     <div class="menu-wrapper">
 
         <div id="menu" class="menu w3-card">
-            <?php print_r($_SESSION["cart"]); ?>
-            <span id="bevebutcount"></span>
+            <?php
+      // print_r($_SESSION["cart"]);
+      ?>
+            <!-- <span id="bevebutcount"></span> -->
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>
-            <form action="" method="post">
+            <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
-            </form>
+            </form> -->
             <p class="menu-title"></p>
-            <span><?php print_r($status) ?></span>
+            <h3 style="padding: 0 20px;"><?php print_r($status) ?></h3>
+
 
             <div id="food-menu-con" class="food-menu-con">
                 <?php
@@ -110,7 +115,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
           echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
-			          <img src='./product/" . $row['productImg'] . "'>
+			          <div class='food-img-con' style='height: 130px;'><img src='./product/" . $row['productImg'] . "'></div>
                 <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
                 <p class='food-desc'>" . $row['productDesc'] . "</p>
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
@@ -127,7 +132,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") {
           echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
-			          <img src='./product/" . $row['productImg'] . "'>
+			          <div class='food-img-con'><img src='./product/" . $row['productImg'] . "'></div>
                 <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
                 <p class='food-desc'>" . $row['productDesc'] . "</p>
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
