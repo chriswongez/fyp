@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin </title>
-    <link rel="stylesheet" href="/Admin/css/admin.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
     <script src="https://kit.fontawesome.com/08d8dbd162.js" crossorigin="anonymous"></script>
 
 </head>
@@ -22,14 +22,14 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="index.php">
                         <i class="fas fa-columns"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="products.php">
                         <i class="fas fa-hamburger"></i>
                         <span>Product details</span>
                     </a>

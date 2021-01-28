@@ -12,43 +12,46 @@
             ?>
 
 
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == '' || $page == 'index.php') ? 'active' : ''; ?>" href="index.php">
-                    <span data-feather="home"></span>
-                    Dashboard <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == 'customer_orders.php') ? 'active' : ''; ?>" href="customer_orders.php">
-                    <span data-feather="file"></span>
-                    Orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == 'products.php') ? 'active' : ''; ?>" href="products.php">
-                    <span data-feather="shopping-cart"></span>
-                    Products
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == 'brands.php') ? 'active' : ''; ?>" href="brands.php">
-                    <span data-feather="shopping-cart"></span>
-                    Brands
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == 'categories.php') ? 'active' : ''; ?>" href="categories.php">
-                    <span data-feather="shopping-cart"></span>
-                    Categories
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($page == 'customers.php') ? 'active' : ''; ?>" href="customers.php">
-                    <span data-feather="users"></span>
-                    Customers
-                </a>
-            </li>
-        </ul>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="index.php">
+                            <i class="fas fa-columns"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products">
+                            <i class="fas fa-hamburger"></i>
+                            <span>Product details</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="customer_orders.php">
+                            <i class="fas fa-concierge-bell"></i>
+                            <span>Order details</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="customers.php">
+                            <i class="fas fa-user-circle"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    </ul>
 
 
     </div>
