@@ -6,5 +6,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {
     unset($_SESSION["userlevel"]);
     unset($_SESSION["cart"]);
     unset($_SESSION["menustat"]);
-    header("Location: ./index.php");
+    echo "<script>
+      alert('You have logged out.');
+      window.location.href='./index.php';
+      </script>";
 }
+?>
