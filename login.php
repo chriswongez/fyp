@@ -32,7 +32,7 @@ if (isset($_POST['logusername'])) {
     } else {
         echo "<script>
       alert('Username/password is incorrect.');
-      window.location.href='./userlogin.php';
+      window.location.href='./login.php';
       </script>";
     }
 }
@@ -55,7 +55,7 @@ if (isset($_REQUEST['regusername'])) {
         if ($rows == 1) { //check username in use
             echo "<script>
         alert('Username in used!\\nPlease try again.');
-        window.location.href='./userlogin.php';
+        window.location.href='./login.php';
         </script>";
         } else {
             //if password match and no username in use, register account to system
@@ -64,14 +64,14 @@ if (isset($_REQUEST['regusername'])) {
             if ($result) {
                 echo "<script>
           alert('You are registered successfully!\\nPlease login.');
-          window.location.href='./userlogin.php';
+          window.location.href='./login.php';
           </script>";
             }
         }
     } else { //password not matched
         echo "<script>
         alert('Password and Confirm Password not matched\\nPlease try again.');
-        window.location.href='./userlogin.php';
+        window.location.href='./login.php';
         </script>";
     }
 }

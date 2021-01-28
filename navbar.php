@@ -152,7 +152,7 @@ if (!empty($_SESSION['cart'])) { //count cart item
                     </div>
                 </li>";
                 } else {
-                    echo "<li><a id='login-btn' href='userlogin.php'>Login</a></li>";
+                    echo "<li><a id='login-btn' href='login.php'>Login</a></li>";
                 }
 
                 ?>
@@ -171,6 +171,6 @@ if (!empty($_SESSION['cart'])) { //count cart item
 <script>
 function nologin() { //if not login redirect login page
     alert("You are not logged in!\nRedirecting you to login page...");
-    window.location.href = "./userlogin.php";
+    window.location.href = "./login.php";
 }
 </script>

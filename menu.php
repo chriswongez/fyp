@@ -16,7 +16,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     unset($_SESSION["menustat"]);
     echo "<script>
     alert('You are not logged in!\\nRedirecting you to login page...');
-    window.location.href = './userlogin.php';
+    window.location.href = './login.php';
     </script>";
     exit;
   }
