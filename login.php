@@ -90,7 +90,7 @@ if (isset($_REQUEST['regusername'])) {
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
-    <title>Login and Register page</title>
+    <title>Login</title>
 </head>
 
 <body class="w3-khaki">
@@ -106,11 +106,8 @@ if (isset($_REQUEST['regusername'])) {
 
     <div class="w3-container w3-card w3-round-large w3-sand login">
 
-        <button class="adminloginbutton w3-button w3-orange w3-card w3-round w3-hover-deep-orange" type="button">
-            Admin Login
-        </button>
         <h1 style="padding: 0px 16px; margin-top: 15px; margin-bottom: 0">
-            Welcome! Please login or register.
+            Welcome! Please login.
         </h1>
         <div class="loginregister">
 
@@ -142,12 +139,13 @@ if (isset($_REQUEST['regusername'])) {
                 ?>
 
             </form>
+            <h6>Not a user? <a href="./register.php">Register here</a></h6>
             <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
             </form> -->
 
-            <div class="vl"></div>
+            <!-- <div class="vl"></div>
             <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">
                 <h3>Register</h3>
                 <table>
@@ -190,7 +188,7 @@ if (isset($_REQUEST['regusername'])) {
                     </tr>
                 </table>
                 <input type="submit" class="w3-orange w3-round w3-text-white" value="Register" />
-            </form>
+            </form> -->
         </div>
     </div>
 </body>
