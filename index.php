@@ -19,9 +19,9 @@ session_start();
     <?php include "./navbar.php"; ?>
 
     <script>
-    window.onload = () => {
-        document.getElementById("home-btn").classList.add("active");
-    };
+        window.onload = () => {
+            document.getElementById("home-btn").classList.add("active");
+        };
     </script>
 
     <section id="home">
@@ -31,7 +31,7 @@ session_start();
             That deliver near You
         </p>
         <div class="btn-con">
-            <form method="post" action="./menu.php">
+            <form method="get" action="./menu.php">
                 <button class="btn">Order Now</button>
             </form>
         </div>
