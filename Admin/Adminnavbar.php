@@ -1,0 +1,63 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap");
+
+    .title {
+        font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+        --main-color: #027581;
+        --color-dark: #1d2231;
+        --text-grey: #8390a2;
+    }
+
+    * {
+        font-family: "poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style-type: none;
+        box-sizing: border-box;
+    }
+
+    .fas fa-columns {
+        left: 0;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 240px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        background: var(--main-color);
+        color: #fff;
+        overflow-y: auto;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 0rem 1rem;
+    }
+
+    .sidebar-menu {
+        padding: 1rem;
+    }
+
+    .sidebar li {
+        margin-bottom: 1.2rem;
+    }
+
+    .sidebar a {
+        color: #fff;
+        font-size: 0.9rem;
+    }
+
+    .sidebar a span:last-child {
+        padding-left: 0.6rem;
+    }
+</style>
