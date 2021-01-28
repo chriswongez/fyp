@@ -20,7 +20,7 @@ if (isset($_REQUEST['regusername'])) {
         if ($rows == 1) { //check username in use
             echo "<script>
         alert('Username in used!\\nPlease try again.');
-        window.location.href='./login.php';
+        window.location.href='./register.php';
         </script>";
         } else {
             //if password match and no username in use, register account to system
@@ -36,7 +36,7 @@ if (isset($_REQUEST['regusername'])) {
     } else { //password not matched
         echo "<script>
         alert('Password and Confirm Password not matched\\nPlease try again.');
-        window.location.href='./login.php';
+        window.location.href='./register.php';
         </script>";
     }
 }
@@ -49,6 +49,7 @@ if (isset($_REQUEST['regusername'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/loginregister.css" />
     <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
@@ -58,6 +59,62 @@ if (isset($_REQUEST['regusername'])) {
 <body class="w3-khaki">
     <?php include "./navbar.php"; ?>
 
+    <div class="w3-container w3-card w3-round-large w3-sand register">
+
+        <h1 style="padding: 0px 16px; margin-top: 15px; margin-bottom: 0">
+            Welcome! Please Register.
+        </h1>
+        <div class="loginregister">
+            <!-- <form action="" method="post">
+                <input type="hidden" name="reset">
+                <input type="submit" value="reset">
+            </form> -->
+
+            <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">
+
+                <table>
+                    <tr>
+                        <td>
+                            <p>Username:</p>
+                        </td>
+                        <td>
+                            <p><input type="text" name="regusername" placeholder="Username" required /></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Password:</p>
+                        </td>
+                        <td>
+                            <p>
+                                <input type="password" name="regpassword" placeholder="Mininum 8 characters"
+                                    minlength="8" required />
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Confirm Password:</p>
+                        </td>
+                        <td>
+                            <input type="password" name="regconpassword" placeholder="Confirm password" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>E-mail:</p>
+                        </td>
+                        <td>
+                            <p>
+                                <input type="email" name="regemail" placeholder="example@xxx.com" required />
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" class="w3-orange w3-round w3-text-white" value="Register" />
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

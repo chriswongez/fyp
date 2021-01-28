@@ -1,4 +1,19 @@
+body {
+  background-image: url("https://img.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg?size=626&ext=jpgg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
 .login {
+  width: auto;
+  left: 50%;
+  top: 40%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.register {
   width: auto;
   left: 50%;
   top: 40%;
@@ -9,6 +24,10 @@
 .loginregister {
   position: relative;
   margin-bottom: 15px;
+}
+
+.loginregister form td p {
+  width: 150px;
 }
 
 .loginregister h6 {

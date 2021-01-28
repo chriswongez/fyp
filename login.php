@@ -93,7 +93,7 @@ if (isset($_REQUEST['regusername'])) {
     <title>Login</title>
 </head>
 
-<body class="w3-khaki">
+<body>
     <?php include "./navbar.php"; ?>
 
     <script>
