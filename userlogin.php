@@ -96,9 +96,9 @@ if (isset($_REQUEST['regusername'])) {
     <?php include "./navbar.php"; ?>
 
     <script>
-    window.onload = () => {
-        document.getElementById("login-btn").classList.add("active");
-    };
+        window.onload = () => {
+            document.getElementById("login-btn").classList.add("active");
+        };
     </script>
 
 
@@ -136,8 +136,7 @@ if (isset($_REQUEST['regusername'])) {
                 </table>
                 <input type="submit" class="w3-orange w3-text-white w3-round" value="Login" />
 
-                <?php
-                //debug
+                <?php //debug
                 // echo $_SESSION['username'] . $_SESSION['userlevel'];
                 ?>
 
@@ -165,8 +164,7 @@ if (isset($_REQUEST['regusername'])) {
                         </td>
                         <td>
                             <p>
-                                <input type="password" name="regpassword" placeholder="Mininum 8 characters"
-                                    minlength="8" required />
+                                <input type="password" name="regpassword" placeholder="Mininum 8 characters" minlength="8" required />
                             </p>
                         </td>
                     </tr>
@@ -196,9 +194,9 @@ if (isset($_REQUEST['regusername'])) {
 </body>
 
 <script>
-window.onload = () => {
-    document.getElementById("login-btn").classList.add("active");
-};
+    window.onload = () => {
+        document.getElementById("login-btn").classList.add("active");
+    };
 </script>
 
 </html>
