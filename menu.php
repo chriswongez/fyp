@@ -9,11 +9,15 @@ $status = "";
 if (isset($_POST['reset'])) { //debug reset button
   unset($_SESSION["cart"]);
   unset($_SESSION["menustat"]);
+  unset($_SESSION['setmethod']);
+  unset($_SESSION['setvalue']);
 }
 if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
   if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login state
     unset($_SESSION["cart"]);
     unset($_SESSION["menustat"]);
+    unset($_SESSION['setmethod']);
+    unset($_SESSION['setvalue']);
     echo "<script>
     alert('You are not logged in!\\nRedirecting you to login page...');
     window.location.href = './login.php';
@@ -81,13 +85,13 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     <!-- dine in or take away prompt -->
     <div id="dinein-con">
         <div id="dinein" class="dinein w3-round-large w3-card">
-            <h1>Do you want to dine in or take away?</h1>
+            <h1>Do you want us to delivery for you or self-collect?</h1>
             <div class="dinein-btn">
-                <button id="dine_in" class="w3-cyan" onclick="goToBottom(this.id);">
-                    Dine in
+                <button id="delivery" value="Delivery" class="w3-cyan" onclick="goToBottom(this.id);">
+                    Delivery
                 </button>
-                <button id="take_away" class="w3-lime" onclick="goToBottom(this.id);">
-                    Take away
+                <button id="selfc" value="Self Collect" class="w3-lime" onclick="goToBottom(this.id);">
+                    Self-Collect
                 </button>
             </div>
         </div>
@@ -101,12 +105,25 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <!-- <span id="bevebutcount"></span> -->
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>
+            <?php
+      if (isset($_SESSION['setmethod'])) {
+        echo "<form action='./php/chgmethod.php' method='post'>
+                <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button type='submit'>Change</button>
+                </h3>
+            </form>";
+      } else {
+        echo "<form action='./php/chgmethod.php' method='post'>
+        <h3 class='method-text'>Method selected: <span id='method'></span> <button type='submit'>Change</button>
+        </h3>
+    </form>";
+      }
+      ?>
+            <p class="menu-title"></p>
             <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
             </form> -->
-            <p class="menu-title"></p>
-            <h3 style="padding: 0 20px;"><?php print_r($status) ?></h3>
+            <h6 style="padding: 0 20px;"><?php print_r($status) ?></h6>
 
 
             <div id="food-menu-con" class="food-menu-con">
@@ -181,12 +198,49 @@ $('#select-food').on('click', function() {
         }
     });
 });
+
+$('#delivery').on('click', function() {
+    var val = $(this).attr("value");
+    var sto = $(this).attr("id");
+    $.ajax({
+
+        type: 'POST',
+        url: './php/setmethod.php',
+        data: {
+            store: sto,
+            value: val,
+        },
+        success: () => {
+            document.getElementById('method').innerHTML = val;
+        }
+    });
+});
+
+$('#selfc').on('click', function() {
+    var val = $(this).attr("value");
+    var sto = $(this).attr("id");
+    $.ajax({
+
+        type: 'POST',
+        url: './php/setmethod.php',
+        data: {
+            store: sto,
+            value: val,
+        },
+        success: () => {
+            document.getElementById('method').innerHTML = val;
+        }
+    });
+});
 </script>
 
 <?php
+if (isset($_SESSION['setmethod'])) {
+  # code...
+}
 //$_SESSION["cart"] = array("hi");
 //unset($_SESSION["cart"]);
-if (!empty($_SESSION["cart"])) {
+if (!empty($_SESSION['setmethod'])) {
   echo '<script type="text/javascript">',
   'goToBottom("test");',
   '</script>';

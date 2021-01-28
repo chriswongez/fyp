@@ -221,3 +221,9 @@
 #select-food:hover {
   background-color: blueviolet;
 }
+
+.method-text {
+  position: absolute;
+  right: 20px;
+  top: 65px;
+}

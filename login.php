@@ -112,7 +112,7 @@ if (isset($_REQUEST['regusername'])) {
         <div class="loginregister">
 
             <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">
-                <h3>Login</h3>
+
                 <table>
                     <tr>
                         <td>
