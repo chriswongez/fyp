@@ -10,6 +10,7 @@ session_start();
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="./css/mainpage.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <script></script>
 </head>
 

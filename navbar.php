@@ -114,6 +114,7 @@ nav li #acc-drop-btn:hover {
 
 /* navbar */
 </style>
+
 <?php
 if (!empty($_SESSION['cart'])) { //count cart item
     $cart_count = "(" . count(array_keys($_SESSION['cart'])) . ")";
