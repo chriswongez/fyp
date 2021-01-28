@@ -136,7 +136,8 @@ if (isset($_REQUEST['regusername'])) {
                 </table>
                 <input type="submit" class="w3-orange w3-text-white w3-round" value="Login" />
 
-                <?php//debug
+                <?php
+                //debug
                 // echo $_SESSION['username'] . $_SESSION['userlevel'];
                 ?>
 
