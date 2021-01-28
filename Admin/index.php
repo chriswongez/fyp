@@ -11,7 +11,8 @@
 
 <body>
 
-
+    <?php include("./Adminnavbar.php")
+    ?>
 
     <div class="main-content">
         <header>
