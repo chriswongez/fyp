@@ -73,6 +73,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 </head>
 
 <body class="w3-khaki">

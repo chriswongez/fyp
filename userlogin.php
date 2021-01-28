@@ -88,6 +88,7 @@ if (isset($_REQUEST['regusername'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
     <title>Login and Register page</title>
 </head>
@@ -96,9 +97,9 @@ if (isset($_REQUEST['regusername'])) {
     <?php include "./navbar.php"; ?>
 
     <script>
-        window.onload = () => {
-            document.getElementById("login-btn").classList.add("active");
-        };
+    window.onload = () => {
+        document.getElementById("login-btn").classList.add("active");
+    };
     </script>
 
 
@@ -164,7 +165,8 @@ if (isset($_REQUEST['regusername'])) {
                         </td>
                         <td>
                             <p>
-                                <input type="password" name="regpassword" placeholder="Mininum 8 characters" minlength="8" required />
+                                <input type="password" name="regpassword" placeholder="Mininum 8 characters"
+                                    minlength="8" required />
                             </p>
                         </td>
                     </tr>
@@ -194,9 +196,9 @@ if (isset($_REQUEST['regusername'])) {
 </body>
 
 <script>
-    window.onload = () => {
-        document.getElementById("login-btn").classList.add("active");
-    };
+window.onload = () => {
+    document.getElementById("login-btn").classList.add("active");
+};
 </script>
 
 </html>
