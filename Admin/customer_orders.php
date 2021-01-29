@@ -1,3 +1,7 @@
+<head>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
 <?php session_start(); ?>
 <?php include_once("./templates/top.php"); ?>
 <?php //include_once("./templates/navbar.php"); 
@@ -12,7 +16,7 @@
 
 		<div class="row">
 			<div class="col-10">
-				<h2>Customers</h2>
+				<h2>Order details</h2>
 			</div>
 		</div>
 

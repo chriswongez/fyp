@@ -1,6 +1,13 @@
+<head>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
 <?php session_start(); ?>
 <?php include_once("./templates/top.php"); ?>
 <?php //include_once("./templates/navbar.php"); 
+?>
+<?php
+include("../php/dbconnect.php");
 ?>
 <div class="container-fluid">
 	<div class="row">
@@ -19,16 +26,35 @@
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>User Name</th>
-						<th>Email</th>
-						<th>Contact</th>
-						<th>User Level</th>
+						<th class="text-center">User ID</th>
+						<th class="text-center">User Name</th>
+						<th class="text-center">Email</th>
+						<th class="text-center">Contact</th>
+						<th class="text-center">User Level</th>
+						<th class="text-center">Action</th>
 						<!-- action promote, block, remove-->
 
 					</tr>
 				</thead>
 				<tbody id="customer_list">
+
+					<?php
+					$query = ("SELECT * FROM `users` ");
+					$result = mysqli_query($con, $query);
+					while ($row = mysqli_fetch_assoc($result)) {
+						echo "<tr>
+                        <td class='align-middle text-center'>" . $row['userID'] . "</td>
+                        <td class='align-middle text-center'>" . $row['username'] . "</td>
+                        <td class='align-middle text-center'>" . $row['useremail'] . "</td>
+                        <td class='align-middle text-center'>" . $row['usercontact'] . "</td>
+						<td class='align-middle text-center'>" . $row['userlevel'] . "</td>
+						<td class='align-middle text-center'><a id='" . $row['userID'] . "' class='btn btn-sm btn-info' data-toggle='modal' data-target='#edit_product_modal'>Promote</a><a class='btn btn-sm btn-danger'>Block</a><a class='btn btn-sm btn-warning'>Remove</a></td>
+                    </tr>";
+					}
+
+
+					?>
+
 					<!-- <tr>
               <td>1</td>
               <td>ABC</td>

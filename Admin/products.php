@@ -1,3 +1,7 @@
+<head>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
 <script src="../js/jquery-3.5.1.min.js"></script>
 
 <?php include_once("./templates/top.php"); ?>
