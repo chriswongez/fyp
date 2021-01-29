@@ -1,5 +1,5 @@
 <script src="../js/jquery-3.5.1.min.js"></script>
-<?php session_start(); ?>
+
 <?php include_once("./templates/top.php"); ?>
 <?php
 // include_once("./templates/navbar.php"); 

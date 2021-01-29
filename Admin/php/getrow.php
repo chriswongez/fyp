@@ -1,5 +1,5 @@
 <?php
-include("../php/dbconnect.php");
+include("dbconnect.php");
 
 if (isset($_POST['passid'])) {
     $id = $_POST['passid'];

@@ -60,6 +60,9 @@
 .sidebar a span:last-child {
     padding-left: 0.6rem;
 }
+
+<?php session_start();
+?>
 </style>
 
 <div class="sidebar">
