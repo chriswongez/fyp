@@ -10,7 +10,7 @@ include("../php/dbconnect.php");
 <div class="container-fluid">
     <div class="row">
 
-    <?php include("./Adminnavbar.php")
+        <?php include("./Adminnavbar.php")
         ?>
 
 
@@ -212,7 +212,7 @@ include("../php/dbconnect.php");
                             <div class="form-group">
                                 <label>Product Image <small>(format: jpg, jpeg, png)</small></label>
                                 <input type="file" name="e_product_image" class="form-control">
-                                <img src="" name="e_product_img" class="img-fluid" width="50">
+                                <img src="" name="e_product_img" class="img-fluid" width="50px">
                             </div>
                         </div>
                         <input type="hidden" name="pid">
