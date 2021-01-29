@@ -7,7 +7,7 @@ session_start();
 <html lang="en">
 
 <head>
-    <title>Food Ordering System</title>
+    <title>Welcome to Foodie</title>
     <link rel="stylesheet" href="./css/mainpage.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
@@ -21,9 +21,9 @@ session_start();
     <?php include "./navbar.php"; ?>
 
     <script>
-        window.onload = () => {
-            document.getElementById("home-btn").classList.add("active");
-        };
+    window.onload = () => {
+        document.getElementById("home-btn").classList.add("active");
+    };
     </script>
 
     <section id="home">
