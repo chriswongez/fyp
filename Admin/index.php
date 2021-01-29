@@ -6,6 +6,7 @@
     <title>Admin </title>
     <link rel="stylesheet" href="./css/admin.css" />
     <script src="https://kit.fontawesome.com/08d8dbd162.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 
 </head>
 

@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php include_once("./templates/top.php"); ?>
-<?php include_once("./templates/navbar.php"); ?>
+<?php //include_once("./templates/navbar.php"); 
+?>
 <div class="container-fluid">
 	<div class="row">
 
@@ -10,7 +11,7 @@
 
 		<div class="row">
 			<div class="col-10">
-				<h2>Customers</h2>
+				<h2>User Management</h2>
 			</div>
 		</div>
 
@@ -19,10 +20,12 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
+						<th>User Name</th>
 						<th>Email</th>
-						<th>Mobile</th>
-						<th>Address</th>
+						<th>Contact</th>
+						<th>User Level</th>
+						<!-- action promote, block, remove-->
+
 					</tr>
 				</thead>
 				<tbody id="customer_list">

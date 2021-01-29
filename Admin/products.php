@@ -10,7 +10,7 @@ include("../php/dbconnect.php");
 <div class="container-fluid">
     <div class="row">
 
-    <?php include("./Adminnavbar.php")
+        <?php include("./Adminnavbar.php")
         ?>
 
 
@@ -74,8 +74,7 @@ include("../php/dbconnect.php");
 
 
 <!-- Add Product Modal start -->
-<div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -90,8 +89,7 @@ include("../php/dbconnect.php");
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="text" name="product_name" class="form-control"
-                                    placeholder="Enter Product Name">
+                                <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
                             </div>
                         </div>
                         <div class="col-12">
@@ -113,29 +111,25 @@ include("../php/dbconnect.php");
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea class="form-control" name="product_desc"
-                                    placeholder="Enter product desc"></textarea>
+                                <textarea class="form-control" name="product_desc" placeholder="Enter product desc"></textarea>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Qty</label>
-                                <input type="number" name="product_qty" class="form-control"
-                                    placeholder="Enter Product Quantity">
+                                <input type="number" name="product_qty" class="form-control" placeholder="Enter Product Quantity">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Price</label>
-                                <input type="number" name="product_price" class="form-control"
-                                    placeholder="Enter Product Price">
+                                <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Keywords <small>(eg: apple, iphone, mobile)</small></label>
-                                <input type="text" name="product_keywords" class="form-control"
-                                    placeholder="Enter Product Keywords">
+                                <input type="text" name="product_keywords" class="form-control" placeholder="Enter Product Keywords">
                             </div>
                         </div>
                         <div class="col-12">
@@ -158,8 +152,7 @@ include("../php/dbconnect.php");
 <!-- Add Product Modal end -->
 
 <!-- Edit Product Modal start -->
-<div class="modal fade" id="edit_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="edit_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -174,15 +167,13 @@ include("../php/dbconnect.php");
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="text" id="e_product_name" value="" name="e_product_name"
-                                    class="form-control" placeholder="Enter Product Name">
+                                <input type="text" id="e_product_name" value="" name="e_product_name" class="form-control" placeholder="Enter Product Name">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Code</label>
-                                <input type="text" name="e_product_code" class="form-control"
-                                    placeholder="Enter Product Name">
+                                <input type="text" name="e_product_code" class="form-control" placeholder="Enter Product Name">
                             </div>
                         </div>
                         <div class="col-12">
@@ -197,15 +188,13 @@ include("../php/dbconnect.php");
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea class="form-control" name="e_product_desc"
-                                    placeholder="Enter product desc"></textarea>
+                                <textarea class="form-control" name="e_product_desc" placeholder="Enter product desc"></textarea>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Price</label>
-                                <input type="number" name="e_product_price" class="form-control"
-                                    placeholder="Enter Product Price">
+                                <input type="number" name="e_product_price" class="form-control" placeholder="Enter Product Price">
                             </div>
                         </div>
                         <div class="col-12">
@@ -236,7 +225,7 @@ include("../php/dbconnect.php");
 
 <!-- <script type="text/javascript" src="./js/products.js"></script> -->
 <script>
-$('<?php
+    $('<?php
         $result = mysqli_query($con, "SELECT * FROM `product`");
         $rownum = mysqli_num_rows($result);
         $counter = 0;
@@ -248,27 +237,27 @@ $('<?php
                 echo "#" . $row['productCode'] . ", ";
         }
         ?>').on('click', function() {
-    var id = $(this).attr("id");
+        var id = $(this).attr("id");
 
-    $.ajax({
-        type: 'POST',
-        url: './php/getrow.php',
-        data: {
-            passid: id,
-        },
-        success: (response) => {
-            var resp = JSON.parse(response);
-            document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
-            document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
-            document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
-            document.querySelector('[name="e_product_desc"]').setAttribute("value", resp.prodDesc);
-            document.querySelector('[name="e_product_price"]').setAttribute("value", resp
-                .prodPrice);
-            document.querySelector('[name="e_product_img"]').setAttribute("src", "../product/" +
-                resp
-                .prodImg);
+        $.ajax({
+            type: 'POST',
+            url: './php/getrow.php',
+            data: {
+                passid: id,
+            },
+            success: (response) => {
+                var resp = JSON.parse(response);
+                document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
+                document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
+                document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
+                document.querySelector('[name="e_product_desc"]').setAttribute("value", resp.prodDesc);
+                document.querySelector('[name="e_product_price"]').setAttribute("value", resp
+                    .prodPrice);
+                document.querySelector('[name="e_product_img"]').setAttribute("src", "../product/" +
+                    resp
+                    .prodImg);
 
-        }
+            }
+        });
     });
-});
 </script>
