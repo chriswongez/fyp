@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <?php include("./Adminnavbar.php")
+    <?php include("./Adminnavbar.php")
         ?>
 
 
