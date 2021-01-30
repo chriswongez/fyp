@@ -47,9 +47,15 @@ include("../php/dbconnect.php");
                         <td class='align-middle text-center'>" . $row['username'] . "</td>
                         <td class='align-middle text-center'>" . $row['useremail'] . "</td>
                         <td class='align-middle text-center'>" . $row['usercontact'] . "</td>
-						<td class='align-middle text-center'>" . $row['userlevel'] . "</td>
-						<td class='align-middle text-center'><a id='" . $row['userID'] . "' class='btn btn-sm btn-info' data-toggle='modal' data-target='#edit_product_modal'>Promote</a><a class='btn btn-sm btn-danger'>Block</a><a class='btn btn-sm btn-warning'>Remove</a></td>
-                    </tr>";
+						<td class='align-middle text-center'>" . $row['userlevel'] . "</td>";
+						if ($row['userID'] != 1) {
+							echo "<td class='align-middle text-center'>
+							<a id='" . $row['userID'] . "' class='btn btn-sm btn-info' >Promote</a>
+							<a class='btn btn-sm btn-danger'>Block</a>
+							<a class='btn btn-sm btn-warning'>Remove</a>
+							</td>;";
+						}
+						echo "</tr>";
 					}
 
 
@@ -90,14 +96,6 @@ include("../php/dbconnect.php");
 							<div class="form-group">
 								<label>Product Name</label>
 								<input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="form-group">
-								<label>Brand Name</label>
-								<select class="form-control brand_list" name="brand_id">
-									<option value="">Select Brand</option>
-								</select>
 							</div>
 						</div>
 						<div class="col-12">

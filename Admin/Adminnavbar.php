@@ -45,7 +45,7 @@ if ($_SESSION['userlevel'] != 'admin') {
 
 .sidebar {
     height: 100%;
-    width: 240px;
+    width: 260px;
     position: fixed;
     left: 0;
     top: 0;
@@ -74,6 +74,11 @@ if ($_SESSION['userlevel'] != 'admin') {
 .sidebar a {
     color: #fff;
     font-size: 0.9rem;
+    transition: padding-left 0.3s;
+}
+
+.sidebar a:hover {
+    padding-left: 0.7rem;
 }
 
 .sidebar a span:last-child {
@@ -81,7 +86,7 @@ if ($_SESSION['userlevel'] != 'admin') {
 }
 </style>
 
-<div class="sidebar">
+<div class="sidebar col-2">
     <div class="sidebar-header">
         <h3 class="brand">
             <span class="title">Foodie</span>
@@ -108,7 +113,7 @@ if ($_SESSION['userlevel'] != 'admin') {
             <li>
                 <a href="customer_orders.php">
                     <i class="fas fa-concierge-bell"></i>
-                    <span>Order details</span>
+                    <span>Order Management</span>
                 </a>
             </li>
 
