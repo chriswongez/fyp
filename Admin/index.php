@@ -39,16 +39,64 @@
                 <i class="fas fa-search"></i>
                 <input type="search" placeholder="search">
             </div>
-        </div>
 
         </div>
 
-    </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Delivery
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary">Received</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-warning">Procesing</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-success">Delivered</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-danger">Cancelled</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Self-Collect
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary">Received</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-warning">Procesing</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-success">collected</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-danger">Cancelled</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
 
-    </main>
+
+
+        </main>
 </body>
 
 </html>
