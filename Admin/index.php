@@ -1,7 +1,3 @@
-<?php session_start();
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,34 +17,22 @@
     include("./Adminnavbar.php")
     ?>
 
-    <div class="main-content">
-        <header>
-            <div>
-                <i class="fas fa-search"></i>
-                <input type="search" placeholder="search">
-            </div>
 
-            <div class="social-icons">
-                <i class="far fa-bell"></i>
-                <i class="far fa-comments"></i>
-                <div></div>
-            </div>
-        </header>
 
-        <main>
-            <h2>Dashboard</h2>
+    <main>
+        <h2>Dashboard</h2>
 
-            <div class="dashborad-cards">
-                <div class="card-single">
-                    <div class="card-body">
+        <div class="dashborad-cards">
+            <div class="card-single">
+                <div class="card-body">
 
-                    </div>
                 </div>
             </div>
+        </div>
 
 
 
-        </main>
+    </main>
     </div>
 
 

@@ -18,8 +18,8 @@
   list-style-type: none;
   box-sizing: border-box;
 }
-.fas fa-columns{
-    left:0;
+.fas fa-columns {
+  left: 0;
 }
 
 .sidebar {
@@ -56,14 +56,20 @@
 .sidebar a span:last-child {
   padding-left: 0.6rem;
 }
-
-.main-content {
+/* .main-content {
   position: relative;
   margin-left: 240px;
-}
-header{
-    position: fixed;
-    top: 0;
-    z-index: 100;
-
-}
+} */
+/* header {
+  position: fixed;
+  left: 240px;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  height: 60px;
+  padding: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
