@@ -95,7 +95,8 @@ include("../php/dbconnect.php");
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="add-product-form" enctype="multipart/form-data">
+                    <form method="POST" action="./php/addproduct.php" id="add-product-form"
+                        enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -106,17 +107,17 @@ include("../php/dbconnect.php");
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Brand Name</label>
-                                    <select class="form-control brand_list" name="brand_id">
-                                        <option value="">Select Brand</option>
-                                    </select>
+                                    <label>Product Code</label>
+                                    <input type="text" name="product_code" class="form-control"
+                                        placeholder="Enter Product Code">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Category Name</label>
-                                    <select class="form-control category_list" name="category_id">
-                                        <option value="">Select Category</option>
+                                    <label>Category</label>
+                                    <select class="form-control category_list" name="category">
+                                        <option value="food">Food</option>
+                                        <option value="beve">Beverage</option>
                                     </select>
                                 </div>
                             </div>
@@ -129,23 +130,9 @@ include("../php/dbconnect.php");
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Product Qty</label>
-                                    <input type="number" name="product_qty" class="form-control"
-                                        placeholder="Enter Product Quantity">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label>Product Price</label>
+                                    <label>Product Price (RM)</label>
                                     <input type="number" name="product_price" class="form-control"
                                         placeholder="Enter Product Price">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label>Product Keywords <small>(eg: apple, iphone, mobile)</small></label>
-                                    <input type="text" name="product_keywords" class="form-control"
-                                        placeholder="Enter Product Keywords">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -156,7 +143,7 @@ include("../php/dbconnect.php");
                             </div>
                             <input type="hidden" name="add_product" value="1">
                             <div class="col-12">
-                                <button type="button" class="btn btn-primary add-product">Add Product</button>
+                                <button type="submit" class="btn btn-primary add-product">Add Product</button>
                             </div>
                         </div>
 
@@ -179,7 +166,8 @@ include("../php/dbconnect.php");
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="edit-product-form" enctype="multipart/form-data">
+                    <form id="edit-product-form" enctype="multipart/form-data" method="POST"
+                        action="./php/addproduct.php">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -199,8 +187,8 @@ include("../php/dbconnect.php");
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select class="form-control category_list" name="e_category">
-                                        <option value="">Food</option>
-                                        <option value="">Beverage</option>
+                                        <option value="food">Food</option>
+                                        <option value="beve">Beverage</option>
                                     </select>
                                 </div>
                             </div>
@@ -213,7 +201,7 @@ include("../php/dbconnect.php");
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Product Price</label>
+                                    <label>Product Price (RM)</label>
                                     <input type="number" name="e_product_price" class="form-control"
                                         placeholder="Enter Product Price">
                                 </div>
@@ -222,13 +210,13 @@ include("../php/dbconnect.php");
                                 <div class="form-group">
                                     <label>Product Image <small>(format: jpg, jpeg, png)</small></label>
                                     <input type="file" name="e_product_image" class="form-control">
-                                    <img src="" name="e_product_img" class="img-fluid" height="50px">
+                                    <img src="" name="e_product_img" class="img-fluid">
                                 </div>
                             </div>
-                            <input type="hidden" name="pid">
+                            <input type="hidden" name="oricode">
                             <input type="hidden" name="edit_product" value="1">
                             <div class="col-12">
-                                <button type="button" class="btn btn-primary submit-edit-product">Save Product
+                                <button type="submit" class="btn btn-primary submit-edit-product">Save Product
                                     Detail</button>
                             </div>
                         </div>
@@ -273,13 +261,13 @@ $('<?php
             document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
             document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
             document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
-            document.querySelector('[name="e_product_desc"]').setAttribute("placeholder", resp
-                .prodDesc);
+            document.querySelector('[name="e_product_desc"]').innerHTML = resp.prodDesc;
             document.querySelector('[name="e_product_price"]').setAttribute("value", resp
                 .prodPrice);
             document.querySelector('[name="e_product_img"]').setAttribute("src", "../product/" +
                 resp
                 .prodImg);
+            document.querySelector('[name="oricode"]').setAttribute("value", resp.prodCode);
 
         }
     });
