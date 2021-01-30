@@ -11,12 +11,36 @@ if (isset($_GET['id'])) {
     $date = $row['orderDate'];
     $username = $row['username'];
     if ($row['orderMethod'] == 'selfc') {
+        $methodcode = $row['orderMethod'];
         $method = "Self Collect";
-    } else
+    } else {
+        $methodcode = $row['orderMethod'];
         $method = "Delivery";
+    }
     $contact = $row['usercontact'];
     $email = $row['useremail'];
     $status = $row['orderStatus'];
+    if ($row['orderMethod'] == 'selfc') {
+        if ($status == 'process')
+            $statstr = "Processing Order";
+        else if ($status == 'prepare')
+            $statstr = "Preparing Food";
+        else if ($status == 'ready')
+            $statstr = "Ready for Self-Collect";
+        else if ($status == 'cancel')
+            $statstr = "Order Cancelled";
+    } else if ($row['orderMethod'] == 'delivery') {
+        if ($status == 'process')
+            $statstr = "Processing Order";
+        else if ($status == 'prepare')
+            $statstr = "Preparing Food";
+        else if ($status == 'delivering')
+            $statstr = "Delivering";
+        else if ($status == 'delivered')
+            $statstr = "Food Delivered";
+        else if ($status == 'cancel')
+            $statstr = "Order Cancelled";
+    }
 }
 ?>
 
@@ -48,7 +72,7 @@ if (isset($_GET['id'])) {
             <div class="container">
                 <div class="row">
                     <div class="col-7">
-                        <h3>Status : <span class="text-danger"><?php echo $status ?></span></h3>
+                        <h3>Status : <span class="text-danger"><?php echo $statstr ?></span></h3>
                         <table class="table table-bordered">
                             <thead class="thead-dark">
                                 <tr>
@@ -100,7 +124,34 @@ if (isset($_GET['id'])) {
                             </tr>
 
                         </table>
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Change Status
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Processing Order</a>
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=prepare&id=<?php echo $id ?>">Preparing Food</a>
+                                <?php
+                                if ($methodcode == 'selfc') {
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=ready&id=" . $id . "'>Ready to Self-Collect</a>";
+                                } else if ($methodcode == 'delivery') {
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=delivering&id=" . $id . "'>Delivering Food</a>";
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
+                                }
+                                ?>
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
+                            </div>
+                        </div>
                     </div>
+
 
                 </div>
             </div>
