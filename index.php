@@ -21,9 +21,9 @@ session_start();
     <?php include "./navbar.php"; ?>
 
     <script>
-    window.onload = () => {
-        document.getElementById("home-btn").classList.add("active");
-    };
+        window.onload = () => {
+            document.getElementById("home-btn").classList.add("active");
+        };
     </script>
 
     <section id="home">
@@ -63,7 +63,7 @@ session_start();
             </div>
 
             <div class="box">
-                <img src="images/Fatty_buger.jpg" alt="" />
+                <img src="images/Fatty_buger.jpg" alt="" style="max-width:100%" />
                 <h2 class="main-secondary center">-FATTY BURGER-</h2>
                 <p style="
               text-align: center;
