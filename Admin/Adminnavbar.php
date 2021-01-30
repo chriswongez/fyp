@@ -1,24 +1,20 @@
-<?php session_start();
-
-
-?>
 <?php
-// if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
-//     //check login status
-//     echo "<script>
-// alert('You are not logged in!\\nRedirecting you to login page...');
-//     window.location.href='../login.php';
-//     </script>";
-//     exit;
-// }
-// if ($_SESSION['userlevel'] != 'admin') {
-//     //check admin status
-//     echo "<script>
-//     alert('You are not an admin!\\nLogging you out and redirecting you to main page...');
-//     window.location.href='../logout.php';
-//     </script>";
-//     exit;
-// }
+if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) {
+    //check login status
+    echo "<script>
+alert('You are not logged in!\\nRedirecting you to login page...');
+    window.location.href='../login.php';
+    </script>";
+    exit;
+}
+if ($_SESSION['userlevel'] != 'admin') {
+    //check admin status
+    echo "<script>
+    alert('You are not an admin!\\nLogging you out and redirecting you to main page...');
+    window.location.href='../logout.php';
+    </script>";
+    exit;
+}
 ?>
 
 <style>
@@ -94,6 +90,7 @@
     <div class="sidebar-header">
         <h3 class="brand">
             <span class="title">Foodie</span>
+            <i class="fas fa-bars"></i>
         </h3>
     </div>
 
@@ -140,7 +137,8 @@
 
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Hello <?php echo $_SESSION["username"]; ?></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
