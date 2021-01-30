@@ -1,0 +1,9 @@
+<?php
+
+$Order detail = filter_input（INPUT_POST，'Order_detail'）；
+$Order date   = filter_input（INPUT_POST，'order_date'）；
+$Order method = filter_input（INPUT_POST，'order_method'）；
+$Status       = filter_input（INPUT_POST，'status'）；
+$Amount Paid  = filter_input（INPUT_POST，'amount_paid'）；
+
+?>
