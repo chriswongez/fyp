@@ -1,6 +1,6 @@
 <?php session_start();
 include("../php/dbconnect.php");
-include_once("./templates/top.php");
+
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -21,18 +21,20 @@ if (isset($_GET['id'])) {
     $email = $row['useremail'];
     $status = $row['orderStatus'];
     if ($row['orderMethod'] == 'selfc') {
-        if ($status == 'process')
-            $statstr = "Processing Order";
-        else if ($status == 'prepare')
+        if ($status == 'received')
+            $statstr = "Order Received";
+        else if ($status == 'process')
             $statstr = "Preparing Food";
         else if ($status == 'ready')
             $statstr = "Ready for Self-Collect";
         else if ($status == 'cancel')
             $statstr = "Order Cancelled";
+        else if ($status == 'collected')
+            $statstr = "Order Collected";
     } else if ($row['orderMethod'] == 'delivery') {
-        if ($status == 'process')
-            $statstr = "Processing Order";
-        else if ($status == 'prepare')
+        if ($status == 'received')
+            $statstr = "Order Received";
+        else if ($status == 'process')
             $statstr = "Preparing Food";
         else if ($status == 'delivering')
             $statstr = "Delivering";
@@ -53,6 +55,9 @@ if (isset($_GET['id'])) {
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <title>Document</title>
 </head>
+<?php
+include_once("./templates/top.php");
+?>
 
 <body>
     <div class="container-fluid">
@@ -132,13 +137,15 @@ if (isset($_GET['id'])) {
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item"
-                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Processing Order</a>
+                                    href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
                                 <a class="dropdown-item"
-                                    href="./php/changestat.php?status=prepare&id=<?php echo $id ?>">Preparing Food</a>
+                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
                                 <?php
                                 if ($methodcode == 'selfc') {
                                     echo "<a class='dropdown-item'
                                     href='./php/changestat.php?status=ready&id=" . $id . "'>Ready to Self-Collect</a>";
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=collected&id=" . $id . "'>Collected</a>";
                                 } else if ($methodcode == 'delivery') {
                                     echo "<a class='dropdown-item'
                                     href='./php/changestat.php?status=delivering&id=" . $id . "'>Delivering Food</a>";

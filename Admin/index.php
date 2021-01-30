@@ -1,4 +1,17 @@
 <?php session_start();
+include("./php/dbconnect.php");
+
+$deli_received = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'delivery' and orderStatus = 'received'"));
+$deli_process = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'delivery' and orderStatus = 'process'"));
+$deli_delivering = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'delivery' and orderStatus = 'delivering'"));
+$deli_delivered = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'delivery' and orderStatus = 'delivered'"));
+$deli_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'delivery' and orderStatus = 'cancel'"));
+$self_received = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'selfc' and orderStatus = 'received'"));
+$self_process = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'selfc' and orderStatus = 'process'"));
+$self_ready = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'selfc' and orderStatus = 'ready'"));
+$self_collect = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'selfc' and orderStatus = 'collected'"));
+$self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory WHERE orderMethod = 'selfc' and orderStatus = 'cancel'"));
+
 
 ?>
 <!DOCTYPE html>
@@ -42,54 +55,88 @@
 
         </div>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                Delivery
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary">Received</button>
+        <div class="row">
+            <div class="container px-2 w-50">
+                <div class="card w-100" style="width: 18rem;">
+                    <div class="card-header bg-secondary">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Delivery</span
+                            style="font-size: 20px;">
                     </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-warning">Procesing</button>
-                    </div>
+                    <div class="card-body py-0">
+                        <div class="row">
+                            <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
+                                <span class="text-white pt-4 d-block">Received : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_received ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
+                                <span class="text-white pt-4 d-block">Procesing : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_process ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-info border rounded">
+                                <span class="text-white pt-4 d-block">Delivering : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivering ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-success border rounded">
+                                <span class="text-white pt-4 d-block">Delivered : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivered ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2 bg-danger border rounded">
+                                <span class="text-white pt-4 d-block">Cancelled : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_cancelled ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2"></div>
+                        </div>
 
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-success">Delivered</button>
                     </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-danger">Cancelled</button>
+                </div>
+            </div>
+            <div class="container px-2 w-50">
+                <div class="card w-100" style="width: 18rem;">
+                    <div class="card-header bg-secondary">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Self-Collect</span
+                            style="font-size: 20px;">
+                    </div>
+                    <div class="card-body py-0">
+                        <div class="row">
+                            <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
+                                <span class="text-white pt-4 d-block">Received : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_received ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
+                                <span class="text-white pt-4 d-block">Procesing : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_process ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-info border rounded">
+                                <span class="text-white pt-4 d-block">Ready to collect : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_ready ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-success border rounded">
+                                <span class="text-white pt-4 d-block">Collected : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_collect ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2 bg-danger border rounded">
+                                <span class="text-white pt-4 d-block">Cancelled : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_cancelled ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                Self-Collect
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary">Received</button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-warning">Procesing</button>
-                    </div>
 
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-success">collected</button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-danger">Cancelled</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
 
