@@ -55,12 +55,44 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
 
             </div>
 
-            <div class="row">
-                <div class="container px-2 w-50">
-                    <div class="card w-100" style="width: 18rem;">
-                        <div class="card-header bg-secondary">
-                            <span style="font-size: 20px;" class="text-white d-inline-block py-1">Delivery</span
-                                style="font-size: 20px;">
+        </div>
+
+        <div class="row">
+            <div class="container px-2 w-50">
+                <div class="card w-100" style="width: 18rem;">
+                    <div class="card-header bg-secondary">
+                        <i class="fas fa-cart-arrow-down"></i>
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Delivery</span
+                            style="font-size: 20px;">
+                    </div>
+                    <div class="card-body py-0">
+                        <div class="row">
+                            <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
+                                <span class="text-white pt-4 d-block">Received : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_received ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
+                                <span class="text-white pt-4 d-block">Procesing : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_process ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-info border rounded">
+                                <span class="text-white pt-4 d-block">Delivering : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivering ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-success border rounded">
+                                <span class="text-white pt-4 d-block">Delivered : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivered ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2 bg-danger border rounded">
+                                <span class="text-white pt-4 d-block">Cancelled : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_cancelled ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2"></div>
                         </div>
                         <div class="card-body py-0">
                             <div class="row">
@@ -95,11 +127,42 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                         </div>
                     </div>
                 </div>
-                <div class="container px-2 w-50">
-                    <div class="card w-100" style="width: 18rem;">
-                        <div class="card-header bg-secondary">
-                            <span style="font-size: 20px;" class="text-white d-inline-block py-1">Self-Collect</span
-                                style="font-size: 20px;">
+            </div>
+            <div class="container px-2 w-50">
+                <div class="card w-100" style="width: 18rem;">
+                    <div class="card-header bg-secondary">
+                        <i class="fas fa-hand-pointer"></i>
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Self-Collect</span
+                            style="font-size: 20px;">
+                    </div>
+                    <div class="card-body py-0">
+                        <div class="row">
+                            <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
+                                <span class="text-white pt-4 d-block">Received : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_received ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
+                                <span class="text-white pt-4 d-block">Procesing : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_process ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-info border rounded">
+                                <span class="text-white pt-4 d-block">Ready to collect : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_ready ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto mt-2 bg-success border rounded">
+                                <span class="text-white pt-4 d-block">Collected : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_collect ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2 bg-danger border rounded">
+                                <span class="text-white pt-4 d-block">Cancelled : </span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_cancelled ?></span>
+                            </div>
+                            <div class=" col-5 mx-auto my-2"></div>
                         </div>
                         <div class="card-body py-0">
                             <div class="row">
@@ -136,6 +199,66 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                 </div>
             </div>
 
+            <div class="row mt-5">
+                <div class="container px-2 w-50">
+                    <div class="card w-100" style="width: 18rem;">
+                        <div class="card-header bg-secondary">
+                            <i class="far fa-chart-bar"></i>
+                            <span style="font-size: 20px;  " class="text-white d-inline-block py-1">Order</span
+                                style="font-size: 20px;">
+                        </div>
+                        <div class="card-body py-0">
+                            <div class="row">
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script type="text/javascript">
+                                google.charts.load('current', {
+                                    'packages': ['corechart']
+                                });
+                                google.charts.setOnLoadCallback(drawChart);
+
+                                function drawChart() {
+
+                                    var data = google.visualization.arrayToDataTable([
+                                        ['Task', 'Number sales per Day'],
+                                        ['Received', 11],
+                                        ['Cancelled', 2],
+                                        ['Delivered', 2],
+                                        ['Ready to collect', 7]
+                                    ]);
+
+                                    var options = {
+                                        title: 'Daily Activities'
+                                    };
+
+                                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                                    chart.draw(data, options);
+                                }
+                                </script>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container px-2 w-50">
+                    <div class="card w-100" style="width: 18rem;">
+                        <div class="card-header bg-secondary">
+                            <i class="fas fa-chart-pie"></i>
+                            <span style="font-size: 20px;" class="text-white d-inline-block py-1">Product Sales</span
+                                style="font-size: 20px;">
+                        </div>
+                        <div class="card-body py-0">
+                            <div class="row">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
 
 
@@ -146,5 +269,9 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
     </main>
 </body>
 <?php include_once("./templates/footer.php"); ?>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="piechart" style="width: 800px; height:400px; padding-left:350px; "></div>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
 
 </html>
