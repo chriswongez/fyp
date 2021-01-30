@@ -22,18 +22,18 @@
     ?>
 
     <div class="container-fluid">
-        <header>
-
-
-            <div class="social-icons">
-                <i class="far fa-bell"></i>
-                <i class="far fa-comments"></i>
-                <div></div>
-            </div>
-        </header>
         <div class="row">
             <div class="col-9">
-                <h2>Dashboard</h2>
+                <div class="d-flex flex-row">
+
+                    <h2 class="d-flex align-items-center">Dashboard</h2>
+
+                    <i class="far fa-bell ml-3 d-flex align-items-center"></i>
+                    <i class="far fa-comments ml-3 d-flex align-items-center"></i>
+
+
+                </div>
+
             </div>
             <div class="col-3">
                 <i class="fas fa-search"></i>

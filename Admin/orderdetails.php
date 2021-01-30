@@ -1,3 +1,12 @@
+<?php session_start();
+include("../php/dbconnect.php");
+include_once("./templates/top.php");
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,24 +17,18 @@
     <title>Document</title>
 </head>
 
-
-<?php session_start();
-include("../php/dbconnect.php");
-include_once("./templates/top.php");
-?>
-
 <body>
     <div class="container-fluid">
         <div class="row">
 
 
             <?php include("./Adminnavbar.php")
-			?>
+            ?>
 
 
             <div class="row">
                 <div class="col-10">
-                    <h2>Orders</h2>
+                    <h2>Orders Details for </h2>
                 </div>
             </div>
 
@@ -43,9 +46,9 @@ include_once("./templates/top.php");
                     </thead>
                     <tbody id="customer_order_list">
                         <?php
-						$result = mysqli_query($con, "SELECT * FROM orderhistory,users where orderhistory.userID = users.userID");
-						while ($row = mysqli_fetch_assoc($result)) {
-							echo "<tr>
+                        $result = mysqli_query($con, "SELECT * FROM orderhistory,users where orderhistory.userID = users.userID");
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
                         <td class='align-middle'><a href='./orderdetails.php?id=" . $row['orderID'] . "'>" . $row['orderID'] . "</a></td>
                         <td class='align-middle'>" . $row['username'] . "</td>
                         <td class='align-middle'>" . $row['orderDate'] . "</td>
@@ -53,8 +56,8 @@ include_once("./templates/top.php");
                         <td class='align-middle text-center'>" . $row['orderMethod'] . "</td>
                         <td class='align-middle text-center'>" . $row['orderStatus'] . "</td>
                     </tr>";
-						}
-						?>
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

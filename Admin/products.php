@@ -7,20 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Management</title>
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <script src="../js/jquery-3.5.1.min.js"></script>
 </head>
 
-<script src="../js/jquery-3.5.1.min.js"></script>
-
-<?php include_once("./templates/top.php"); ?>
 <?php
-// include_once("./templates/navbar.php"); 
-?>
-<?php
+include_once("./templates/top.php");
 include("../php/dbconnect.php");
 ?>
 
 <body>
-
 
     <div class="container-fluid">
         <div class="row">
