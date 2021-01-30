@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="sidebar-header">
         <h3 class="brand">
-            <span class="title">Foodie</span>
+            <span class="title"></span>
             <i class="fas fa-bars"></i>
         </h3>
     </div>

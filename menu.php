@@ -134,7 +134,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
 			          <div class='food-img-con' style='height: 130px;'><img src='./product/" . $row['productImg'] . "'></div>
-                <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
+                <p class='food-title'>" . $row['productName'] . " <br><span class='food-price'>RM " . number_format((float)$row['productPrice'], 2, '.', '') . "</span></p>
                 <p class='food-desc'>" . $row['productDesc'] . "</p>
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
                 </div>

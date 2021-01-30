@@ -23,8 +23,10 @@ if (isset($_POST['logusername'])) {
     if ($rows == 1) {
         $_SESSION['username'] = $username;
         $_SESSION['userlevel'] = $row['userlevel'];
+        $_SESSION['userID'] = $row['userID'];
         unset($_SESSION["cart"]);
         unset($_SESSION["menustat"]);
+        unset($_SESSION['totalprice']);
         echo "<script>
       alert('You are now logged in as " . $_SESSION['username'] . "');
       window.location.href='./index.php';
