@@ -223,7 +223,7 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                                         ['Received', 11],
                                         ['Cancelled', 2],
                                         ['Delivered', 2],
-                                        ['Ready to collect', 7]
+
                                     ]);
 
                                     var options = {
