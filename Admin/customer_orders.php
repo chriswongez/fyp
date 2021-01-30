@@ -20,7 +20,7 @@ include_once("./templates/top.php");
 
 
             <?php include("./Adminnavbar.php")
-			?>
+            ?>
 
 
             <div class="row">
@@ -43,9 +43,9 @@ include_once("./templates/top.php");
                     </thead>
                     <tbody id="customer_order_list">
                         <?php
-						$result = mysqli_query($con, "SELECT * FROM orderhistory,users where orderhistory.userID = users.userID");
-						while ($row = mysqli_fetch_assoc($result)) {
-							echo "<tr>
+                        $result = mysqli_query($con, "SELECT * FROM orderhistory,users where orderhistory.userID = users.userID ORDER BY orderID DESC");
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
                         <td class='align-middle'><a href='./orderdetails.php?id=" . $row['orderID'] . "'>" . $row['orderID'] . "</a></td>
                         <td class='align-middle'>" . $row['username'] . "</td>
                         <td class='align-middle'>" . $row['orderDate'] . "</td>
@@ -53,8 +53,8 @@ include_once("./templates/top.php");
                         <td class='align-middle text-center'>" . $row['orderMethod'] . "</td>
                         <td class='align-middle text-center'>" . $row['orderStatus'] . "</td>
                     </tr>";
-						}
-						?>
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

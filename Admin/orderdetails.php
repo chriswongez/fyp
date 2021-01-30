@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
         $method = "Delivery";
     $contact = $row['usercontact'];
     $email = $row['useremail'];
+    $status = $row['orderStatus'];
 }
 ?>
 
@@ -47,12 +48,13 @@ if (isset($_GET['id'])) {
             <div class="container">
                 <div class="row">
                     <div class="col-7">
+                        <h3>Status : <span class="text-danger"><?php echo $status ?></span></h3>
                         <table class="table table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>Product Code</th>
+                                    <th class='text-center'>Product Code</th>
                                     <th>Product Name</th>
-                                    <th>Product Quantity</th>
+                                    <th class='text-center'>Product Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,9 +63,9 @@ if (isset($_GET['id'])) {
                                 $result = mysqli_query($con, $query);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>
-                                    <td>" . $row['productCode'] . "</td>
+                                    <td class='text-center'>" . $row['productCode'] . "</td>
                                     <td>" . $row['productName'] . "</td>
-                                    <td>" . $row['quantity'] . "</td>
+                                    <td class='text-center'>" . $row['quantity'] . "</td>
                                 </tr>";
                                 }
                                 ?>
