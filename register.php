@@ -22,6 +22,7 @@ if (isset($_REQUEST['regusername'])) {
         alert('Username in used!\\nPlease try again.');
         window.location.href='./register.php';
         </script>";
+            exit;
         } else {
             //if password match and no username in use, register account to system
             $query = "INSERT into `users` (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";

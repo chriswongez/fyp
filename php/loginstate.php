@@ -1,5 +1,4 @@
 <?php
-$status = "";
 if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login status
     echo "<script>
     alert('You are not logged in!\\nRedirecting you to login page...');

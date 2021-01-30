@@ -139,7 +139,7 @@ if (!empty($_SESSION['cart'])) { //count cart item
 
                     echo "<li class='dropdown-btn'><a id='acc-btn'>Account</a>
                     <div class='dropdown-content'>
-                        <a id='acc-drop-btn' href=''>Account</a>
+                        <a id='acc-drop-btn' href='./user/'>Edit profile</a>
                         <a id='acc-drop-btn' href='logout.php'>Logout</a>
                     </div>
                 </li>";
