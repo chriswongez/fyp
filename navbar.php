@@ -126,6 +126,7 @@ if (!empty($_SESSION['cart'])) { //count cart item
         <a href="./index.php"><img src="images/logo.png" class="logo" /></a>
         <nav>
             <ul>
+
                 <?php
                 if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) { //check login state then show cart cart
                     echo "<li><a id='cart-btn' href='./cart.php'>Cart <span id='cart-num'>" . $cart_count  . "</span> </a></li>";
@@ -140,6 +141,7 @@ if (!empty($_SESSION['cart'])) { //count cart item
                     echo "<li class='dropdown-btn'><a id='acc-btn'>Account</a>
                     <div class='dropdown-content'>
                         <a id='acc-drop-btn' href='./user/'>Edit profile</a>
+                        <a id='acc-drop-btn' href='./user/order_history.php'>Order History</a>
                         <a id='acc-drop-btn' href='logout.php'>Logout</a>
                     </div>
                 </li>";
@@ -157,6 +159,7 @@ if (!empty($_SESSION['cart'])) { //count cart item
 
                 ?>
                 <li><a id="menu-btn" href="./menu.php">Menu</a></li>
+                <li><a id="about-btn" href="./aboutus.php">About Us</a></li>
                 <li><a id="home-btn" href="./index.php">Home</a></li>
                 <?php
                 if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {

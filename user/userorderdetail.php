@@ -26,9 +26,10 @@ if (isset($_GET['id'])) {
             $statstr = "Order Received";
         else if ($status == 'process')
             $statstr = "Preparing Food";
-        else if ($status == 'ready')
+        else if ($status == 'ready') {
             $statstr = "Ready for Self-Collect";
-        else if ($status == 'cancel')
+            $statupdate = "Your order is ready to be collected";
+        } else if ($status == 'cancel')
             $statstr = "Order Cancelled";
         else if ($status == 'collected')
             $statstr = "Order Collected";
@@ -37,9 +38,10 @@ if (isset($_GET['id'])) {
             $statstr = "Order Received";
         else if ($status == 'process')
             $statstr = "Preparing Food";
-        else if ($status == 'delivering')
+        else if ($status == 'delivering') {
             $statstr = "Delivering";
-        else if ($status == 'delivered')
+            $statupdate = "Your order is delivering";
+        } else if ($status == 'delivered')
             $statstr = "Food Delivered";
         else if ($status == 'cancel')
             $statstr = "Order Cancelled";
@@ -74,39 +76,77 @@ if (isset($_GET['id'])) {
             <div class="container-fluid">
                 <div class="row">
                     <h3>Status : <span class="text-danger"><?php echo $statstr ?></h3>
+
+
                 </div>
+                <?php
+                if ($status == 'ready' || $status == 'delivering') {
+                    echo "<h4 class='text-success mt-1'>" . $statupdate . "</h4>";
+                }
+                ?>
                 <div class="row">
                     <div class="col-7">
                         <table class="table table-bordered">
                             <tbody>
-                                <tr class="">
-                                    <td style="width: 150px;" rowspan="2" class="p-0">
-                                        <img src="../product/bruger-cheddar-bites-shake-culvers-wisconsin.jpg"
-                                            class="img-fluid ">
+                                <?php
+                                $query = "SELECT * FROM orderhistory, users, product, orderitem where orderhistory.orderID = $id and orderhistory.userID = users.userID and orderhistory.orderID = orderitem.orderID and orderitem.productCode = product.productCode";
+                                $result = mysqli_query($con, $query);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>
+                                    <td style='width: 150px;' rowspan='2' class='p-0'>
+                                        <img style='' src='../product/" . $row['productImg'] . "'
+                                            class='img-fluid '>
                                     </td>
                                     <td>
-                                        <div class="container p-0">
-                                            <div class="row">
+                                        <div class='container p-0'>
+                                            <div class='row'>
 
-                                                <div class="col-3 ">Food Code</div>
-                                                <div class="col">Food Name</div>
+                                                <div class='col-3'>Product Code: " . $row['productCode'] . "</div>
+                                                <div class='col'>Product Name: " . $row['productName'] . "</div>
 
                                             </div>
                                         </div>
                                     </td>
-                                    <!-- <td>Food Name</td> -->
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="row">
-                                            <div class="col-10 text-right">Quantity</div>
-                                            <div class="col">1</div>
+                                        <div class='row'>
+                                            <div class='col-11 text-right'>Quantity : </div>
+                                            <div class='col'>" . $row['quantity'] . "</div>
                                         </div>
                                     </td>
-                                    <!-- <td>Number</td> -->
-                                </tr>
+                                </tr>";
+                                }
+                                ?>
                             </tbody>
                         </table>
+                    </div>
+                    <div style="height: 150px;" class="col bg-secondary rounded d-flex align-items-center">
+                        <div class="container">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h4 class=" text-white ">Order Date </h4>
+                                    </td>
+                                    <td>
+                                        <h4 class=" text-white "> : <?php echo $date ?></h4>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4 class=" text-white ">Order Method </h4>
+                                    </td>
+                                    <td>
+                                        <h4 class=" text-white "> : <?php echo $method ?></h4>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
