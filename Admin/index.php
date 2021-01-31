@@ -62,29 +62,35 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                 <div class="card w-100" style="width: 18rem;">
                     <div class="card-header bg-secondary">
                         <i class="fas fa-cart-arrow-down"></i>
-                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Delivery</span style="font-size: 20px;">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Delivery</span
+                            style="font-size: 20px;">
                     </div>
                     <div class="card-body py-0">
                         <div class="row">
                             <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
                                 <span class="text-white pt-4 d-block">Received : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $deli_received ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_received ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
                                 <span class="text-white pt-4 d-block">Procesing : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $deli_process ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_process ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-info border rounded">
                                 <span class="text-white pt-4 d-block">Delivering : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $deli_delivering ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivering ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-success border rounded">
                                 <span class="text-white pt-4 d-block">Delivered : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $deli_delivered ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_delivered ?></span>
                             </div>
                             <div class=" col-5 mx-auto my-2 bg-danger border rounded">
                                 <span class="text-white pt-4 d-block">Cancelled : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $deli_cancelled ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $deli_cancelled ?></span>
                             </div>
                             <div class=" col-5 mx-auto my-2"></div>
                         </div>
@@ -96,29 +102,35 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                 <div class="card w-100" style="width: 18rem;">
                     <div class="card-header bg-secondary">
                         <i class="fas fa-hand-pointer"></i>
-                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Self-Collect</span style="font-size: 20px;">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Self-Collect</span
+                            style="font-size: 20px;">
                     </div>
                     <div class="card-body py-0">
                         <div class="row">
                             <div class=" col-5 mx-auto mt-2 bg-primary border rounded">
                                 <span class="text-white pt-4 d-block">Received : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $self_received ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_received ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-warning border rounded">
                                 <span class="text-white pt-4 d-block">Procesing : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $self_process ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_process ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-info border rounded">
                                 <span class="text-white pt-4 d-block">Ready to collect : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $self_ready ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_ready ?></span>
                             </div>
                             <div class=" col-5 mx-auto mt-2 bg-success border rounded">
                                 <span class="text-white pt-4 d-block">Collected : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $self_collect ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_collect ?></span>
                             </div>
                             <div class=" col-5 mx-auto my-2 bg-danger border rounded">
                                 <span class="text-white pt-4 d-block">Cancelled : </span>
-                                <span style="font-size: 20px;" class=" text-white pb-4 d-block"><?php echo $self_cancelled ?></span>
+                                <span style="font-size: 20px;"
+                                    class=" text-white pb-4 d-block"><?php echo $self_cancelled ?></span>
                             </div>
                             <div class=" col-5 mx-auto my-2"></div>
                         </div>
@@ -132,7 +144,8 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                 <div class="card w-100" style="width: 18rem;">
                     <div class="card-header bg-secondary">
                         <i class="fas fa-cart-arrow-down"></i>
-                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order</span style="font-size: 20px;">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order</span
+                            style="font-size: 20px;">
                     </div>
                     <div class="card-body py-0">
                         <div class="row">
@@ -148,7 +161,8 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                 <div class="card w-100" style="width: 18rem;">
                     <div class="card-header bg-secondary">
                         <i class="fas fa-hand-pointer"></i>
-                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Product Sales</span style="font-size: 20px;">
+                        <span style="font-size: 20px;" class="text-white d-inline-block py-1">Product Sales</span
+                            style="font-size: 20px;">
                     </div>
                     <div class="card-body py-0">
                         <div class="row">

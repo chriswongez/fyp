@@ -37,6 +37,7 @@
     font-size: 20px;
     color: #818181;
     display: block;
+    transition: all 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -67,6 +68,12 @@ header {
     text-align: center;
     padding: 18px 20px;
     margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+header:hover {
+    padding-left: 25px;
 }
 
 .sidenav p {
@@ -79,19 +86,20 @@ header {
     color: white;
     margin-left: 1.0rem;
     font-size: 12pt;
+    text-indent: 10px;
 }
 </style>
 
 <div class="sidenav sidebar col-2">
 
-    <header>Foodie</header>
-    <p>Logged as</p>
-    <span><?php
+    <header onclick="location.href ='../'">Foodie</header>
+    <p>Logged as - </p>
+    <span> <?php
             echo $_SESSION['username'];
             ?></span>
     <a href="./index.php">User Information</a>
     <a href="./order_history.php">Order History</a>
     <a href="./account_info.php">Account</a>
-    <button class="button" onclick="location.href ='../logout.php'">Log out</button>
+    <button class="btn btn-secondary btn-lg" onclick="location.href ='../logout.php'">Log out</button>
 
 </div>
