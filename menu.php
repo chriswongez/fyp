@@ -73,7 +73,6 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Make Orders</title>
-
     <link rel="stylesheet" href="./css/w3.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/menu.css" />
@@ -106,17 +105,20 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>
             <?php
-      if (isset($_SESSION['setmethod'])) {
-        echo "<form action='./php/chgmethod.php' method='post'>
-                <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button type='submit'>Change</button>
-                </h3>
-            </form>";
-      } else {
-        echo "<form action='./php/chgmethod.php' method='post'>
-        <h3 class='method-text'>Method selected: <span id='method'></span> <button type='submit'>Change</button>
-        </h3>
-    </form>";
+      if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['setmethod'])) {
+          echo "<form action='./php/chgmethod.php' method='post'>
+                  <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button type='submit'>Change</button>
+                  </h3>
+              </form>";
+        } else {
+          echo "<form action='./php/chgmethod.php' method='post'>
+          <h3 class='method-text'>Method selected: <span id='method'></span> <button type='submit'>Change</button>
+          </h3>
+      </form>";
+        }
       }
+
       ?>
             <p class="menu-title"></p>
             <!-- <form action="" method="post">
@@ -161,6 +163,13 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             </div>
         </div>
     </div>
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="text-dark">&copy;2020 Foodie. All Right Reserved.</p>
+        </div>
+
+    </footer>
+
 </body>
 
 </html>
@@ -235,12 +244,7 @@ $('#selfc').on('click', function() {
 </script>
 
 <?php
-if (isset($_SESSION['setmethod'])) {
-  # code...
-}
-//$_SESSION["cart"] = array("hi");
-//unset($_SESSION["cart"]);
-if (!empty($_SESSION['setmethod'])) {
+if (!empty($_SESSION['setmethod']) || empty($_SESSION['username'])) {
   echo '<script type="text/javascript">',
   'goToBottom("test");',
   '</script>';

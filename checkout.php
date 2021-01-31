@@ -19,7 +19,7 @@ if (!empty($_SESSION['cart'])) {
 
 <body>
 
-    <h2>Shopping Cart</h2>
+    <h2>Checkout</h2>
 
     <div class="row">
         <div class="col-75">
@@ -146,7 +146,9 @@ if (!empty($_SESSION['cart'])) {
             </div>
         </div>
     </div>
-
+    <?php
+    include('./php/footer.php');
+    ?>
 </body>
 
 </html>

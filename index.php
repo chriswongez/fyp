@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+unset($_SESSION["cart"]);
+unset($_SESSION["menustat"]);
+unset($_SESSION['setmethod']);
+unset($_SESSION['setvalue']);
+unset($_SESSION['totalprice']);
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="./css/mainpage.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
     <script></script>
 </head>
 
@@ -21,9 +26,9 @@ session_start();
     <?php include "./navbar.php"; ?>
 
     <script>
-        window.onload = () => {
-            document.getElementById("home-btn").classList.add("active");
-        };
+    window.onload = () => {
+        document.getElementById("home-btn").classList.add("active");
+    };
     </script>
 
     <section id="home">
@@ -138,9 +143,9 @@ session_start();
         </div>
     </section>
 
-    <footer>
-        <div class="center">copyright&copy;www.FOS.com.All right reserved!</div>
-    </footer>
+    <?php
+    include('./php/footer.php');
+    ?>
 </body>
 
 </html>

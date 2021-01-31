@@ -57,7 +57,7 @@ if (isset($_REQUEST['regusername'])) {
     <title>Register Account</title>
 </head>
 
-<body class="w3-khaki">
+<body class="">
     <?php include "./navbar.php"; ?>
 
     <div class="w3-container w3-card w3-round-large w3-sand register">
@@ -116,6 +116,10 @@ if (isset($_REQUEST['regusername'])) {
             </form>
         </div>
     </div>
+    <footer>
+        &copy;2020 Foodie. All Right Reserved.
+
+    </footer>
 </body>
 
 </html>

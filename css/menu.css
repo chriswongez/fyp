@@ -232,3 +232,13 @@
   right: 20px;
   top: 65px;
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  padding-left: 10rem;
+}
