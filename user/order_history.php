@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../php/loginstate.php');
+include('../php/dbconnect.php');
+$userID = $_SESSION['userID'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,13 +44,26 @@ include('../php/loginstate.php');
             <hr>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="thead-dark">
-                    <th>Order detail</th>
+                    <th>Order ID</th>
                     <th>Order date</th>
+                    <th>Amount Paid</th>
                     <th>Order method</th>
                     <th>Status</th>
-                    <th>Amount Paid</th>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <?php
+                    $result = mysqli_query($con, "SELECT * FROM orderhistory WHERE userID = '$userID' ORDER BY orderID DESC");
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                        <td class='align-middle'><a href='./userorderdetail.php?id=" . $row['orderID'] . "'>" . $row['orderID'] . "</a></td>
+                        <td class='align-middle'>" . $row['orderDate'] . "</td>
+                        <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
+                        <td class='align-middle text-center'>" . $row['orderMethod'] . "</td>
+                        <td class='align-middle text-center'>" . $row['orderStatus'] . "</td>
+                    </tr>";
+                    }
+                    ?>
+                </tbody>
 
             </table>
         </div>
