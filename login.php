@@ -142,57 +142,12 @@ if (isset($_REQUEST['regusername'])) {
 
             </form>
             <h6>Not a user? <a href="./register.php">Register here</a></h6>
-            <!-- <form action="" method="post">
-                <input type="hidden" name="reset">
-                <input type="submit" value="reset">
-            </form> -->
-
-            <!-- <div class="vl"></div>
-            <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">
-                <h3>Register</h3>
-                <table>
-                    <tr>
-                        <td>
-                            <p>Username:</p>
-                        </td>
-                        <td>
-                            <p><input type="text" name="regusername" placeholder="Username" required /></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Password:</p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="password" name="regpassword" placeholder="Mininum 8 characters"
-                                    minlength="8" required />
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Confirm Password:</p>
-                        </td>
-                        <td>
-                            <input type="password" name="regconpassword" placeholder="Confirm password" required />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>E-mail:</p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="email" name="regemail" placeholder="example@xxx.com" required />
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" class="w3-orange w3-round w3-text-white" value="Register" />
-            </form> -->
         </div>
     </div>
+    <footer>
+        &copy;2020 Foodie. All Right Reserved.
+
+    </footer>
 </body>
 
 <script>
