@@ -74,11 +74,11 @@ include_once("./templates/top.php");
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-7">
+                    <div class="col-7 ">
                         <h3>Status : <span class="text-danger"><?php echo $statstr ?></span></h3>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered w-100">
                             <thead class="thead-dark">
                                 <tr>
                                     <th class='text-center'>Product Code</th>
@@ -101,8 +101,8 @@ include_once("./templates/top.php");
                             </tbody>
                         </table>
                     </div>
-                    <div class="col bg-light border rounded p-2 px-auto">
-                        <table class="table-sm  table-striped">
+                    <div class="col bg-light border rounded p-2 px-auto ">
+                        <table class="table  table-striped mx-auto">
                             <tr>
                                 <td>Order ID : </td>
                                 <td><?php echo $id ?></td>
@@ -130,16 +130,13 @@ include_once("./templates/top.php");
 
                         </table>
                         <div class="dropdown show">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Change Status
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
                                 <?php
                                 if ($methodcode == 'selfc') {
                                     echo "<a class='dropdown-item'
@@ -153,8 +150,7 @@ include_once("./templates/top.php");
                                     href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
                                 }
                                 ?>
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
                             </div>
                         </div>
                     </div>

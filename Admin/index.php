@@ -28,7 +28,7 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
 </head>
 
 <body>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <main role="main" class="col-md-10 mx-auto col-lg-10 px-4">
         <?php
         include_once("./templates/top.php");
         include("./Adminnavbar.php");
@@ -186,7 +186,36 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
                         </div>
                         <div class="card-body py-0">
                             <div class="row">
+<<<<<<< HEAD
 
+=======
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script type="text/javascript">
+                                    google.charts.load('current', {
+                                        'packages': ['corechart']
+                                    });
+                                    google.charts.setOnLoadCallback(drawChart);
+
+                                    function drawChart() {
+
+                                        var data = google.visualization.arrayToDataTable([
+                                            ['Task', 'Number sales per Day'],
+                                            ['Received', 11],
+                                            ['Cancelled', 2],
+                                            ['Delivered', 2],
+
+                                        ]);
+
+                                        var options = {
+                                            title: 'Daily Activities'
+                                        };
+
+                                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                                        chart.draw(data, options);
+                                    }
+                                </script>
+>>>>>>> ea61b04967b474a5556de586ba9bc6fee7b2a82a
                             </div>
 
                         </div>
