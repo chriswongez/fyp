@@ -58,8 +58,35 @@ $userID = $_SESSION['userID'];
                         <td class='align-middle'><a href='./userorderdetail.php?id=" . $row['orderID'] . "'>" . $row['orderID'] . "</a></td>
                         <td class='align-middle'>" . $row['orderDate'] . "</td>
                         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-                        <td class='align-middle text-center'>" . $row['orderMethod'] . "</td>
-                        <td class='align-middle text-center'>" . $row['orderStatus'] . "</td>
+                        ";
+                        $status = $row['orderStatus'];
+                        if ($row['orderMethod'] == 'selfc') {
+                            $method = "Self Collect";
+                            if ($status == 'received')
+                                $statstr = "Order Received";
+                            else if ($status == 'process')
+                                $statstr = "Preparing Food";
+                            else if ($status == 'ready')
+                                $statstr = "Ready for Self-Collect";
+                            else if ($status == 'cancel')
+                                $statstr = "Order Cancelled";
+                            else if ($status == 'collected')
+                                $statstr = "Order Collected";
+                        } else if ($row['orderMethod'] == 'delivery') {
+                            $method = "Delivery";
+                            if ($status == 'received')
+                                $statstr = "Order Received";
+                            else if ($status == 'process')
+                                $statstr = "Preparing Food";
+                            else if ($status == 'delivering')
+                                $statstr = "Delivering";
+                            else if ($status == 'delivered')
+                                $statstr = "Food Delivered";
+                            else if ($status == 'cancel')
+                                $statstr = "Order Cancelled";
+                        }
+                        echo "<td class='align-middle text-center'>" . $method . "</td>
+                        <td class='align-middle text-center'>" . $statstr . "</td>
                     </tr>";
                     }
                     ?>

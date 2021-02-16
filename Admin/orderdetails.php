@@ -88,7 +88,8 @@ include_once("./templates/top.php");
                             </thead>
                             <tbody>
                                 <?php
-                                $query = "SELECT * FROM orderhistory, users, product, orderitem where orderhistory.orderID = $id and orderhistory.userID = users.userID and orderhistory.orderID = orderitem.orderID and orderitem.productCode = product.productCode";
+                                $query = "SELECT * FROM orderhistory, users, product, orderitem where orderhistory.orderID = $id and 
+                                orderhistory.userID = users.userID and orderhistory.orderID = orderitem.orderID and orderitem.productCode = product.productCode";
                                 $result = mysqli_query($con, $query);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>
@@ -130,13 +131,16 @@ include_once("./templates/top.php");
 
                         </table>
                         <div class="dropdown show">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Change Status
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
-                                <a class="dropdown-item" href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
                                 <?php
                                 if ($methodcode == 'selfc') {
                                     echo "<a class='dropdown-item'
@@ -150,7 +154,8 @@ include_once("./templates/top.php");
                                     href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
                                 }
                                 ?>
-                                <a class="dropdown-item" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
+                                <a class="dropdown-item"
+                                    href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,13 @@ if (isset($_POST['logusername'])) {
     $rows = mysqli_num_rows($result);
     $row = mysqli_fetch_assoc($result);
     // $_SESSION['result'] = $row['userlevel'] . " " . $row['username'];
-    if ($rows == 1) {
+    if ($rows == 1 && $row['isBlock'] == 1) {
+        echo "<script>
+      alert('Your account is blocked! Please contact us!');
+      window.location.href='./index.php';
+      </script>";
+        exit;
+    } else if ($rows == 1) {
         $_SESSION['username'] = $username;
         $_SESSION['userlevel'] = $row['userlevel'];
         $_SESSION['userID'] = $row['userID'];

@@ -7,60 +7,60 @@ require_once('./php/dbconnect.php');
 //unset($_SESSION["cart"]);
 $status = "";
 if (isset($_POST['reset'])) { //debug reset button
-  unset($_SESSION["cart"]);
-  unset($_SESSION["menustat"]);
-  unset($_SESSION['setmethod']);
-  unset($_SESSION['setvalue']);
-}
-if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
-  if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login state
     unset($_SESSION["cart"]);
     unset($_SESSION["menustat"]);
     unset($_SESSION['setmethod']);
     unset($_SESSION['setvalue']);
-    echo "<script>
+}
+if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
+    if (empty($_SESSION['username']) && empty($_SESSION['userlevel'])) { //check login state
+        unset($_SESSION["cart"]);
+        unset($_SESSION["menustat"]);
+        unset($_SESSION['setmethod']);
+        unset($_SESSION['setvalue']);
+        echo "<script>
     alert('You are not logged in!\\nRedirecting you to login page...');
     window.location.href = './login.php';
     </script>";
-    exit;
-  }
-  $foodCode = $_POST['food']; //get product by id
-  $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'"); //retreive product information from the database with id
-  $row = mysqli_fetch_assoc($result);
-  $name = $row['productName'];
-  $foodCode = $row['productCode'];
-  $price = $row['productPrice'];
-  $productImg = $row['productImg'];
+        exit;
+    }
+    $foodCode = $_POST['food']; //get product by id
+    $result = mysqli_query($con, "SELECT * FROM product WHERE productCode ='$foodCode'"); //retreive product information from the database with id
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['productName'];
+    $foodCode = $row['productCode'];
+    $price = $row['productPrice'];
+    $productImg = $row['productImg'];
 
-  $cartArray = array( //set product information to array
-    $foodCode => array(
-      'name' => $name,
-      'productCode' => $foodCode,
-      'price' => $price,
-      'quantity' => 1,
-      'productImg' => $productImg
-    )
-  );
-  // $status = $foodCode;
+    $cartArray = array( //set product information to array
+        $foodCode => array(
+            'name' => $name,
+            'productCode' => $foodCode,
+            'price' => $price,
+            'quantity' => 1,
+            'productImg' => $productImg
+        )
+    );
+    // $status = $foodCode;
 
-  if (empty($_SESSION['cart'])) { //check if cart session empty
-    $_SESSION["cart"] = $cartArray;
-    $status = "<div class='box'>Product is added to your cart!</div>";
-  } else {
-    $array_keys = array_keys($_SESSION["cart"]); //get cart array from cart session
+    if (empty($_SESSION['cart'])) { //check if cart session empty
+        $_SESSION["cart"] = $cartArray;
+        $status = "<div class='box'>Product is added to your cart!</div>";
+    } else {
+        $array_keys = array_keys($_SESSION["cart"]); //get cart array from cart session
 
-    if (in_array($foodCode, $array_keys)) { //check if item already in cart carry
-      $status = "<div class='box' style='color:red;'>
+        if (in_array($foodCode, $array_keys)) { //check if item already in cart carry
+            $status = "<div class='box' style='color:red;'>
     Product is already added to your cart!<br/>
     <h6>Note: You can change the quantity of added product in the cart</h1>
     </div>";
-    } else { //set array to cart session
+        } else { //set array to cart session
 
-      // $_SESSION["cart"] = array_merge($_SESSION["cart"], $cartArray);
-      $_SESSION["cart"] = $_SESSION["cart"] + $cartArray;
-      $status = "<div class='box'>Product is added to your cart!</div>";
+            // $_SESSION["cart"] = array_merge($_SESSION["cart"], $cartArray);
+            $_SESSION["cart"] = $_SESSION["cart"] + $cartArray;
+            $status = "<div class='box'>Product is added to your cart!</div>";
+        }
     }
-  }
 }
 
 ?>
@@ -99,27 +99,27 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
 
         <div id="menu" class="menu w3-card">
             <?php
-      // print_r($_SESSION["cart"]);
-      ?>
+            // print_r($_SESSION["cart"]);
+            ?>
             <!-- <span id="bevebutcount"></span> -->
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>
             <?php
-      if (isset($_SESSION['username'])) {
-        if (isset($_SESSION['setmethod'])) {
-          echo "<form action='./php/chgmethod.php' method='post'>
+            if (isset($_SESSION['username'])) {
+                if (isset($_SESSION['setmethod'])) {
+                    echo "<form action='./php/chgmethod.php' method='post'>
                   <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button type='submit'>Change</button>
                   </h3>
               </form>";
-        } else {
-          echo "<form action='./php/chgmethod.php' method='post'>
+                } else {
+                    echo "<form action='./php/chgmethod.php' method='post'>
           <h3 class='method-text'>Method selected: <span id='method'></span> <button type='submit'>Change</button>
           </h3>
       </form>";
-        }
-      }
+                }
+            }
 
-      ?>
+            ?>
             <p class="menu-title"></p>
             <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
@@ -130,9 +130,9 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
 
             <div id="food-menu-con" class="food-menu-con">
                 <?php
-        $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'food'");
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<form action='' method='post' class='food-con-wrapper'>
+                $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'food' AND isHide='0'");
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
 			          <div class='food-img-con' style='height: 130px;'><img src='./product/" . $row['productImg'] . "'></div>
@@ -141,15 +141,15 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
                 </div>
         </form>";
-        }
-        ?>
+                }
+                ?>
             </div>
             <!-- beverage menu below -->
             <div id="beve-menu-con" class="beve-menu-con">
                 <?php
-        $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'beve'");
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<form action='' method='post' class='food-con-wrapper'>
+                $result = mysqli_query($con, "SELECT * FROM `product` where productCategory = 'beve' AND isHide='0'");
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
 			          <div class='food-img-con'><img src='./product/" . $row['productImg'] . "'></div>
@@ -158,8 +158,8 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
                 <button type='submit' class='btn-addtocart '>Add to cart</button>
                 </div>
                 </form>";
-        }
-        ?>
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -245,17 +245,17 @@ $('#selfc').on('click', function() {
 
 <?php
 if (!empty($_SESSION['setmethod']) || empty($_SESSION['username'])) {
-  echo '<script type="text/javascript">',
-  'goToBottom("test");',
-  '</script>';
-  if (isset($_SESSION['menustat']) && $_SESSION['menustat'] == 'beve') {
     echo '<script type="text/javascript">',
-    'showBeve("test");',
+    'goToBottom("test");',
     '</script>';
-  }
+    if (isset($_SESSION['menustat']) && $_SESSION['menustat'] == 'beve') {
+        echo '<script type="text/javascript">',
+        'showBeve("test");',
+        '</script>';
+    }
 } else {
-  echo '<script type="text/javascript">',
-  'start();',
-  '</script>';
+    echo '<script type="text/javascript">',
+    'start();',
+    '</script>';
 }
 ?>

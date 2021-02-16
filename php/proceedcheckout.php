@@ -8,7 +8,8 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
     $total = $_SESSION['totalprice'];
     $method = $_SESSION['setmethod'];
     $id = $_SESSION['userID'];
-    $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID) VALUES ('$datetimenow', $total , '$method', 'received', $id);";
+    $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID) 
+    VALUES ('$datetimenow', $total , '$method', 'received', $id);";
     $result = mysqli_query($con, $query);
     $orderID = mysqli_insert_id($con);
     if ($result) {
@@ -18,7 +19,8 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
         foreach ($_SESSION["cart"] as $product) {
             $prodCode = $product['productCode'];
             $quantity = $product['quantity'];
-            $query = "INSERT into orderitem (orderID, productCode, quantity) VALUES ('$orderID', '$prodCode' , $quantity);";
+            $query = "INSERT into orderitem (orderID, productCode, quantity) 
+            VALUES ('$orderID', '$prodCode' , $quantity);";
             $result = mysqli_query($con, $query);
         }
     }

@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php session_start();
+include('./php/dbconnect.php');
+
+if (isset($_POST['confirmhide'])) {
+    $productCode = $_POST['confirmhide'];
+    $query = "UPDATE product SET isHide = '1' WHERE productCode = '$productCode' ";
+    $result = mysqli_query($con, $query);
+} else if (isset($_POST['confirmunhide'])) {
+    $productCode = $_POST['confirmunhide'];
+    $query = "UPDATE product SET isHide = '0' WHERE productCode = '$productCode' ";
+    $result = mysqli_query($con, $query);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,27 +65,26 @@ include("../php/dbconnect.php");
                         <?php
                         $result = mysqli_query($con, "SELECT * FROM `product`");
                         while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>
-                        <td class='align-middle text-center'>" . $row['productID'] . "</td>
+                            if ($row['isHide'] == 0) {
+                                echo "<tr>";
+                            } else if ($row['isHide'] == 1) {
+                                echo "<tr style='background-color:red'>";
+                            }
+                            echo "<td class='align-middle text-center'>" . $row['productID'] . "</td>
                         <td class='align-middle'>" . $row['productCode'] . "</td>
                         <td class='align-middle'>" . $row['productName'] . "</td>
                         <td class='align-middle'><img class='mx-auto d-block' height='70px' src='../product/" . $row['productImg'] . "' alt='' srcset=''></td>
                         <td class='align-middle text-center'>RM " . number_format((float)$row['productPrice'], 2, '.', '') . "</td>
                         <td class='align-middle text-center'>" . $row['productCategory'] . "</td>
-                        <td class='align-middle text-center'><a id='" . $row['productCode'] . "' class='btn btn-sm btn-info' data-toggle='modal' data-target='#edit_product_modal'>Edit</a><a class='btn btn-sm btn-danger'>Hide</a></td>
+                        <td class='align-middle text-center'><a id='" . $row['productCode'] . "' class='btn btn-sm btn-info' data-toggle='modal' data-target='#edit_product_modal'>Edit</a>";
+                            if ($row['isHide'] == 0)
+                                echo "<a id='" . $row['productCode'] . "' class='btn btn-sm btn-danger' data-toggle='modal' data-target='#hide_product_modal' onclick='passID(this.id)'>Hide</a>";
+                            else if ($row['isHide'] == 1)
+                                echo "<a id='" . $row['productCode'] . "' class='btn btn-sm btn-danger' data-toggle='modal' data-target='#unhide_product_modal' onclick='passID(this.id)'>Un-Hide</a>";
+                            echo "</td>
                     </tr>";
                         }
                         ?>
-
-                        <!-- <tr>
-                        <td>1</td>
-                        <td>ABC</td>
-                        <td>FDGR.JPG</td>
-                        <td>122</td>
-                        <td>eLECTRONCS</td>
-                        <td>aPPLE</td>
-                        <td><a class="btn btn-sm btn-info"></a><a class="btn btn-sm btn-danger">Delete</a></td>
-                    </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -227,6 +238,52 @@ include("../php/dbconnect.php");
         </div>
     </div>
     <!-- Edit Product Modal end -->
+
+    <div class="modal fade" id="hide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col">Do you want to hide this food from the menu?</div>
+                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmhide"
+                                    value="">Yes</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="unhide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col">Do you want to unhide this food and make it visible on the menu?</div>
+                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmunhide"
+                                    value="">Yes</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -272,6 +329,11 @@ $('<?php
         }
     });
 });
+
+function passID(code) {
+    document.querySelector('[name="confirmhide"]').setAttribute("value", code);
+    document.querySelector('[name="confirmunhide"]').setAttribute("value", code);
+}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">

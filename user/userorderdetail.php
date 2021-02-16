@@ -142,6 +142,15 @@ if (isset($_GET['id'])) {
                                     </td>
 
                                 </tr>
+                                <?php if ($status == 'received') {
+                                    echo "<tr>
+                                    <td>
+                                        <a class='btn btn-danger' data-toggle='modal'
+                                            data-target='#cancel_order_modal'>Cancel</a>
+                                    </td>
+                                </tr>";
+                                }
+                                ?>
 
                             </table>
 
@@ -153,6 +162,32 @@ if (isset($_GET['id'])) {
 
         </div>
     </main>
+    <div class="modal fade" id="cancel_order_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cancel Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="./cancelorder.php" method="post">
+                        <div class="row">
+                            <div class="col">
+                                Are you sure to cancel this order?
+                            </div>
+                            <div class="col-3">
+                                <input type="hidden" name="id" value="<?php echo $id ?>">
+                                <button type="submit" class="btn btn-primary">Yes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
