@@ -148,6 +148,7 @@ if (isset($_REQUEST['regusername'])) {
 
             </form>
             <h6>Not a user? <a href="./register.php">Register here</a></h6>
+            <h6>Forget Password? <a href="./resetpassword.php">Reset here</a></h6>
         </div>
     </div>
     <footer>
