@@ -15,18 +15,18 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
     $id = $_SESSION['userID'];
     $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID) 
     VALUES ('$datetimenow', $total , '$method', 'received', $id);";
-    // $result = mysqli_query($con, $query);
-    // $orderID = mysqli_insert_id($con);
-    // if ($result) {
-    //     echo "<br> Success";
-    // }
+    $result = mysqli_query($con, $query);
+    $orderID = mysqli_insert_id($con);
+    if ($result) {
+        echo "<br> Success";
+    }
     if (!empty($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $product) {
             $prodCode = $product['productCode'];
             $quantity = $product['quantity'];
             $query = "INSERT into orderitem (orderID, productCode, quantity) 
             VALUES ('$orderID', '$prodCode' , $quantity);";
-            // $result = mysqli_query($con, $query);
+            $result = mysqli_query($con, $query);
         }
     }
 
@@ -35,17 +35,7 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
     $userfn = $_POST['firstname'];
     $userln = $_POST['lastname'];
     $query = "UPDATE users SET usercontact = '$usercon', useremail = '$useremail', userfirst = '$userfn', userlast = '$userln' WHERE userID = $id;";
-    // $result = mysqli_query($con, $query);
-    // unset($_SESSION["cart"]);
-    // unset($_SESSION["menustat"]);
-    // unset($_SESSION['setmethod']);
-    // unset($_SESSION['setvalue']);
-    // unset($_SESSION['totalprice']);
-    // unset($_SESSION['date']);
-    // unset($_SESSION['email']);
-    // unset($_SESSION['first']);
-    // unset($_SESSION['last']);
-
+    $result = mysqli_query($con, $query);
     echo "<script>
     alert('Thank you for your order!');
     window.location.href='../receipt.php?orderid=" . $orderID . "';
@@ -57,17 +47,17 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
     $method = $_SESSION['setmethod'];
     $id = $_SESSION['userID'];
     $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID) VALUES ('$datetimenow', $total , '$method', 'received', $id);";
-    // $result = mysqli_query($con, $query);
-    // $orderID = mysqli_insert_id($con);
-    // if ($result) {
-    //     echo "<br> Success";
-    // }
+    $result = mysqli_query($con, $query);
+    $orderID = mysqli_insert_id($con);
+    if ($result) {
+        echo "<br> Success";
+    }
     if (!empty($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $product) {
             $prodCode = $product['productCode'];
             $quantity = $product['quantity'];
             $query = "INSERT into orderitem (orderID, productCode, quantity) VALUES ('$orderID', '$prodCode' , $quantity);";
-            // $result = mysqli_query($con, $query);
+            $result = mysqli_query($con, $query);
         }
     }
 
@@ -83,16 +73,7 @@ if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod']
     useremail = '$useremail', userfirst = '$userfn', userlast = '$userln', 
     userAdd = '$useradd', userCity = '$usercity', userState = '$userst', 
     userZip = '$userzip' WHERE userID = $id;";
-    // $result = mysqli_query($con, $query);
-    // unset($_SESSION["cart"]);
-    // unset($_SESSION["menustat"]);
-    // unset($_SESSION['setmethod']);
-    // unset($_SESSION['setvalue']);
-    // unset($_SESSION['totalprice']);
-    // unset($_SESSION['date']);
-    // unset($_SESSION['email']);
-    // unset($_SESSION['first']);
-    // unset($_SESSION['last']);
+    $result = mysqli_query($con, $query);
     echo "<script>
     alert('Thank you for your order!');
     window.location.href='../receipt.php?orderid=" . $orderID . "';
