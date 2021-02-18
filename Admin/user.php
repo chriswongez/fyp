@@ -60,7 +60,7 @@ if (isset($_POST['block'])) {
 
         <div class="row">
             <div class="col-10">
-                <h2>User Management</h2>
+                <h2><i class="fas fa-users"></i> User Management</h2>
             </div>
         </div>
 
@@ -122,8 +122,7 @@ if (isset($_POST['block'])) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -138,8 +137,7 @@ if (isset($_POST['block'])) {
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="text" name="product_name" class="form-control"
-                                    placeholder="Enter Product Name">
+                                <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
                             </div>
                         </div>
                         <div class="col-12">
@@ -153,22 +151,19 @@ if (isset($_POST['block'])) {
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea class="form-control" name="product_desc"
-                                    placeholder="Enter product desc"></textarea>
+                                <textarea class="form-control" name="product_desc" placeholder="Enter product desc"></textarea>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Price</label>
-                                <input type="number" name="product_price" class="form-control"
-                                    placeholder="Enter Product Price">
+                                <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Product Keywords <small>(eg: apple, iphone, mobile)</small></label>
-                                <input type="text" name="product_keywords" class="form-control"
-                                    placeholder="Enter Product Keywords">
+                                <input type="text" name="product_keywords" class="form-control" placeholder="Enter Product Keywords">
                             </div>
                         </div>
                         <div class="col-12">

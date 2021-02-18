@@ -25,7 +25,7 @@ include_once("./templates/top.php");
 
             <div class="row">
                 <div class="col-10">
-                    <h2>Orders</h2>
+                    <h2><i class="fas fa-hamburger"></i> Orders</h2>
                 </div>
             </div>
 

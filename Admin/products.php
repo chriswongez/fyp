@@ -38,7 +38,7 @@ include("../php/dbconnect.php");
 
             <div class="row">
                 <div class="col-10">
-                    <h2>Product List</h2>
+                    <h2><i class="fab fa-product-hunt"></i> Product List</h2>
                 </div>
                 <div class="col-2">
                     <a href="#" data-toggle="modal" data-target="#add_product_modal" class="btn btn-primary btn-sm">Add
@@ -95,8 +95,7 @@ include("../php/dbconnect.php");
 
 
     <!-- Add Product Modal start -->
-    <div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,21 +105,18 @@ include("../php/dbconnect.php");
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="./php/addproduct.php" id="add-product-form"
-                        enctype="multipart/form-data">
+                    <form method="POST" action="./php/addproduct.php" id="add-product-form" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" name="product_name" class="form-control"
-                                        placeholder="Enter Product Name">
+                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Code</label>
-                                    <input type="text" name="product_code" class="form-control"
-                                        placeholder="Enter Product Code">
+                                    <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -135,15 +131,13 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="product_desc"
-                                        placeholder="Enter product desc"></textarea>
+                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Price (RM)</label>
-                                    <input type="number" name="product_price" class="form-control"
-                                        placeholder="Enter Product Price">
+                                    <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -166,8 +160,7 @@ include("../php/dbconnect.php");
     <!-- Add Product Modal end -->
 
     <!-- Edit Product Modal start -->
-    <div class="modal fade" id="edit_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="edit_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -177,21 +170,18 @@ include("../php/dbconnect.php");
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="edit-product-form" enctype="multipart/form-data" method="POST"
-                        action="./php/addproduct.php">
+                    <form id="edit-product-form" enctype="multipart/form-data" method="POST" action="./php/addproduct.php">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" id="e_product_name" value="" name="e_product_name"
-                                        class="form-control" placeholder="Enter Product Name">
+                                    <input type="text" id="e_product_name" value="" name="e_product_name" class="form-control" placeholder="Enter Product Name">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Code</label>
-                                    <input type="text" name="e_product_code" class="form-control"
-                                        placeholder="Enter Product Name">
+                                    <input type="text" name="e_product_code" class="form-control" placeholder="Enter Product Name">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -206,15 +196,13 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="e_product_desc"
-                                        placeholder="Enter product desc"></textarea>
+                                    <textarea class="form-control" name="e_product_desc" placeholder="Enter product desc"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Price (RM)</label>
-                                    <input type="number" name="e_product_price" class="form-control"
-                                        placeholder="Enter Product Price">
+                                    <input type="number" name="e_product_price" class="form-control" placeholder="Enter Product Price">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -239,8 +227,7 @@ include("../php/dbconnect.php");
     </div>
     <!-- Edit Product Modal end -->
 
-    <div class="modal fade" id="hide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="hide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -253,8 +240,7 @@ include("../php/dbconnect.php");
                     <form method="POST">
                         <div class="row">
                             <div class="col">Do you want to hide this food from the menu?</div>
-                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmhide"
-                                    value="">Yes</button></div>
+                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmhide" value="">Yes</button></div>
                         </div>
                     </form>
                 </div>
@@ -262,8 +248,7 @@ include("../php/dbconnect.php");
         </div>
     </div>
 
-    <div class="modal fade" id="unhide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="unhide_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -276,8 +261,7 @@ include("../php/dbconnect.php");
                     <form method="POST">
                         <div class="row">
                             <div class="col">Do you want to unhide this food and make it visible on the menu?</div>
-                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmunhide"
-                                    value="">Yes</button></div>
+                            <div class="col-2"><button class="btn btn-sm btn-info" type="submit" name="confirmunhide" value="">Yes</button></div>
                         </div>
                     </form>
                 </div>
@@ -293,7 +277,7 @@ include("../php/dbconnect.php");
 
 <!-- <script type="text/javascript" src="./js/products.js"></script> -->
 <script>
-$('<?php
+    $('<?php
         $result = mysqli_query($con, "SELECT * FROM `product`");
         $rownum = mysqli_num_rows($result);
         $counter = 0;
@@ -305,39 +289,37 @@ $('<?php
                 echo "#" . $row['productCode'] . ", ";
         }
         ?>').on('click', function() {
-    var id = $(this).attr("id");
+        var id = $(this).attr("id");
 
-    $.ajax({
-        type: 'POST',
-        url: './php/getrow.php',
-        data: {
-            passid: id,
-        },
-        success: (response) => {
-            var resp = JSON.parse(response);
-            document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
-            document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
-            document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
-            document.querySelector('[name="e_product_desc"]').innerHTML = resp.prodDesc;
-            document.querySelector('[name="e_product_price"]').setAttribute("value", resp
-                .prodPrice);
-            document.querySelector('[name="e_product_img"]').setAttribute("src", "../product/" +
-                resp
-                .prodImg);
-            document.querySelector('[name="oricode"]').setAttribute("value", resp.prodCode);
+        $.ajax({
+            type: 'POST',
+            url: './php/getrow.php',
+            data: {
+                passid: id,
+            },
+            success: (response) => {
+                var resp = JSON.parse(response);
+                document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
+                document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
+                document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
+                document.querySelector('[name="e_product_desc"]').innerHTML = resp.prodDesc;
+                document.querySelector('[name="e_product_price"]').setAttribute("value", resp
+                    .prodPrice);
+                document.querySelector('[name="e_product_img"]').setAttribute("src", "../product/" +
+                    resp
+                    .prodImg);
+                document.querySelector('[name="oricode"]').setAttribute("value", resp.prodCode);
 
-        }
+            }
+        });
     });
-});
 
-function passID(code) {
-    document.querySelector('[name="confirmhide"]').setAttribute("value", code);
-    document.querySelector('[name="confirmunhide"]').setAttribute("value", code);
-}
+    function passID(code) {
+        document.querySelector('[name="confirmhide"]').setAttribute("value", code);
+        document.querySelector('[name="confirmunhide"]').setAttribute("value", code);
+    }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
 </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
