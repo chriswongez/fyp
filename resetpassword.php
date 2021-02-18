@@ -18,17 +18,11 @@ if (!empty($_SESSION['username'])) {
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
-    <title>Login</title>
+    <title>Reset Password</title>
 </head>
 
 <body>
     <?php include "./navbar.php"; ?>
-
-    <script>
-    window.onload = () => {
-        document.getElementById("login-btn").classList.add("active");
-    };
-    </script>
 
     <div class="w3-container w3-card w3-round-large w3-sand login">
 
@@ -39,25 +33,24 @@ if (!empty($_SESSION['username'])) {
             your password.</p>
         <div class="loginregister">
 
-            <form method="POST" action="" class="w3-container" style="margin: 15px 15px; width: 50%">
-
-                <table>
-                    <tr>
-                        <td>
-                            <p>Email:</p>
-                        </td>
-                        <td>
-                            <input type="text" name="email" placeholder="Enter your e-mail address" required />
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" name="reset-submit" class="w3-orange w3-text-white w3-round" value="Login" />
-
-                <?php //debug
-                // echo $_SESSION['username'] . $_SESSION['userlevel'];
-                ?>
-
+            <form method="POST" action="./php/resetpwd-request.inc.php" class="w3-container"
+                style="margin: 15px 15px; width: 50%">
+                <p>
+                    <input style="width: 500px;" type="text" name="email" placeholder="Enter your e-mail address"
+                        required />
+                </p>
+                <button type="submit" class="w3-orange w3-text-white w3-round" name="reset-submit">Reset
+                    Password</button>
             </form>
+            <?php
+            if (isset($_GET["reset"])) {
+                if ($_GET["reset"] == "noemail") {
+                    echo "<p>This email does not exist in our system! Please try again.</p>";
+                } else if ($_GET["reset"] == "success") {
+                    echo "<p>Check your e-mail!</p>";
+                }
+            }
+            ?>
         </div>
     </div>
     <footer>

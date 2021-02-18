@@ -10,6 +10,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {
   unset($_SESSION['setmethod']);
   unset($_SESSION['setvalue']);
   unset($_SESSION['totalprice']);
+  unset($_SESSION['date']);
+  unset($_SESSION['email']);
+  unset($_SESSION['first']);
+  unset($_SESSION['last']);
   echo "<script>
       alert('You have logged out.');
       window.location.href='./index.php';
