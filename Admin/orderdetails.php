@@ -131,16 +131,13 @@ include_once("./templates/top.php");
 
                         </table>
                         <div class="dropdown show">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Change Status
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
                                 <?php
                                 if ($methodcode == 'selfc') {
                                     echo "<a class='dropdown-item'
@@ -154,8 +151,7 @@ include_once("./templates/top.php");
                                     href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
                                 }
                                 ?>
-                                <a class="dropdown-item"
-                                    href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
                             </div>
                         </div>
                     </div>
@@ -163,36 +159,6 @@ include_once("./templates/top.php");
 
                 </div>
             </div>
-
-            <!-- <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>Order #</th>
-                            <th>User</th>
-                            <th>Date and Time</th>
-                            <th>Total Payment</th>
-                            <th class="text-center">Order Method</th>
-                            <th class="text-center">Order Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="customer_order_list">
-                        <?php
-                        $result = mysqli_query($con, "SELECT * FROM orderhistory,users where orderhistory.userID = users.userID");
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>
-                        <td class='align-middle'><a href='./orderdetails.php?id=" . $row['orderID'] . "'>" . $row['orderID'] . "</a></td>
-                        <td class='align-middle'>" . $row['username'] . "</td>
-                        <td class='align-middle'>" . $row['orderDate'] . "</td>
-                        <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-                        <td class='align-middle text-center'>" . $row['orderMethod'] . "</td>
-                        <td class='align-middle text-center'>" . $row['orderStatus'] . "</td>
-                    </tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div> -->
             </main>
         </div>
     </div>

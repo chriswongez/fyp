@@ -21,6 +21,7 @@ if (isset($_POST['reset-submit'])) {
         $message = "<p>We received a password reset request. The link to reset your is below. If you did not make this request, you can ignore this message</p>
         <p>Here is your password reset link <br>
         <a href='" . $url . "'>" . $url . "</a></p>";
+        $message .= "<br/>Cheers,<br/>Foodie Team";
 
         $headers = "From: Foodie Admin <foodieteam2021@gmail.com>\r\n";
         $headers .= "Reply-To: foodieteam2021@gmail.com\r\n";

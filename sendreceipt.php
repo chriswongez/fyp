@@ -4,8 +4,9 @@ session_start();
 if (isset($_POST["receipt"])) {
     $receipt = $_POST["receipt"];
     $to = $_SESSION['email'];
-    $subject = "Receipt";
+    $subject = "Thank you for your order. Here is your receipt";
     $message = $receipt;
+    $message .= "<br/>Cheers,<br/>Foodie Team";
 
     $headers = "From: Foodie Admin <foodieteam2021@gmail.com>\r\n";
     $headers .= "Reply-To: foodieteam2021@gmail.com\r\n";

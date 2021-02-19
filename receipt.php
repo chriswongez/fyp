@@ -260,27 +260,28 @@ if (isset($_POST['return'])) {
     <form method="post">
         <p style="color: red; text-align: center;" id="sendingnotes"></p>
         <div class="btn-wrap">
-            <button class="btn" type="button" id="sendreceipt">Send receipt to your
-                E-mail</button>
+            <!-- <button class="btn" type="button" id="sendreceipt">Send receipt to your
+                E-mail</button> -->
+            <button class="btn" onclick="printreceipt()">Print Receipt</button>
             <button class="btn" type="submit" id="return" name="return">Return to Main Menu</button>
         </div>
     </form>
 </body>
 
 </html>
-
 <script>
+    function printreceipt() {
+        var printContents = document.getElementById("box").innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
     var email = "<?php echo $_SESSION['email']; ?>"
-    $("#sendreceipt").on("click", function() {
-        $("#sendreceipt").text("Sending");
-        $("#sendreceipt").css("background-color", "yellow");
-        $("#sendreceipt").css("color", "black");
-        $("#sendreceipt").css("cursor", "not-allowed");
-        $('#sendreceipt').prop('disabled', true);
-        $("#sendingnotes").text("Please do not refresh or close the browser while the email is sending");
-        $('#return').css("background-color", "red");
-        $('#return').css("cursor", "not-allowed");
-        $('#return').prop('disabled', true);
+    $(document).ready(function() {
         var html = $("#box").html();
         $.ajax({
             type: "POST",
@@ -288,16 +289,7 @@ if (isset($_POST['return'])) {
             data: {
                 receipt: html,
             },
-            success: () => {
-                $("#sendreceipt").text("Sent!");
-                $("#sendreceipt").css("background-color", "blue");
-                $("#sendreceipt").css("color", "white");
-                $("#sendingnotes").text("");
-                $('#return').prop('disabled', false);
-                $('#return').css("background-color", "#2ecc71");
-                $('#return').css("cursor", "pointer");
-                alert("The receipt has been sent to your email: " + email + "!");
-            }
+            success: () => {}
         });
     });
 </script>
