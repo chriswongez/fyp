@@ -121,11 +121,15 @@ include("../php/dbconnect.php");
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Category</label>
-                                    <select class="form-control category_list" name="category">
-                                        <option value="food">Food</option>
-                                        <option value="beve">Beverage</option>
-                                    </select>
+                                    <label>Category: </label>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="food" value="food" name="category" class="custom-control-input" checked>
+                                        <label class="custom-control-label" for="food">Food</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="beve" value="beve" name="category" class="custom-control-input">
+                                        <label class="custom-control-label" for="beve">Beverage</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -186,11 +190,15 @@ include("../php/dbconnect.php");
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Category</label>
-                                    <select class="form-control category_list" name="e_category">
-                                        <option value="food">Food</option>
-                                        <option value="beve">Beverage</option>
-                                    </select>
+                                    <label>Category: </label>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" value="food" name="e_category" class="custom-control-input" checked>
+                                        <label class="custom-control-label" for="customRadioInline1">Food</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" value="beve" name="e_category" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline2">Beverage</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -301,7 +309,7 @@ include("../php/dbconnect.php");
                 var resp = JSON.parse(response);
                 document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
                 document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
-                document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
+                // document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
                 document.querySelector('[name="e_product_desc"]').innerHTML = resp.prodDesc;
                 document.querySelector('[name="e_product_price"]').setAttribute("value", resp
                     .prodPrice);

@@ -160,7 +160,7 @@ if (isset($_SESSION['userID'])) {
                 } else
                     echo "<p>Total <span class='price' style='color:black'> <b>RM" . number_format((float)$total_price, 2, '.', '') . "</b></span></p>";
                 if ($_SESSION['setmethod'] == 'selfc') {
-                    echo "<p style='color:red'>Note: Your order will be start prepare and ready for self-collect once you clicked on the checkout button.</p>";
+                    echo "<p style='color:red'>Note: Once you placed the order, you have 1 minute to cancel the order before the kitchen start preparing your food.<br><br>You can collect your food after 15 minutes.</p>";
                 }
 
                 $_SESSION['totalprice'] = $total_price;

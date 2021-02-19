@@ -104,16 +104,32 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <!-- <span id="bevebutcount"></span> -->
             <button id="select-beve" value="beve" onclick="showBeve()">Select Beverage</button>
             <button id="select-food" value="food" onclick="showFood()">Select Food</button>
+            <style>
+                .btn-change {
+                    padding: 5px 20px;
+                    background-color: blue;
+                    border-radius: 5px;
+                    border: 0;
+                    font-size: 16pt;
+                    color: white;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn-change:hover {
+                    background-color: blueviolet;
+                }
+            </style>
             <?php
             if (isset($_SESSION['username'])) {
                 if (isset($_SESSION['setmethod'])) {
                     echo "<form action='./php/chgmethod.php' method='post'>
-                  <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button type='submit'>Change</button>
+                  <h3 class='method-text'>Method selected: " . $_SESSION['setvalue'] . " <button class='btn-change' type='submit'>Change</button>
                   </h3>
               </form>";
                 } else {
                     echo "<form action='./php/chgmethod.php' method='post'>
-          <h3 class='method-text'>Method selected: <span id='method'></span> <button type='submit'>Change</button>
+          <h3 class='method-text'>Method selected: <span id='method'></span> <button class='btn-change' type='submit'>Change</button>
           </h3>
       </form>";
                 }
@@ -121,6 +137,12 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
 
             ?>
             <p class="menu-title"></p>
+            <p style='color: red; padding: 0; margin: 0 50px' id="note"></p>
+            <?php
+            if (isset($_SESSION['setmethod']) && $_SESSION['setmethod'] == "selfc") {
+                echo "<p style='color: red; padding: 0; margin: 0 50px'>Note: You can collect your food after 15 minutes.</p>";
+            }
+            ?>
             <!-- <form action="" method="post">
                 <input type="hidden" name="reset">
                 <input type="submit" value="reset">
@@ -165,7 +187,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     </div>
     <footer class="footer bg-light">
         <div class="container">
-            <p class="text-dark">&copy;2020 Foodie. All Right Reserved.</p>
+            <p class="text-dark" style="margin: 0;">&copy;2020 Foodie. All Right Reserved.</p>
         </div>
 
     </footer>
@@ -175,72 +197,73 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
 </html>
 
 <script>
-window.onload = () => {
-    document.getElementById("menu-btn").classList.add("active");
-};
-$('#select-beve').on('click', function() {
-    var val = $(this).attr("value");
-    $.ajax({
+    window.onload = () => {
+        document.getElementById("menu-btn").classList.add("active");
+    };
+    $('#select-beve').on('click', function() {
+        var val = $(this).attr("value");
+        $.ajax({
 
-        type: 'POST',
-        url: './php/buttonstat.php',
-        data: {
-            clicked: val
-        },
-        success: (e) => {
-            document.getElementById('bevebutcount').innerHTML = e;
-        }
+            type: 'POST',
+            url: './php/buttonstat.php',
+            data: {
+                clicked: val
+            },
+            success: (e) => {
+                document.getElementById('bevebutcount').innerHTML = e;
+            }
+        });
     });
-});
 
-$('#select-food').on('click', function() {
-    var val = $(this).attr("value");
-    $.ajax({
+    $('#select-food').on('click', function() {
+        var val = $(this).attr("value");
+        $.ajax({
 
-        type: 'POST',
-        url: './php/buttonstat.php',
-        data: {
-            clicked: val
-        },
-        success: (e) => {
-            document.getElementById('bevebutcount').innerHTML = e;
-        }
+            type: 'POST',
+            url: './php/buttonstat.php',
+            data: {
+                clicked: val
+            },
+            success: (e) => {
+                document.getElementById('bevebutcount').innerHTML = e;
+            }
+        });
     });
-});
 
-$('#delivery').on('click', function() {
-    var val = $(this).attr("value");
-    var sto = $(this).attr("id");
-    $.ajax({
+    $('#delivery').on('click', function() {
+        var val = $(this).attr("value");
+        var sto = $(this).attr("id");
+        $.ajax({
 
-        type: 'POST',
-        url: './php/setmethod.php',
-        data: {
-            store: sto,
-            value: val,
-        },
-        success: () => {
-            document.getElementById('method').innerHTML = val;
-        }
+            type: 'POST',
+            url: './php/setmethod.php',
+            data: {
+                store: sto,
+                value: val,
+            },
+            success: () => {
+                document.getElementById('method').innerHTML = val;
+            }
+        });
     });
-});
 
-$('#selfc').on('click', function() {
-    var val = $(this).attr("value");
-    var sto = $(this).attr("id");
-    $.ajax({
+    $('#selfc').on('click', function() {
+        var val = $(this).attr("value");
+        var sto = $(this).attr("id");
+        $("#note").text("Note: You can collect your food after 15 minutes.");
+        $.ajax({
 
-        type: 'POST',
-        url: './php/setmethod.php',
-        data: {
-            store: sto,
-            value: val,
-        },
-        success: () => {
-            document.getElementById('method').innerHTML = val;
-        }
+            type: 'POST',
+            url: './php/setmethod.php',
+            data: {
+                store: sto,
+                value: val,
+            },
+            success: () => {
+                document.getElementById('method').innerHTML = val;
+            }
+        });
     });
-});
 </script>
 
 <?php

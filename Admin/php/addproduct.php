@@ -25,7 +25,7 @@ if (isset($_POST['add_product']) && $_POST['add_product'] == 1) {
         echo "<br>" . $msg = "Failed to upload image";
     }
 
-    header("Location: ../product.php");
+    header("Location: ../products.php");
 }
 
 if (isset($_POST['edit_product']) && $_POST['edit_product'] == 1) {
@@ -55,5 +55,5 @@ if (isset($_POST['edit_product']) && $_POST['edit_product'] == 1) {
         }
     }
 
-    header("Location: ../product.php");
+    header("Location: ../products.php");
 }

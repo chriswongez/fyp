@@ -21,47 +21,30 @@ if (isset($_GET['id'])) {
     $email = $row['useremail'];
     $status = $row['orderStatus'];
     if ($row['orderMethod'] == 'selfc') {
-        if ($status == 'received') {
+        if ($status == 'received')
             $statstr = "Order Received";
-            $next = 'process';
-            $prog1 = "color: red;";
-        } else if ($status == 'process') {
+        else if ($status == 'process')
             $statstr = "Preparing Food";
-            $next = 'ready';
-            $prog2 = "color: red;";
-        } else if ($status == 'ready') {
+        else if ($status == 'ready')
             $statstr = "Ready for Self-Collect";
-            $next = 'collected';
-            $prog3 = "color: red;";
-        } else if ($status == 'cancel') {
+        else if ($status == 'cancel')
             $statstr = "Order Cancelled";
-        } else if ($status == 'collected') {
+        else if ($status == 'collected')
             $statstr = "Order Collected";
-            $prog4 = "color: red;";
-        }
     } else if ($row['orderMethod'] == 'delivery') {
-        if ($status == 'received') {
+        if ($status == 'received')
             $statstr = "Order Received";
-            $next = 'process';
-            $prog1 = "color: red;";
-        } else if ($status == 'process') {
+        else if ($status == 'process')
             $statstr = "Preparing Food";
-            $next = 'delivering';
-            $prog2 = "color: red;";
-        } else if ($status == 'delivering') {
+        else if ($status == 'delivering')
             $statstr = "Delivering";
-            $next = 'delivered';
-            $prog3 = "color: red;";
-        } else if ($status == 'delivered') {
+        else if ($status == 'delivered')
             $statstr = "Food Delivered";
-            $prog4 = "color: red;";
-        } else if ($status == 'cancel')
+        else if ($status == 'cancel')
             $statstr = "Order Cancelled";
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,23 +101,6 @@ include_once("./templates/top.php");
                                 ?>
                             </tbody>
                         </table>
-                        <p>Progress :</p>
-                        <?php
-                        if ($methodcode == 'selfc') { ?>
-                            <h5 style="<?php echo $prog1 ?>">Order Received</h5>
-                            <h5 style="<?php echo $prog2 ?>">Preparing Food</h5>
-                            <h5 style="<?php echo $prog3 ?>">Ready for Self-Collect</h5>
-                            <h5 style="<?php echo $prog4 ?>">Order Collected</h5>
-                        <?php
-                        } else if ($methodcode == 'delivery') { ?>
-                            <h5 style="<?php echo $prog1 ?>">Order Received</h5>
-                            <h5 style="<?php echo $prog2 ?>">Preparing Food</h5>
-                            <h5 style="<?php echo $prog3 ?>">Delivering</h5>
-                            <h5 style="<?php echo $prog4 ?>">Food Delivered</h5>
-                        <?php
-                        }
-                        ?>
-
                     </div>
                     <div class="col bg-light border rounded p-2 px-auto ">
                         <table class="table  table-striped mx-auto">
@@ -164,39 +130,30 @@ include_once("./templates/top.php");
                             </tr>
 
                         </table>
-                        <!-- <div class="dropdown show">
+                        <div class="dropdown show">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Change Status
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="./php/changestat.php?status=received&id=<?php //echo $id 
-                                                                                                        ?>">Order Received</a>
-                                <a class="dropdown-item" href="./php/changestat.php?status=process&id=<?php //echo $id 
-                                                                                                        ?>">Preparing Food</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=received&id=<?php echo $id ?>">Order Received</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=process&id=<?php echo $id ?>">Preparing Food</a>
                                 <?php
-                                // if ($methodcode == 'selfc') {
-                                //     echo "<a class='dropdown-item'
-                                //     href='./php/changestat.php?status=ready&id=" . $id . "'>Ready to Self-Collect</a>";
-                                //     echo "<a class='dropdown-item'
-                                //     href='./php/changestat.php?status=collected&id=" . $id . "'>Collected</a>";
-                                // } else if ($methodcode == 'delivery') {
-                                //     echo "<a class='dropdown-item'
-                                //     href='./php/changestat.php?status=delivering&id=" . $id . "'>Delivering Food</a>";
-                                //     echo "<a class='dropdown-item'
-                                //     href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
-                                // }
+                                if ($methodcode == 'selfc') {
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=ready&id=" . $id . "'>Ready to Self-Collect</a>";
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=collected&id=" . $id . "'>Collected</a>";
+                                } else if ($methodcode == 'delivery') {
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=delivering&id=" . $id . "'>Delivering Food</a>";
+                                    echo "<a class='dropdown-item'
+                                    href='./php/changestat.php?status=delivered&id=" . $id . "'>Delivered</a>";
+                                }
                                 ?>
-                                <a class="dropdown-item" href="./php/changestat.php?status=cancel&id=<?php //echo $id 
-                                                                                                        ?>">Cancelled</a>
+                                <a class="dropdown-item" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
                             </div>
-                        </div> -->
-                        <?php
-                        if ($status != 'delivered' && $status != 'collected' && $status != 'cancel') {
-                        ?>
-                            <a class="btn btn-secondary" href="./php/changestat.php?status=<?php echo $next ?>&id=<?php echo $id ?>">Change to next status</a>
-                            <a class="btn btn-secondary" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
-                        <?php } ?>
+                        </div>
                     </div>
 
 

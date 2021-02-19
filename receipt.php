@@ -5,7 +5,7 @@ require './php/dbconnect.php';
 if (isset($_GET['orderid'])) {
     $orderID = $_GET['orderid'];
 }
-if (isset($_POST['return'])) {
+if (isset($_POST['return']) || isset($_POST['orderhistory'])) {
     unset($_SESSION["cart"]);
     unset($_SESSION["menustat"]);
     unset($_SESSION['setmethod']);
@@ -15,7 +15,10 @@ if (isset($_POST['return'])) {
     unset($_SESSION['email']);
     unset($_SESSION['first']);
     unset($_SESSION['last']);
-    header("Location: ./index.php");
+    if (isset($_POST['return']))
+        header("Location: ./index.php");
+    else if (isset($_POST['orderhistory']))
+        header("Location: ./user/userorderdetail.php?id=" . $orderID);
 }
 ?>
 <!DOCTYPE html>
@@ -263,7 +266,8 @@ if (isset($_POST['return'])) {
             <!-- <button class="btn" type="button" id="sendreceipt">Send receipt to your
                 E-mail</button> -->
             <button class="btn" onclick="printreceipt()">Print Receipt</button>
-            <button class="btn" type="submit" id="return" name="return">Return to Main Menu</button>
+            <button class="btn" type="submit" id="return" name="return">Return to Main Page</button>
+            <button class="btn" type="submit" name="orderhistory">Go to Order History Page</button>
         </div>
     </form>
 </body>
