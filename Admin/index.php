@@ -186,7 +186,7 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
             <div class="card w-100" style="width: 18rem;">
                 <div class="card-header bg-secondary">
                     <i class="fa fa-area-chart" aria-hidden="true"></i>
-                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Product Sales</span style="font-size: 20px;">
+                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order Method</span style="font-size: 20px;">
                 </div>
                 <div class="card-body py-0">
                     <div class="row">
@@ -203,7 +203,7 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
             <div class="card w-100" style="width: 18rem;">
                 <div class="card-header bg-secondary">
                     <i class="fa fa-history" aria-hidden="true"></i>
-                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order details history</span style="font-size: 20px;">
+                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order details history</span>
                 </div>
                 <div class="card-body py-0">
                     <div class="row">
@@ -277,61 +277,88 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
 
 
 <Script>
-    var ctx = document.getElementById('Orders').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
-
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
-            ],
-            datasets: [{
-                    label: 'Orders Made',
-                    backgroundColor: 'rgb(66, 186, 150)',
-                    borderColor: 'rgb(66, 186, 150)',
-                    data: [100, 112, 130, 133, 87, 67, 200, 240, 223, 250, 256, 300]
-                },
-                {
-                    label: 'Orders Cancelled',
-                    backgroundColor: 'rgb(223, 71, 89)',
-                    borderColor: 'rgb(223, 71, 89)',
-                    data: [0, 2, 1, 5, 15, 20, 7, 5, 0, 2, 1, 3, 6]
-                }
-            ]
-        },
-
-        // Configuration options go here
-        options: {}
-    });
-
-    var ctx = document.getElementById('Sales').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
-            ],
-            datasets: [{
-                label: 'Food',
-                backgroundColor: 'rgb(255,255,0,0)',
-                borderColor: 'rgb(255,255,0)',
-                data: [452, 462, 864, 356, 795, 453, 215, 896, 452, 725, 635, 562]
-            }, {
-                label: 'Beverage',
-                backgroundColor: 'rgb(128,197,222,0)',
-                borderColor: 'rgb(128,197,222)',
-                data: [153, 251, 232, 325, 215, 235, 432, 215, 123, 251, 223, 221]
-            }]
-        },
-
-        // Configuration options go here
-        options: {
-
+    $.post("./php/stat.php", {
+        ordersmade: "",
+        orderscancel: "",
+    }).done((data) => {
+        // console.log(data);
+        var madeData = [];
+        var cancelData = [];
+        for (var i in data) {
+            madeData.push((data[i].made));
+            cancelData.push(data[i].cancel);
         }
-    });
+        console.log("Orders Made: " + madeData);
+        console.log("Orders Cancelled: " + cancelData);
+        var ctx = document.getElementById('Orders').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                    'October', 'November', 'December'
+                ],
+                datasets: [{
+                        label: 'Orders Made',
+                        backgroundColor: 'rgb(66, 186, 150)',
+                        borderColor: 'rgb(66, 186, 150)',
+                        // data: [100, 112, 130, 133, 87, 67, 200, 240, 223, 250, 256, 300]
+                        data: madeData
+                    },
+                    {
+                        label: 'Orders Cancelled',
+                        backgroundColor: 'rgb(223, 71, 89)',
+                        borderColor: 'rgb(223, 71, 89)',
+                        // data: [0, 2, 1, 5, 15, 20, 7, 5, 0, 2, 1, 3, 6]
+                        data: cancelData
+                    }
+                ]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    })
+    $.post("./php/stat.php", {
+        delivery: "",
+        selfc: "",
+    }).done((data) => {
+        // console.log(data);
+        var deliveryData = [];
+        var selfcData = [];
+        for (var i in data) {
+            deliveryData.push((data[i].delivery));
+            selfcData.push(data[i].selfc);
+        }
+        console.log("Delivary: " + deliveryData);
+        console.log("Self-Collect: " + selfcData);
+
+        var ctx = document.getElementById('Sales').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                    'October', 'November', 'December'
+                ],
+                datasets: [{
+                    label: 'Delivery',
+                    backgroundColor: 'rgb(255,255,0,0)',
+                    borderColor: 'rgb(255,255,0)',
+                    // data: [452, 462, 864, 356, 795, 453, 215, 896, 452, 725, 635, 562]
+                    data: deliveryData
+                }, {
+                    label: 'Self-Collect',
+                    backgroundColor: 'rgb(128,197,222,0)',
+                    borderColor: 'rgb(128,197,222)',
+                    // data: [153, 251, 232, 325, 215, 235, 432, 215, 123, 251, 223, 221]
+                    data: selfcData
+                }]
+            },
+        });
+    })
 </Script>

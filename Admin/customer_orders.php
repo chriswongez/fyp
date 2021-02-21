@@ -26,6 +26,9 @@ include_once("./templates/top.php");
             <div class="row">
                 <div class="col-10">
                     <h2><i class="fas fa-hamburger"></i> Orders</h2>
+                    <span>
+                        Click on the order number to view the order details, update order status.
+                    </span>
                 </div>
                 <div class="col-2">
                     <div class="dropdown">
@@ -35,7 +38,7 @@ include_once("./templates/top.php");
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="./customer_orders.php">By Order ID (Latest)</a>
                             <a class="dropdown-item" href="./customer_orders.php?sort=status">By Order ID, Group By Order Status</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="./customer_orders.php?sort=method">By Order ID, Group By Order Method</a>
                         </div>
                     </div>
                 </div>
@@ -58,6 +61,8 @@ include_once("./templates/top.php");
                         if (isset($_GET['sort'])) {
                             if ($_GET['sort'] == "status") {
                                 include('./php/sortbyidgrpbystat.php');
+                            } else if ($_GET['sort'] == "method") {
+                                include('./php/sortbyidgroupbymethod.php');
                             }
                         } else
                             include('./php/sortbyid.php');
