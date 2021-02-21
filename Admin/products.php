@@ -110,20 +110,20 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
+                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Code</label>
-                                    <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code">
+                                    <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Category: </label>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="food" value="food" name="category" class="custom-control-input" checked>
+                                        <input type="radio" id="food" value="food" name="category" class="custom-control-input">
                                         <label class="custom-control-label" for="food">Food</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
@@ -135,19 +135,19 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc"></textarea>
+                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc" required></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Price (RM)</label>
-                                    <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price">
+                                    <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Image <small>(format: jpg, jpeg, png)</small></label>
-                                    <input type="file" name="product_image" class="form-control">
+                                    <input type="file" name="product_image" class="form-control" required>
                                 </div>
                             </div>
                             <input type="hidden" name="add_product" value="1">
@@ -179,24 +179,24 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" id="e_product_name" value="" name="e_product_name" class="form-control" placeholder="Enter Product Name">
+                                    <input type="text" id="e_product_name" value="" name="e_product_name" class="form-control" placeholder="Enter Product Name" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Code</label>
-                                    <input type="text" name="e_product_code" class="form-control" placeholder="Enter Product Name">
+                                    <input type="text" name="e_product_code" class="form-control" placeholder="Enter Product Name" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Category: </label>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" value="food" name="e_category" class="custom-control-input" checked>
+                                        <input type="radio" id="e_food" value="food" name="e_category" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadioInline1">Food</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline2" value="beve" name="e_category" class="custom-control-input">
+                                        <input type="radio" id="e_beve" value="beve" name="e_category" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadioInline2">Beverage</label>
                                     </div>
                                 </div>
@@ -204,13 +204,13 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="e_product_desc" placeholder="Enter product desc"></textarea>
+                                    <textarea class="form-control" name="e_product_desc" placeholder="Enter product desc" required></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Price (RM)</label>
-                                    <input type="number" name="e_product_price" class="form-control" placeholder="Enter Product Price">
+                                    <input type="number" name="e_product_price" class="form-control" placeholder="Enter Product Price" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -310,6 +310,11 @@ include("../php/dbconnect.php");
                 document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
                 document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
                 // document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
+                if (resp.prodCategory == "food") {
+                    document.getElementById("e_food").checked = "true"
+                } else if (resp.prodCategory == "beve") {
+                    document.getElementById("e_beve").checked = "true"
+                }
                 document.querySelector('[name="e_product_desc"]').innerHTML = resp.prodDesc;
                 document.querySelector('[name="e_product_price"]').setAttribute("value", resp
                     .prodPrice);

@@ -44,6 +44,9 @@ if (isset($_POST['changestatus'])) {
             <div class="row">
                 <div class="col-10">
                     <h2><i class="fas fa-paper-plane"></i> Contact Us</h2>
+                    <span>
+                        Note: Staff have to reply to customer by their email and change the status here once replied.
+                    </span>
                 </div>
             </div>
 
@@ -65,34 +68,36 @@ if (isset($_POST['changestatus'])) {
                         $query = "SELECT * from contact_us order by cuID desc";
                         $result = mysqli_query($con, $query);
                         while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <td><?php echo $row['cuID']; ?></td>
-                            <td><?php echo $row['cuName']; ?></td>
-                            <td><?php echo $row['cuEmail']; ?></td>
-                            <td><?php echo $row['cuPhone']; ?></td>
-                            <?php
-                            $message = nl2br($row['cuMessage']);
-                            $message = str_replace(array("\n", "\r"), '', $message);
-                            ?>
-                            <td><a class='btn btn-sm btn-info' data-toggle='modal' data-target='#view_message_modal' onclick="message('<?php echo $message; ?>')">Click to view massage</a></td>
-                            <td>
+                            <tr>
+                                <td><?php echo $row['cuID']; ?></td>
+                                <td><?php echo $row['cuName']; ?></td>
+                                <td><?php echo $row['cuEmail']; ?></td>
+                                <td><?php echo $row['cuPhone']; ?></td>
                                 <?php
-                                if ($row['cuStatus'] == 0) {
-                                    echo '<span style="color: red;">Haven\'t reply yet</span>';
-                                    $changestatus = "reply";
-                                    $btntt = 'Change to Replied';
-                                } else if ($row['cuStatus'] == 1) {
-                                    echo '<span style="color: Green;">Replied</span>';
-                                    $changestatus = "xreply";
-                                    $btntt = 'Change to Haven\'t reply yet';
-                                }
+                                $message = nl2br($row['cuMessage']);
+                                $message = str_replace(array("\n", "\r"), '', $message);
                                 ?>
-                            </td>
-                            <td>
-                                <form method="post">
-                                    <input type="hidden" value="<?php echo $row['cuID']; ?>" name="id">
-                                    <button class="btn btn-sm btn-info" title="<?php echo $btntt ?>" value="<?php echo $changestatus ?>" name="changestatus" type="submit">Change</button>
-                                </form>
-                            </td>
+                                <td><a class='btn btn-sm btn-info' data-toggle='modal' data-target='#view_message_modal' onclick="message('<?php echo $message; ?>')">Click to view massage</a></td>
+                                <td>
+                                    <?php
+                                    if ($row['cuStatus'] == 0) {
+                                        echo '<span style="color: red;">Haven\'t reply yet</span>';
+                                        $changestatus = "reply";
+                                        $btntt = 'Change to Replied';
+                                    } else if ($row['cuStatus'] == 1) {
+                                        echo '<span style="color: Green;">Replied</span>';
+                                        $changestatus = "xreply";
+                                        $btntt = 'Change to Haven\'t reply yet';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" value="<?php echo $row['cuID']; ?>" name="id">
+                                        <button class="btn btn-sm btn-info" title="<?php echo $btntt ?>" value="<?php echo $changestatus ?>" name="changestatus" type="submit">Change</button>
+                                    </form>
+                                </td>
+                            </tr>
                         <?php
                         }
                         ?>

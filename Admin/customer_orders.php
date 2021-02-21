@@ -77,7 +77,48 @@ include_once("./templates/top.php");
 
 </html>
 <?php include_once("./templates/footer.php"); ?>
+<script>
+    var e = document.getElementsByName("collected");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "lightgreen";
+    }
+    var e = document.getElementsByName("delivered");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "lightgreen";
+    }
+    var e = document.getElementsByName("cancel");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "red";
+    }
+    var e = document.getElementsByName("ready");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#b3b300";
+    }
+    var e = document.getElementsByName("delivering");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#b3b300";
+    }
+    var e = document.getElementsByName("received");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#0099ff";
+    }
+    var e = document.getElementsByName("process");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#ff8533";
+    }
+    var e = document.getElementsByName("selfc");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#cc00cc";
+    }
+    var e = document.getElementsByName("delivery");
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.color = "#bf8040";
+    }
+</script>
 
+<!-- received
 
+process
+cancel -->
 
 <!-- <script type="text/javascript" src="./js/customers.js"></script> -->

@@ -36,22 +36,24 @@ if (isset($_POST['edit_product']) && $_POST['edit_product'] == 1) {
     $pdesc = $_POST['e_product_desc'];
     $pprice = $_POST['e_product_price'];
 
-    echo "<br>" . $query = "UPDATE product SET productName = '$pname', productDesc = '$pdesc', productPrice = '$pprice', productCategory = '$pcat' WHERE productCode = '$oricode';";
+    $query = "UPDATE product SET productName = '$pname', productDesc = '$pdesc', productPrice = '$pprice', productCategory = '$pcat' WHERE productCode = '$oricode';";
     $result = mysqli_query($con, $query);
     if ($result) {
         // img upload module
-        $filename = $_FILES["e_product_image"]["name"];
-        $tempname = $_FILES["e_product_image"]["tmp_name"];
-        $folder = "C:/xampp/htdocs/fyp/product/" . $filename;
+        if ($_FILES["e_product_image"]["size"] != 0) {
+            echo $filename = $_FILES["e_product_image"]["name"];
+            $tempname = $_FILES["e_product_image"]["tmp_name"];
+            $folder = "C:/xampp/htdocs/fyp/product/" . $filename;
 
-        echo "<br>" . $query = "UPDATE product SET productImg = '$filename' WHERE productCode = '$pcode';";
+            echo "<br>" . $query = "UPDATE product SET productImg = '$filename' WHERE productCode = '$pcode';";
 
-        mysqli_query($con, $query);
+            mysqli_query($con, $query);
 
-        if (move_uploaded_file($tempname, $folder)) {
-            echo "<br>" . $msg = "Image changed successfully";
-        } else {
-            echo "<br>" . $msg = "Failed to upload image";
+            if (move_uploaded_file($tempname, $folder)) {
+                echo "<br>" . $msg = "Image changed successfully";
+            } else {
+                echo "<br>" . $msg = "Failed to upload image";
+            }
         }
     }
 

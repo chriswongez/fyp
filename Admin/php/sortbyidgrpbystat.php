@@ -48,8 +48,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             <td class='align-middle'>" . $row['username'] . "</td>
             <td class='align-middle'>" . $row['orderDate'] . "</td>
             <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-            <td class='align-middle text-center'>" . $method . "</td>
-            <td class='align-middle text-center'>" . $statstr . "</td>
+            <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+            <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
             </tr>";
         }
     }
@@ -66,8 +66,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -84,8 +84,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -102,8 +102,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -120,8 +120,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -138,8 +138,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -156,8 +156,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -174,8 +174,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -192,8 +192,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
@@ -210,8 +210,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td class='align-middle'>" . $row['username'] . "</td>
         <td class='align-middle'>" . $row['orderDate'] . "</td>
         <td class='align-middle '>RM " . number_format((float)$row['orderPay'], 2, '.', '') . "</td>
-        <td class='align-middle text-center'>" . $method . "</td>
-        <td class='align-middle text-center'>" . $statstr . "</td>
+        <td class='align-middle text-center' name='" . $row['orderMethod'] . "'>" . $method . "</td>
+        <td class='align-middle text-center' name='" . $status . "'>" . $statstr . "</td>
         </tr>";
         }
     }
