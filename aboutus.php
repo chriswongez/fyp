@@ -104,7 +104,7 @@ session_start();
                         <div class="bg-light border rounded-lg ">
                             <div class="container">
                                 <p>
-                                <h4 class="text-center">Loh Zhen Chao</h4>
+                                <h4 class="text-center">Low Zhen Chao</h4>
                                 </p>
                                 <p>Developer & Resource Manager</p>
                                 <p>
