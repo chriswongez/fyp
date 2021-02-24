@@ -11,15 +11,14 @@ session_start();
     <link rel="stylesheet" href="./css/mainpage.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
-    .jumbo {
-        background-image: url('./images/ico.png');
-        background-size: 30%;
-        background-position-x: 85%;
-        background-repeat: no-repeat;
-    }
+        .jumbo {
+            background-image: url('./images/ico.png');
+            background-size: 30%;
+            background-position-x: 85%;
+            background-repeat: no-repeat;
+        }
     </style>
 
 </head>
@@ -28,9 +27,9 @@ session_start();
     <?php include "./navbar.php"; ?>
 
     <script>
-    window.onload = () => {
-        document.getElementById("about-btn").classList.add("active");
-    };
+        window.onload = () => {
+            document.getElementById("about-btn").classList.add("active");
+        };
     </script>
 
     <main role="main ">
@@ -67,18 +66,18 @@ session_start();
             <div class="container">
 
                 <p class="text-center display-4">Meet Our Team</p>
-                <div class="row">
+                <div style="text-align: center;align-items: center;justify-content: center;" class="row">
                     <div class="col-4 px-3">
                         <div class="bg-light border rounded-lg ">
                             <div class="container">
                                 <p>
                                 <h4 class="text-center">Chris Wong</h4>
                                 </p>
+                                <div style="width: 100%;">
+                                    <img style="max-width: 40%;" src="./images/chrispic.jpeg">
+                                </div>
                                 <p>Founder & Project Manager</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in diam euismod,
-                                    malesuada turpis nec, accumsan mauris.
-                                </p>
+
                                 <p>Email: chriswongez@gmail.com</p>
                                 <p>Instagram: chriswong_31</p>
                             </div>
@@ -90,11 +89,11 @@ session_start();
                                 <p>
                                 <h4 class="text-center">Alvin Cheng</h4>
                                 </p>
+                                <div style="width: 100%;">
+                                    <img style="max-width: 40%;" src="./images/alvinpic.jpg">
+                                </div>
                                 <p>Designer & Developer</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in diam euismod,
-                                    malesuada turpis nec, accumsan mauris.
-                                </p>
+
                                 <p>Email: cheng200126@gmail.com</p>
                                 <p>Instagram: alvincheng0526</p>
                             </div>
@@ -106,11 +105,11 @@ session_start();
                                 <p>
                                 <h4 class="text-center">Low Zhen Chao</h4>
                                 </p>
+                                <div style="width: 100%;">
+                                    <img style="max-width: 40%;" src="./images/lowpic.jpg">
+                                </div>
                                 <p>Developer & Resource Manager</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in diam euismod,
-                                    malesuada turpis nec, accumsan mauris.
-                                </p>
+
                                 <p>Email: zhenchao2013@gmail.com</p>
                                 <p>Instagram: lowzc1213</p>
                             </div>
