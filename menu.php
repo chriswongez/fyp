@@ -185,12 +185,14 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             </div>
         </div>
     </div>
+
     <footer class="footer bg-light">
         <div class="container">
             <p class="text-dark" style="margin: 0;">&copy;2020 Foodie. All Right Reserved.</p>
         </div>
 
     </footer>
+
 
 </body>
 
