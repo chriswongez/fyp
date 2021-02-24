@@ -79,14 +79,12 @@ if (isset($_SESSION['userID'])) {
                             <label for="fname">Accepted Cards</label>
                             <div class="icon-container">
                                 <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                <i class="fa fa-cc-amex" style="color:blue;"></i>
                                 <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                <i class="fa fa-cc-discover" style="color:orange;"></i>
                             </div>
                             <label for="cname">Name on Card</label>
-                            <input type="text" id="cname" placeholder="Only A-Z" pattern="^[A-Z]+$">
+                            <input type="text" id="cname" placeholder="Only A-Z" pattern="^[A-Z ]+$">
                             <label for="ccnum">Credit card number</label>
-                            <input type="text" id="ccnum" placeholder="1111222233334444" minlength="16" maxlength="16">
+                            <input type="text" id="ccnum" placeholder="5xxxxxxxxxxxxxxx/4xxxxxxxxxxxxxxx" minlength="16" maxlength="16" pattern="[4-5]{1}[0-9]{3}-[0-9]{4}-[0-9]{4}-[0-9]{4}">
                             <label for="expmonth">Exp Month</label>
                             <input type="text" id="expmonth" placeholder="September">
                             <div class="row">
