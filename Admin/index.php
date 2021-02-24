@@ -171,7 +171,7 @@ $self_cancelled = mysqli_num_rows(mysqli_query($con, "SELECT * FROM orderhistory
             <div class="card w-100" style="width: 18rem;">
                 <div class="card-header bg-secondary">
                     <i class="fas fa-cart-arrow-down"></i>
-                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Order</span style="font-size: 20px;">
+                    <span style="font-size: 20px;" class="text-white d-inline-block py-1">Orders</span style="font-size: 20px;">
                 </div>
                 <div class="card-body py-0">
                     <div class="row">
