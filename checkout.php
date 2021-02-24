@@ -84,7 +84,7 @@ if (isset($_SESSION['userID'])) {
                             <label for="cname">Name on Card</label>
                             <input type="text" id="cname" placeholder="Only A-Z" pattern="^[A-Z ]+$">
                             <label for="ccnum">Credit card number</label>
-                            <input type="text" id="ccnum" placeholder="5xxxxxxxxxxxxxxx/4xxxxxxxxxxxxxxx" minlength="16" maxlength="16" pattern="[4-5]{1}[0-9]{3}-[0-9]{4}-[0-9]{4}-[0-9]{4}">
+                            <input type="text" id="ccnum" placeholder="5xxxxxxxxxxxxxxx/4xxxxxxxxxxxxxxx" minlength="16" maxlength="16" pattern="[4-5]{1}[0-9]{3}[0-9]{4}[0-9]{4}[0-9]{4}">
                             <label for="expmonth">Exp Month</label>
                             <input type="text" id="expmonth" placeholder="September">
                             <div class="row">
