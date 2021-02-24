@@ -98,7 +98,7 @@
 <div class="sidenav sidebar col-2">
 
     <header onclick="location.href ='../'">
-        <span style="color: White;font-size:25px; ">
+        <span style="color: White;font-size:30px; ">
             <i class="fa fa-home pull-left" aria-hidden="true"> Foodie</i>
         </span>
     </header>
