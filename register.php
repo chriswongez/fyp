@@ -20,7 +20,7 @@ if (isset($_REQUEST['regusername'])) {
         $query = "SELECT * FROM `users` WHERE useremail='$email'";
         $result = mysqli_query($con, $query);
         $rows1 = mysqli_num_rows($result);
-        if ($rows == 1 || $rows == 1) { //check username in use
+        if ($rows == 1 || $rows1 == 1) { //check username in use
             echo "<script>
         alert('Username or email in used!\\nPlease try again.');
         window.location.href='./register.php';

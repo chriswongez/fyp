@@ -14,6 +14,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['userlevel'])) {
   unset($_SESSION['email']);
   unset($_SESSION['first']);
   unset($_SESSION['last']);
+  unset($_SESSION['addp']);
   echo "<script>
       alert('You have logged out.');
       window.location.href='./index.php';

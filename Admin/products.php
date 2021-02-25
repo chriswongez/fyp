@@ -91,8 +91,23 @@ include("../php/dbconnect.php");
             </main>
         </div>
     </div>
+    <?php
+    // unset($_SESSION['addp']);
+    if (isset($_SESSION['addp']))
+        $addp = json_decode($_SESSION['addp']);
+    else
+        $addp = array("", "", "", "", "");
 
-
+    if (isset($_GET['addp']) && $_GET['addp'] == 'fail') {
+        echo "<script> alert('The product code " . $addp[1] . " is existing in the database! Please use another product code') </script>";
+    } else if (isset($_GET['addp']) && $_GET['addp'] == 'success') {
+        echo "<script> alert('The product is added to database successfully and it will display in the menu!') </script>";
+    } else if (isset($_GET['editp']) && $_GET['editp'] == 'fail') {
+        echo "<script> alert('The product code " . $_GET['code'] . " is existing in the database! Please use another product code') </script>";
+    } else if (isset($_GET['editp']) && $_GET['editp'] == 'success') {
+        echo "<script> alert('The product detail is edited successfully') </script>";
+    }
+    ?>
 
     <!-- Add Product Modal start -->
     <div class="modal fade" id="add_product_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,13 +125,13 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name" required>
+                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name" value="<?php echo $addp[0]; ?>" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Code</label>
-                                    <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code" required>
+                                    <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code" value="<?php echo $addp[1]; ?>" required>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -131,17 +146,24 @@ include("../php/dbconnect.php");
                                         <label class="custom-control-label" for="beve">Beverage</label>
                                     </div>
                                 </div>
+                                <script>
+                                    if (<?php echo $addp[2]; ?> == "food") {
+                                        document.getElementById("food").checked = "true"
+                                    } else if (<?php echo $addp[2]; ?> == "beve") {
+                                        document.getElementById("beve").checked = "true"
+                                    }
+                                </script>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc" required></textarea>
+                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc" value="<?php echo $addp[3]; ?>" required></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Price (RM)</label>
-                                    <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price" step=".01" required>
+                                    <input type="number" name="product_price" class="form-control" placeholder="Enter Product Price" value="<?php echo $addp[4]; ?>" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -186,6 +208,7 @@ include("../php/dbconnect.php");
                                 <div class="form-group">
                                     <label>Product Code</label>
                                     <input type="text" name="e_product_code" class="form-control" placeholder="Enter Product Name" required>
+                                    <input type="hidden" name="e_product_code_hidden" class="form-control" placeholder="Enter Product Name" required>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -309,6 +332,7 @@ include("../php/dbconnect.php");
                 var resp = JSON.parse(response);
                 document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
                 document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
+                document.querySelector('[name="e_product_code_hidden"]').setAttribute("value", resp.prodCode);
                 // document.querySelector('[name="e_category"]').setAttribute("value", resp.prodCategory);
                 if (resp.prodCategory == "food") {
                     document.getElementById("e_food").checked = "true"
