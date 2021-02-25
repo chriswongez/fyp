@@ -321,7 +321,7 @@ include("../php/dbconnect.php");
         }
         ?>').on('click', function() {
         var id = $(this).attr("id");
-
+        console.log(id);
         $.ajax({
             type: 'POST',
             url: './php/getrow.php',
@@ -330,6 +330,7 @@ include("../php/dbconnect.php");
             },
             success: (response) => {
                 var resp = JSON.parse(response);
+                console.log(resp);
                 document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
                 document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
                 document.querySelector('[name="e_product_code_hidden"]').setAttribute("value", resp.prodCode);
