@@ -105,9 +105,9 @@ if (isset($_REQUEST['regusername'])) {
     <?php include "./navbar.php"; ?>
 
     <script>
-    window.onload = () => {
-        document.getElementById("login-btn").classList.add("active");
-    };
+        window.onload = () => {
+            document.getElementById("login-btn").classList.add("active");
+        };
     </script>
 
 
@@ -117,6 +117,7 @@ if (isset($_REQUEST['regusername'])) {
         <h1 style="padding: 0px 16px; margin-top: 15px; margin-bottom: 0">
             Welcome! Please login.
         </h1>
+
         <div class="loginregister">
 
             <form method="POST" class="w3-container" style="margin: 15px 15px; width: 50%">
@@ -149,6 +150,7 @@ if (isset($_REQUEST['regusername'])) {
             </form>
             <h6>Not a user? <a href="./register.php">Register here</a></h6>
             <h6>Forget Password? <a href="./resetpassword.php">Reset here</a></h6>
+            <span style="font-size: 10pt;">Note: Login with admin's credential will automatically login as admin</span>
         </div>
     </div>
     <footer>
@@ -158,9 +160,9 @@ if (isset($_REQUEST['regusername'])) {
 </body>
 
 <script>
-window.onload = () => {
-    document.getElementById("login-btn").classList.add("active");
-};
+    window.onload = () => {
+        document.getElementById("login-btn").classList.add("active");
+    };
 </script>
 
 </html>

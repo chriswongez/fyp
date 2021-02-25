@@ -17,9 +17,12 @@ if (isset($_REQUEST['regusername'])) {
         $query = "SELECT * FROM `users` WHERE username='$username'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
-        if ($rows == 1) { //check username in use
+        $query = "SELECT * FROM `users` WHERE useremail='$email'";
+        $result = mysqli_query($con, $query);
+        $rows1 = mysqli_num_rows($result);
+        if ($rows == 1 || $rows == 1) { //check username in use
             echo "<script>
-        alert('Username in used!\\nPlease try again.');
+        alert('Username or email in used!\\nPlease try again.');
         window.location.href='./register.php';
         </script>";
             exit;
@@ -88,8 +91,7 @@ if (isset($_REQUEST['regusername'])) {
                         </td>
                         <td>
                             <p>
-                                <input type="password" name="regpassword" placeholder="Mininum 8 characters"
-                                    minlength="8" required />
+                                <input type="password" name="regpassword" placeholder="Mininum 8 characters" minlength="8" required />
                             </p>
                         </td>
                     </tr>

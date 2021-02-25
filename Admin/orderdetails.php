@@ -200,7 +200,7 @@ include_once("./templates/top.php");
                         if ($status != 'delivered' && $status != 'collected' && $status != 'cancel') {
                         ?>
                             <a class="btn btn-secondary" href="./php/changestat.php?status=<?php echo $next ?>&id=<?php echo $id ?>">Change to next status</a>
-                            <a class="btn btn-secondary" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancelled</a>
+                            <a class="btn btn-secondary" href="./php/changestat.php?status=cancel&id=<?php echo $id ?>">Cancel</a>
                             <br>
                             <span>Click on "Change to next status" to change to next status of the progress</span>
                         <?php } ?>
