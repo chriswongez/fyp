@@ -25,10 +25,10 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
     $conpass = mysqli_real_escape_string($con, $conpass);
 
     if ($password == $conpass) { //check password match with confirm password
-        $query = "SELECT * FROM 'users' WHERE username='$newusername' AND username!='$username'";
+        $query = "SELECT * FROM users WHERE username='$newusername' AND username!='$username'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
-        $query = "SELECT * FROM 'users' WHERE useremail='$newemail' AND useremail!='$useremail'";
+        $query = "SELECT * FROM users WHERE useremail='$newemail' AND useremail!='$useremail'";
         $result = mysqli_query($con, $query);
         $rowss = mysqli_num_rows($result);
         if ($rows == 1) { //check username in use

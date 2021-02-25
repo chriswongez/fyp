@@ -14,10 +14,10 @@ if (isset($_REQUEST['regusername'])) {
     $conpassword = mysqli_real_escape_string($con, $conpassword);
 
     if ($password == $conpassword) { //check password match with confirm password
-        $query = "SELECT * FROM 'users' WHERE username='$username'";
+        $query = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
-        $query = "SELECT * FROM 'users' WHERE useremail='$email'";
+        $query = "SELECT * FROM users WHERE useremail='$email'";
         $result = mysqli_query($con, $query);
         $rows1 = mysqli_num_rows($result);
         if ($rows == 1 || $rows1 == 1) { //check username in use

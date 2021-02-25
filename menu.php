@@ -152,7 +152,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
 
             <div id="food-menu-con" class="food-menu-con">
                 <?php
-                $result = mysqli_query($con, "SELECT * FROM 'product' where productCategory = 'food' AND isHide='0'");
+                $result = mysqli_query($con, "SELECT * FROM product where productCategory = 'food' AND isHide='0'");
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>
@@ -169,7 +169,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <!-- beverage menu below -->
             <div id="beve-menu-con" class="beve-menu-con">
                 <?php
-                $result = mysqli_query($con, "SELECT * FROM 'product' where productCategory = 'beve' AND isHide='0'");
+                $result = mysqli_query($con, "SELECT * FROM product where productCategory = 'beve' AND isHide='0'");
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<form action='' method='post' class='food-con-wrapper'>
                 <div  class='food-con w3-card'>

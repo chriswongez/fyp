@@ -15,7 +15,7 @@ if (isset($_POST['logusername'])) {
     $password = mysqli_real_escape_string($con, $password);
 
     //Checking is user existing in the database or not
-    $query = "SELECT * FROM 'users' WHERE username='$username' and userpass='$password'";
+    $query = "SELECT * FROM users WHERE username='$username' and userpass='$password'";
     $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
     $row = mysqli_fetch_assoc($result);
@@ -57,7 +57,7 @@ if (isset($_REQUEST['regusername'])) {
     $conpassword = mysqli_real_escape_string($con, $conpassword);
 
     if ($password == $conpassword) { //check password match with confirm password
-        $query = "SELECT * FROM 'users' WHERE username='$username'";
+        $query = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
         if ($rows == 1) { //check username in use
@@ -67,7 +67,7 @@ if (isset($_REQUEST['regusername'])) {
         </script>";
         } else {
             //if password match and no username in use, register account to system
-            $query = "INSERT into 'users' (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
+            $query = "INSERT into users (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
             $result = mysqli_query($con, $query);
             if ($result) {
                 echo "<script>
