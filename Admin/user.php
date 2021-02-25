@@ -125,7 +125,7 @@ if (isset($_POST['block'])) {
                 <p>
                     "Promote" button:
                     <br> - Promote user to Admin<br>
-                    "Deomote" button:
+                    "Demote" button:
                     <br> - Demote user to Normal Customer<br>
                     "Block" button:
                     <br> - Block user or admin. They can't login once blocked.<br>
