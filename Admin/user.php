@@ -85,7 +85,7 @@ if (isset($_POST['block'])) {
                         <tbody id="customer_list">
                             <form method="post">
                                 <?php
-                                $query = ("SELECT * FROM `users` ");
+                                $query = ("SELECT * FROM users ");
                                 $result = mysqli_query($con, $query);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['isBlock'] == 0) {

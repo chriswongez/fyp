@@ -63,7 +63,7 @@ include("../php/dbconnect.php");
                     </thead>
                     <tbody id="product_list">
                         <?php
-                        $result = mysqli_query($con, "SELECT * FROM `product`");
+                        $result = mysqli_query($con, "SELECT * FROM product");
                         while ($row = mysqli_fetch_assoc($result)) {
                             if ($row['isHide'] == 0) {
                                 echo "<tr>";
@@ -309,7 +309,7 @@ include("../php/dbconnect.php");
 <!-- <script type="text/javascript" src="./js/products.js"></script> -->
 <script>
     $('<?php
-        $result = mysqli_query($con, "SELECT * FROM `product`");
+        $result = mysqli_query($con, "SELECT * FROM product");
         $rownum = mysqli_num_rows($result);
         $counter = 0;
         while ($row = mysqli_fetch_assoc($result)) {
@@ -321,7 +321,7 @@ include("../php/dbconnect.php");
         }
         ?>').on('click', function() {
         var id = $(this).attr("id");
-        console.log(id);
+
         $.ajax({
             type: 'POST',
             url: './php/getrow.php',
@@ -330,7 +330,6 @@ include("../php/dbconnect.php");
             },
             success: (response) => {
                 var resp = JSON.parse(response);
-                console.log(resp);
                 document.querySelector('[name="e_product_name"]').setAttribute("value", resp.prodName);
                 document.querySelector('[name="e_product_code"]').setAttribute("value", resp.prodCode);
                 document.querySelector('[name="e_product_code_hidden"]').setAttribute("value", resp.prodCode);
