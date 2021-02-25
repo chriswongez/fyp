@@ -3,7 +3,7 @@ include("dbconnect.php");
 
 if (isset($_POST['passid'])) {
     $id = $_POST['passid'];
-    $result = mysqli_query($con, "SELECT * FROM `product` where productCode='$id'");
+    $result = mysqli_query($con, "SELECT * FROM product where productCode='$id'");
     $rows = mysqli_num_rows($result);
     $row = mysqli_fetch_assoc($result);
 
