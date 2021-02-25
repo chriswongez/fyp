@@ -90,7 +90,9 @@ if ($_SESSION['userlevel'] != 'admin') {
     <div class="sidebar-header">
         <a href="../index.php">
             <h3 class="brand">
-                <span class="title">Foodie</span>
+                <span style="color: White;font-size:30px; ">
+                    <i class="fa fa-home pull-left" aria-hidden="true"> <span class="title">Foodie</span></i>
+                </span>
             </h3>
         </a>
     </div>

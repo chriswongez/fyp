@@ -13,25 +13,26 @@ $userID = $_SESSION['userID'];
     include('./include/header.php');
     ?>
     <style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    td,
-    th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
 
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
     <link rel="stylesheet" href="order.css" />
     <title>Order History</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

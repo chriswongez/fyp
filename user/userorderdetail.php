@@ -57,6 +57,7 @@ if (isset($_GET['id'])) {
     include('./include/header.php');
     ?>
     <title>Order Details</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -162,8 +163,7 @@ if (isset($_GET['id'])) {
 
         </div>
     </main>
-    <div class="modal fade" id="cancel_order_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="cancel_order_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

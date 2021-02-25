@@ -71,6 +71,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
     include('./include/header.php');
     ?>
     <title>Account Information</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -87,13 +88,11 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                 <form>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username"
-                            value="<?php echo $username ?>">
+                        <input type="text" class="form-control" id="username" name="username" value="<?php echo $username ?>">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                            value="<?php echo $useremail ?>" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $useremail ?>" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
