@@ -140,7 +140,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <p style='color: red; padding: 0; margin: 0 50px' id="note"></p>
             <?php
             if (isset($_SESSION['setmethod']) && $_SESSION['setmethod'] == "selfc") {
-                echo "<p style='color: red; padding: 0; margin: 0 50px'>Note: You can collect your food after 15 minutes.</p>";
+                echo "<p style='color: red; padding: 0; margin: 0 50px'>Note: You can collect your food after 1 hour.</p>";
             }
             ?>
             <!-- <form action="" method="post">
@@ -252,7 +252,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     $('#selfc').on('click', function() {
         var val = $(this).attr("value");
         var sto = $(this).attr("id");
-        $("#note").text("Note: You can collect your food after 15 minutes.");
+        $("#note").text("Note: You can collect your food after 1 hour.");
         $.ajax({
 
             type: 'POST',

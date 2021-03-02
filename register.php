@@ -28,7 +28,7 @@ if (isset($_REQUEST['regusername'])) {
             exit;
         } else {
             //if password match and no username in use, register account to system
-            $query = "INSERT into 'users' (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
+            $query = "INSERT into users (username, userpass, userlevel, useremail) VALUES ('$username', '$password', 'user', '$email')";
             $result = mysqli_query($con, $query);
             if ($result) {
                 echo "<script>

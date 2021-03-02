@@ -16,6 +16,8 @@ if (isset($_SESSION['userID'])) {
         $userCity = $row['userCity'];
         $userState = $row['userState'];
         $userZip = $row['userZip'];
+        $username = $row['username'];
+        $userEmail = $row['useremail'];
     }
 }
 
@@ -27,13 +29,38 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
     $userCity = $_POST['city'];
     $userState = $_POST['state'];
     $userZip = $_POST['zip'];
+    $newusername = stripslashes($_REQUEST['username']);
+    $newusername = mysqli_real_escape_string($con, $newusername);
+    $newemail = stripslashes($_REQUEST['email']);
+    $newemail = mysqli_real_escape_string($con, $newemail);
 
-    echo "<br>" . $query = "UPDATE users SET userfirst = '$userfirst', userlast = '$userlast', usercontact = '$usercontact', userAdd = '$userAdd', userCity = '$userCity', userState = '$userState', userZip = '$userZip' WHERE userID = '$userID';";
+    $query = "SELECT * FROM users WHERE username='$newusername' AND username!='$username'";
     $result = mysqli_query($con, $query);
-    if ($result) {
+    $rows = mysqli_num_rows($result);
+    $query = "SELECT * FROM users WHERE useremail='$newemail' AND useremail!='$userEmail'";
+    $result = mysqli_query($con, $query);
+    $rowss = mysqli_num_rows($result);
+    if ($rows >= 1) { //check username in use
         echo "<script>
-    alert('Your information is saved');
-    </script>";
+        alert('Username in used!\\nPlease try again.');
+        window.location.href='./index.php';
+        </script>";
+        exit;
+    } else if ($rowss >= 1) { //check email in use
+        echo "<script>
+        alert('Email in used!\\nPlease try again.');
+        window.location.href='./index.php';
+        </script>";
+        exit;
+    } else {
+        $query = "UPDATE users SET userfirst = '$userfirst', userlast = '$userlast', usercontact = '$usercontact', userAdd = '$userAdd', userCity = '$userCity', userState = '$userState', userZip = '$userZip',username = '$newusername', useremail = '$newemail' WHERE userID = '$userID';";
+        $result = mysqli_query($con, $query);
+        if ($result) {
+            $_SESSION['username'] = $newusername;
+            echo "<script>
+            alert('Your information is saved');
+            </script>";
+        }
     }
 }
 ?>
@@ -68,7 +95,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
             </div>
             <div class="row">
                 <!--/col-3-->
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <form class="form" action="##" method="post" id="registrationForm">
                         <div class="form-group">
                             <div class="col-xs-6">
@@ -78,12 +105,30 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name" value="<?php echo $userfirst ?>" />
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="last_name">
                                     <h4>Last name</h4>
                                 </label>
                                 <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="<?php echo $userlast ?>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>E-mail</h4>
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $userEmail ?>" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>Username</h4>
+                                </label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username ?>" />
                             </div>
                         </div>
 

@@ -109,7 +109,7 @@
             ?></span>
     <a href="./index.php">User Information</a>
     <a href="./order_history.php">Order History</a>
-    <a href="./account_info.php">Account</a>
+    <a href="./account_info.php">Change Password</a>
     <button class="btn btn-secondary btn-lg" onclick="location.href ='../logout.php'">Log out</button>
 
 </div>

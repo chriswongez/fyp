@@ -15,7 +15,7 @@ if (isset($_POST['add_product']) && $_POST['add_product'] == 1) {
     $result = mysqli_query($con, $query);
     $row = mysqli_num_rows($result);
 
-    if ($row > 0) {
+    if ($row == 1) {
         header('Location: ../products.php?addp=fail');
     } else {
         unset($_SESSION['addp']);
@@ -36,29 +36,30 @@ if (isset($_POST['add_product']) && $_POST['add_product'] == 1) {
         } else {
             echo "<br>" . $msg = "Failed to upload image";
         }
+        header("Location: ../products.php?addp=success");
     }
-    header("Location: ../products.php?addp=success");
 }
 
 if (isset($_POST['edit_product']) && $_POST['edit_product'] == 1) {
     $pname = $_POST['e_product_name'];
     $pcode = $_POST['e_product_code'];
-    $poricode = $_POST['e_product_code_hidden'];
     $oricode = $_POST['oricode'];
     $pcat = $_POST['e_category'];
     $pdesc = $_POST['e_product_desc'];
     $pprice = $_POST['e_product_price'];
 
-    $query = "SELECT * from product where productCode = '$pcode' EXCEPT (SELECT * from product where productCode = '$poricode')";
+    $query = "SELECT * from product where productCode = '$pcode' EXCEPT (SELECT * from product where productCode = '$oricode')";
     $result = mysqli_query($con, $query);
-    echo $row = mysqli_num_rows($result);
+    $row = mysqli_num_rows($result);
 
-    if ($row > 0) {
+    if ($row >= 1) {
         header('Location: ../products.php?editp=fail&code=' . $pcode . '');
     } else {
-        $query = "UPDATE product SET productName = '$pname', productDesc = '$pdesc', productPrice = '$pprice', productCategory = '$pcat' WHERE productCode = '$oricode';";
+        echo "<br>" . $query = "UPDATE product SET productCode = '$pcode', productName = '$pname', productDesc = '$pdesc', productPrice = '$pprice', productCategory = '$pcat' WHERE productCode = '$oricode'";
         $result = mysqli_query($con, $query);
-        if ($result) {
+        echo "<br>" . $query = "UPDATE orderitem SET productCode = '$pcode' WHERE productCode = '$oricode'";
+        $result2 = mysqli_query($con, $query);
+        if ($result && $result2) {
             // img upload module
             if ($_FILES["e_product_image"]["size"] != 0) {
                 echo $filename = $_FILES["e_product_image"]["name"];
@@ -76,6 +77,6 @@ if (isset($_POST['edit_product']) && $_POST['edit_product'] == 1) {
                 }
             }
         }
+        header("Location: ../products.php?editp=success");
     }
-    header("Location: ../products.php?editp=success");
 }
