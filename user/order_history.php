@@ -43,13 +43,14 @@ $userID = $_SESSION['userID'];
         <div class="container-fluid">
             <span class="display-1 ">Order History</span>
             <hr>
+            <span>Click on the Order ID number to view its order detail.<br>Note: You can <b>only</b> cancel your order when the status is <b>"Order Received"</b></span>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="thead-dark">
                     <th>Order ID</th>
                     <th>Order date</th>
                     <th>Amount Paid</th>
-                    <th>Order method</th>
-                    <th>Status</th>
+                    <th class='align-middle text-center'>Order method</th>
+                    <th class='align-middle text-center'>Status</th>
                 </thead>
                 <tbody>
                     <?php

@@ -1,5 +1,8 @@
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <title>User Management</title>
 </head>
 
 <?php
@@ -123,13 +126,13 @@ if (isset($_POST['block'])) {
             <div class="col-4 bg-light border rounded p-2">
                 <h4>Instruction for admin</h4>
                 <p>
-                    "Promote" button:
+                    <span style="color: red;">"Promote"</span> button:
                     <br> - Promote user to Admin<br>
-                    "Demote" button:
+                    <span style="color: darkkhaki;">"Demote"</span> button:
                     <br> - Demote user to Normal Customer<br>
-                    "Block" button:
+                    <span style="color: blue;">"Block"</span> button:
                     <br> - Block user or admin. They can't login once blocked.<br>
-                    "Unblock" button:
+                    <span style="color: green;">"Unblock"</span> button:
                     <br> - Unblock user or admin.<br>
                 </p>
             </div>

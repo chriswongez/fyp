@@ -87,24 +87,6 @@ if (isset($_REQUEST['regusername'])) {
                     </tr>
                     <tr>
                         <td>
-                            <p>Password:</p>
-                        </td>
-                        <td>
-                            <p>
-                                <input type="password" name="regpassword" placeholder="Mininum 8 characters" minlength="8" required />
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Confirm Password:</p>
-                        </td>
-                        <td>
-                            <input type="password" name="regconpassword" placeholder="Confirm password" required />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <p>E-mail:</p>
                         </td>
                         <td>
@@ -113,6 +95,43 @@ if (isset($_REQUEST['regusername'])) {
                             </p>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <p>Password:</p>
+                        </td>
+                        <td>
+                            <p>
+                                <input type="password" id="regpassword" name="regpassword" placeholder="Mininum 8 characters" minlength="8" required />
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Confirm Password:</p>
+                        </td>
+                        <td>
+                            <input type="password" id="regconpassword" name="regconpassword" placeholder="Confirm password" required />
+                        </td>
+                    </tr>
+
+                    <td>
+                        <input type="checkbox" onclick="showpassword()"> Show Password
+                    </td>
+                    <script>
+                        function showpassword() {
+                            var x = document.getElementById("regpassword");
+                            var y = document.getElementById("regconpassword");
+                            if (x.type === "password" && y.type === "password") {
+                                x.type = "text";
+                                y.type = "text";
+                            } else {
+                                x.type = "password";
+                                y.type = "password";
+                            }
+                        }
+                    </script>
+                    </td>
+
                 </table>
                 <input type="submit" class="w3-orange w3-round w3-text-white" value="Register" />
             </form>

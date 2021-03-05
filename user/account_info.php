@@ -48,7 +48,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
     <?php
     include('./include/header.php');
     ?>
-    <title>Account Information</title>
+    <title>Change Password</title>
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
@@ -65,16 +65,38 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
             <form method="POST">
                 <form>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Old Password</label>
+                        <label for="password" class="form-label">
+                            <h5>Old Password</h5>
+                        </label>
                         <input type="password" class="form-control" id="oldpassword" name="oldpassword">
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">
+                            <h5>Password</h5>
+                        </label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="mb-3">
-                        <label for="conpass" class="form-label">Confirm Password</label>
+                        <label for="conpass" class="form-label">
+                            <h5>Confirm Password</h5>
+                        </label>
                         <input type="password" class="form-control" id="conpass" name="conpass">
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" onclick="showpassword()"> Show Password
+                        <script>
+                            function showpassword() {
+                                var x = document.getElementById("password");
+                                var y = document.getElementById("conpass");
+                                if (x.type === "password" && y.type === "password") {
+                                    x.type = "text";
+                                    y.type = "text";
+                                } else {
+                                    x.type = "password";
+                                    y.type = "password";
+                                }
+                            }
+                        </script>
                     </div>
                     <input type="hidden" name="save" value="1">
                     <button type="submit" class="btn btn-primary">Submit</button>

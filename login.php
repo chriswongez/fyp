@@ -136,10 +136,22 @@ if (isset($_REQUEST['regusername'])) {
                             <p>Password:</p>
                         </td>
                         <td>
-                            <input type="password" name="logpassword" placeholder="Password" required />
+                            <input type="password" id="password" name="logpassword" placeholder="Password" required />
                         </td>
                     </tr>
-
+                    <td>
+                        <input type="checkbox" onclick="showpassword()"> Show Password
+                    </td>
+                    <script>
+                        function showpassword() {
+                            var x = document.getElementById("password");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
                 </table>
                 <input type="submit" class="w3-orange w3-text-white w3-round" value="Login" />
 

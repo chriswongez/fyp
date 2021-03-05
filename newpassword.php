@@ -51,11 +51,25 @@ require('./php/dbconnect.php');
 
                         <input type="hidden" name="validator" value="<?php echo $validator; ?>">
                         <p>
-                            <input type="password" name="pwd" placeholder="Enter a new password...">
+                            <input type="password" id="pwd" name="pwd" placeholder="Enter a new password...">
                         </p>
                         <p>
-                            <input type="password" name="conpwd" placeholder="Repeat new password..." required />
+                            <input type="password" id="conpwd" name="conpwd" placeholder="Repeat new password..." required />
                         </p>
+                        <input type="checkbox" onclick="showpassword()"> Show Password
+                        <script>
+                            function showpassword() {
+                                var x = document.getElementById("pwd");
+                                var y = document.getElementById("conpwd");
+                                if (x.type === "password" && y.type === "password") {
+                                    x.type = "text";
+                                    y.type = "text";
+                                } else {
+                                    x.type = "password";
+                                    y.type = "password";
+                                }
+                            }
+                        </script>
                         <button type="submit" class="w3-orange w3-text-white w3-round" name="reset-submit">Reset
                             Password</button>
                         <?php
