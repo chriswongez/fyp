@@ -51,7 +51,7 @@ require('./php/dbconnect.php');
 
                         <input type="hidden" name="validator" value="<?php echo $validator; ?>">
                         <p>
-                            <input type="password" id="pwd" name="pwd" placeholder="Enter a new password...">
+                            <input type="password" id="pwd" name="pwd" placeholder="Enter a new password..." required>
                         </p>
                         <p>
                             <input type="password" id="conpwd" name="conpwd" placeholder="Repeat new password..." required />
