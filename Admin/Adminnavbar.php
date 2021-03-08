@@ -109,7 +109,7 @@ if ($_SESSION['userlevel'] != 'admin') {
             <li>
                 <a href="products.php">
                     <i class="fas fa-hamburger"></i>
-                    <span>Product Management</span>
+                    <span style="font-size: 0.85rem;">Product Management</span>
                 </a>
             </li>
 
