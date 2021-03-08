@@ -147,9 +147,9 @@ include("../php/dbconnect.php");
                                     </div>
                                 </div>
                                 <script>
-                                    if (<?php echo $addp[2]; ?> == "food") {
+                                    if ("<?php echo $addp[2]; ?>" == "food") {
                                         document.getElementById("food").checked = "true"
-                                    } else if (<?php echo $addp[2]; ?> == "beve") {
+                                    } else if ("<?php echo $addp[2]; ?>" == "beve") {
                                         document.getElementById("beve").checked = "true"
                                     }
                                 </script>
@@ -157,7 +157,7 @@ include("../php/dbconnect.php");
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc" value="<?php echo $addp[3]; ?>" required></textarea>
+                                    <textarea class="form-control" name="product_desc" placeholder="Enter product desc" required><?php echo $addp[3]; ?></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
