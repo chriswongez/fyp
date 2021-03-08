@@ -78,15 +78,32 @@ if (isset($_POST['cu-submit'])) {
     </section>
 
     <section id="services-container">
+        <?php
+        if (isset($_SESSION['userlevel']) && $_SESSION['userlevel'] == "admin") {
+        ?>
+            <button class="services-edit-btn" id="services-edit-btn" onclick="showservicesedit()">Edit</button>
+            <div class="services-edit-con" id="services-edit-con">
+                <button class="hide" id="hide" onclick="hideservicesedit()">Hide</button>
+                <h3>Edit Hot Products' Section</h3>
+                <form action="./php/servicesedit.php" method="post">
+                    <select name="box" id="">
+                        <option value="" disabled selected>Select box</option>
+                        <option value="box1">Box 1</option>
+                        <option value="box2">Box 2</option>
+                        <option value="box3">Box 3</option>
+                    </select>
+                </form>
+            </div>
+        <?php
+        }
+        ?>
         <h1 class="main-services">
-            <span style="font-size: 24pt; animation: colorRotate 6s linear 0s infinite">-INTRODUCING-</span><br />Our
-            Special
-            Burger
+            <span style="font-size: 24pt; animation: colorRotate 6s linear 0s infinite">-HOT PRODUCTS-</span><br />Our Special Burger
         </h1>
         <div class="services">
             <div class="box">
                 <img src="images/spicy_beef_burger.jpg" alt="" />
-                <h2 class="main-secondary center">-SPICY BEEF BURGER-</h2>
+                <h2 class="main-secondary center">SPICY BEEF BURGER</h2>
                 <p style="
               text-align: center;
               font-size: 15pt;
@@ -102,7 +119,7 @@ if (isset($_POST['cu-submit'])) {
 
             <div class="box">
                 <img src="images/Fatty_buger.jpg" alt="" style="max-width:100%" />
-                <h2 class="main-secondary center">-FATTY BURGER-</h2>
+                <h2 class="main-secondary center">FATTY BURGER</h2>
                 <p style="
               text-align: center;
               font-size: 15pt;
@@ -117,7 +134,7 @@ if (isset($_POST['cu-submit'])) {
 
             <div class="box">
                 <img src="images/cheesy-double-chicken-burger.png" alt="" />
-                <h2 class="main-secondary center">-DOUBLE CHICKEN CHEESE BURGER-</h2>
+                <h2 class="main-secondary center">DOUBLE CHICKEN CHEESE BURGER</h2>
                 <p style="
               text-align: center;
               font-size: 15pt;
@@ -182,3 +199,17 @@ if (isset($_POST['cu-submit'])) {
 </body>
 
 </html>
+
+<script>
+    function showservicesedit() {
+        document.getElementById("services-edit-con").style.left = "0";
+        document.getElementById("services-edit-btn").style.visibility = "0";
+        document.getElementById("services-edit-btn").style.opacity = "0";
+    }
+
+    function hideservicesedit() {
+        document.getElementById("services-edit-con").style.left = "-100%";
+        document.getElementById("services-edit-btn").style.visibility = "1";
+        document.getElementById("services-edit-btn").style.opacity = "1";
+    }
+</script>

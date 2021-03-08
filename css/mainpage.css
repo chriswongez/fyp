@@ -108,7 +108,7 @@ nav a:hover {
   text-shadow: black 2px 2px 3px;
   background: url("https://loveincorporated.blob.core.windows.net/contentimages/gallery/624bc11e-1002-42d3-aeb7-429c3f001ecc-gourmet_burger.jpg")
     no-repeat center center/cover;
-    
+
   /* background-color: rgb(0, 0, 0, 0.5); */
 }
 
@@ -176,6 +176,7 @@ nav a:hover {
 .services {
   margin: 34px;
   display: flex;
+  position: relative;
 }
 
 .main-services {
@@ -205,6 +206,26 @@ nav a:hover {
 
 .services .box p {
   font-family: "Bree Serif,serif";
+}
+
+.services-edit-btn {
+  position: absolute;
+  left: 5px;
+  padding: 5px 20px;
+  font-size: 12pt;
+  outline: none;
+  border-radius: 8px;
+  transition: 0.3s all;
+}
+
+.services-edit-con {
+  position: absolute;
+  /* right: 5px; */
+  border: 1px black solid;
+  padding: 5px 20px;
+  left: -100%;
+  z-index: 1;
+  transition: 0.5s all;
 }
 
 /*clients*/
