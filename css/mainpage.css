@@ -208,26 +208,6 @@ nav a:hover {
   font-family: "Bree Serif,serif";
 }
 
-.services-edit-btn {
-  position: absolute;
-  left: 5px;
-  padding: 5px 20px;
-  font-size: 12pt;
-  outline: none;
-  border-radius: 8px;
-  transition: 0.3s all;
-}
-
-.services-edit-con {
-  position: absolute;
-  /* right: 5px; */
-  border: 1px black solid;
-  padding: 5px 20px;
-  left: -100%;
-  z-index: 1;
-  transition: 0.5s all;
-}
-
 /*clients*/
 
 #client-section {

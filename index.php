@@ -175,17 +175,3 @@ if (isset($_POST['cu-submit'])) {
 </body>
 
 </html>
-
-<script>
-    function showservicesedit() {
-        document.getElementById("services-edit-con").style.left = "0";
-        document.getElementById("services-edit-btn").style.visibility = "0";
-        document.getElementById("services-edit-btn").style.opacity = "0";
-    }
-
-    function hideservicesedit() {
-        document.getElementById("services-edit-con").style.left = "-100%";
-        document.getElementById("services-edit-btn").style.visibility = "1";
-        document.getElementById("services-edit-btn").style.opacity = "1";
-    }
-</script>
