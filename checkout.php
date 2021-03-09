@@ -158,7 +158,9 @@ if (isset($_SESSION['userID'])) {
                 } else
                     echo "<p>Total <span class='price' style='color:black'> <b>RM" . number_format((float)$total_price, 2, '.', '') . "</b></span></p>";
                 if ($_SESSION['setmethod'] == 'selfc') {
-                    echo "<p style='color:red'>Note: Once you placed the order, you have 3 minute to cancel the order before the kitchen start preparing your food.<br><br>You can collect your food after 15 minutes.</p>";
+                    echo "<p style='color:red'>Note for Self-Collect: Once you placed the order, you have 3 minute to cancel the order before the kitchen start preparing your food.<br><br>You can collect your food after 1 hour.</p>";
+                } else if ($_SESSION['setmethod'] == 'delivery') {
+                    echo "<p style='color:red'>Note for Self-Collect: Once you placed the order, you have 3 minute to cancel the order before the kitchen start preparing your food.<br><br>You can collect your food after 1 hour.</p>";
                 }
 
                 $_SESSION['totalprice'] = $total_price;
