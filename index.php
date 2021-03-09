@@ -1,11 +1,6 @@
 <?php
 session_start();
 require('./php/dbconnect.php');
-unset($_SESSION["cart"]);
-unset($_SESSION["menustat"]);
-unset($_SESSION['setmethod']);
-unset($_SESSION['setvalue']);
-unset($_SESSION['totalprice']);
 unset($_SESSION['date']);
 unset($_SESSION['email']);
 unset($_SESSION['first']);
@@ -78,25 +73,6 @@ if (isset($_POST['cu-submit'])) {
     </section>
 
     <section id="services-container">
-        <?php
-        if (isset($_SESSION['userlevel']) && $_SESSION['userlevel'] == "admin") {
-        ?>
-            <button class="services-edit-btn" id="services-edit-btn" onclick="showservicesedit()">Edit</button>
-            <div class="services-edit-con" id="services-edit-con">
-                <button class="hide" id="hide" onclick="hideservicesedit()">Hide</button>
-                <h3>Edit Hot Products' Section</h3>
-                <form action="./php/servicesedit.php" method="post">
-                    <select name="box" id="">
-                        <option value="" disabled selected>Select box</option>
-                        <option value="box1">Box 1</option>
-                        <option value="box2">Box 2</option>
-                        <option value="box3">Box 3</option>
-                    </select>
-                </form>
-            </div>
-        <?php
-        }
-        ?>
         <h1 class="main-services">
             <span style="font-size: 24pt; animation: colorRotate 6s linear 0s infinite">-HOT PRODUCTS-</span><br />Our Special Burger
         </h1>
