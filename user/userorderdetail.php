@@ -57,6 +57,7 @@ if (isset($_GET['id'])) {
     include('./include/header.php');
     ?>
     <title>Order Details</title>
+    <meta http-equiv="refresh" content="5">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
@@ -72,6 +73,7 @@ if (isset($_GET['id'])) {
                     <hr>
                     <h5>Order details for Order ID <?php echo $id ?></h5>
                     <hr>
+                    <span>Note: This page reload every 5 seconds</span>
                 </div>
             </div>
             <div class="container-fluid">

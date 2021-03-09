@@ -45,6 +45,7 @@ if (isset($_POST['logusername'])) {
     }
 }
 
+
 //register
 if (isset($_REQUEST['regusername'])) {
     $username = stripslashes($_REQUEST['regusername']); // removes backslashes
@@ -84,6 +85,7 @@ if (isset($_REQUEST['regusername'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <script>
@@ -128,7 +130,7 @@ if (isset($_REQUEST['regusername'])) {
                             <p>Username:</p>
                         </td>
                         <td>
-                            <input type="text" name="logusername" placeholder="Username" required />
+                            <input type="text" id="logusername" name="logusername" placeholder="Username" required />
                         </td>
                     </tr>
                     <tr>

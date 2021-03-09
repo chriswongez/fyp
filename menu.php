@@ -140,7 +140,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
             <p style='color: red; padding: 0; margin: 0 50px' id="note"></p>
             <?php
             if (isset($_SESSION['setmethod']) && $_SESSION['setmethod'] == "selfc") {
-                echo "<p style='color: red; padding: 0; margin: 0 50px'>Note: You can collect your food after 1 hour.</p>";
+                echo "<p style='color: red; padding: 0; margin: 0 50px'>Note for Self-Collect: You can collect your food after 1 hour.</p>";
             }
             ?>
             <!-- <form action="" method="post">
@@ -175,11 +175,13 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
                 <div  class='food-con w3-card'>
 			          <input type='hidden' name='food' value=" . $row['productCode'] . " />
 			          <div class='food-img-con'><img src='./product/" . $row['productImg'] . "'></div>
-                <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
-                <p class='food-desc'>" . $row['productDesc'] . "</p>
-                <button type='submit' class='btn-addtocart '>Add to cart</button>
-                </div>
-                </form>";
+                      <p class='food-title'>" . $row['productName'] . " <br><span class='food-price'>RM " . number_format((float)$row['productPrice'], 2, '.', '') . "</span></p>
+                      <p class='food-desc'>" . $row['productDesc'] . "</p>
+                      <button type='submit' class='btn-addtocart '>Add to cart</button>
+                      </div>
+                      </form>";
+                    // <p class='food-title'>RM " . $row['productPrice'] . " " . $row['productName'] . "</p>
+                    // <p class='food-desc'>" . $row['productDesc'] . "</p>
                 }
                 ?>
             </div>
@@ -252,7 +254,7 @@ if (isset($_POST['food']) && $_POST['food'] != "") { //product add to cart
     $('#selfc').on('click', function() {
         var val = $(this).attr("value");
         var sto = $(this).attr("id");
-        $("#note").text("Note: You can collect your food after 1 hour.");
+        $("#note").text("Note for Self-Collect: You can collect your food after 1 hour.");
         $.ajax({
 
             type: 'POST',

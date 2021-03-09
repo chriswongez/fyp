@@ -23,7 +23,6 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
             echo "<script>
             alert('Current password wrong!\\nPlease try again.');
             </script>";
-            exit;
         } else {
             //current password correct and new pass match with con pass, save new password to database
             $query = "UPDATE users SET userpass = '$password' WHERE userID = '$userID';";
@@ -68,19 +67,19 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                         <label for="password" class="form-label">
                             <h5>Old Password</h5>
                         </label>
-                        <input type="password" class="form-control" id="oldpassword" name="oldpassword">
+                        <input type="password" class="form-control" id="oldpassword" name="oldpassword" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">
                             <h5>Password</h5>
                         </label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="mb-3">
                         <label for="conpass" class="form-label">
                             <h5>Confirm Password</h5>
                         </label>
-                        <input type="password" class="form-control" id="conpass" name="conpass">
+                        <input type="password" class="form-control" id="conpass" name="conpass" required>
                     </div>
                     <div class="mb-3">
                         <input type="checkbox" onclick="showpassword()"> Show Password
@@ -88,12 +87,15 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                             function showpassword() {
                                 var x = document.getElementById("password");
                                 var y = document.getElementById("conpass");
+                                var z = document.getElementById("oldpassword");
                                 if (x.type === "password" && y.type === "password") {
                                     x.type = "text";
                                     y.type = "text";
+                                    z.type = "text";
                                 } else {
                                     x.type = "password";
                                     y.type = "password";
+                                    z.type = "password";
                                 }
                             }
                         </script>
