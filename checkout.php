@@ -65,7 +65,7 @@ if (isset($_SESSION['userID'])) {
                                         <input type='text' id='state' name='state' placeholder='' value='" . $userState . "' required>
                                     </div>
                                     <div class='col-50'>
-                                        <label for='zip'>Zip</label>
+                                        <label for='zip'>Postcode</label>
                                         <input type='text' id='zip' name='zip' placeholder='' value='" . $userZip . "' required>
                                     </div>
                                 </div>";

@@ -71,7 +71,10 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/08d8dbd162.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous"> -->
+
+
+    <title>Orders Details for #<?php echo $id ?></title>
 </head>
 <?php
 include_once("./templates/top.php");
@@ -127,16 +130,16 @@ include_once("./templates/top.php");
                         <p>Progress :</p>
                         <?php
                         if ($methodcode == 'selfc') { ?>
-                            <h5 style="<?php echo $prog1 ?>">Order Received</h5>
-                            <h5 style="<?php echo $prog2 ?>">Preparing Food</h5>
-                            <h5 style="<?php echo $prog3 ?>">Ready for Self-Collect</h5>
-                            <h5 style="<?php echo $prog4 ?>">Order Collected</h5>
+                            <h5 style="<?php echo $prog1 ?>"><i class="fas fa-check"></i> Order Received</h5>
+                            <h5 style="<?php echo $prog2 ?>"><i class="fas fa-mitten"></i> Preparing Food</h5>
+                            <h5 style="<?php echo $prog3 ?>"><i class="fas fa-hand-sparkles"></i> Ready for Self-Collect</h5>
+                            <h5 style="<?php echo $prog4 ?>"><i class="fas fa-user-check"></i> Order Collected</h5>
                         <?php
                         } else if ($methodcode == 'delivery') { ?>
-                            <h5 style="<?php echo $prog1 ?>">Order Received</h5>
-                            <h5 style="<?php echo $prog2 ?>">Preparing Food</h5>
-                            <h5 style="<?php echo $prog3 ?>">Delivering</h5>
-                            <h5 style="<?php echo $prog4 ?>">Food Delivered</h5>
+                            <h5 style="<?php echo $prog1 ?>"><i class="fas fa-check"></i> Order Received</h5>
+                            <h5 style="<?php echo $prog2 ?>"><i class="fas fa-mitten"></i> Preparing Food</h5>
+                            <h5 style="<?php echo $prog3 ?>"><i class="fas fa-truck"></i> Delivering</h5>
+                            <h5 style="<?php echo $prog4 ?>"><i class="fas fa-user-check"></i> Food Delivered</h5>
                         <?php
                         }
                         ?>

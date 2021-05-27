@@ -102,7 +102,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="first_name">
                                     <h4>First name</h4>
                                 </label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name" value="<?php echo $userfirst ?>" />
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name" value="<?php echo $userfirst ?>" required />
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="last_name">
                                     <h4>Last name</h4>
                                 </label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="<?php echo $userlast ?>" />
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="<?php echo $userlast ?>" required />
                             </div>
                         </div>
                         <div class="form-group">
@@ -119,7 +119,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="last_name">
                                     <h4>E-mail</h4>
                                 </label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $userEmail ?>" aria-describedby="emailHelp">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $userEmail ?>" aria-describedby="emailHelp" required>
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="last_name">
                                     <h4>Username</h4>
                                 </label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username ?>" />
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username ?>" required />
                             </div>
                         </div>
 
@@ -137,7 +137,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="phone">
                                     <h4>Contact</h4>
                                 </label>
-                                <input type="text" class="form-control" name="contact" id="contact" placeholder="0123456789" value="<?php echo $usercontact ?>" />
+                                <input type="text" class="form-control" name="contact" id="contact" placeholder="0123456789" value="<?php echo $usercontact ?>" required />
                             </div>
                         </div>
 
@@ -146,7 +146,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="email">
                                     <h4>Address</h4>
                                 </label>
-                                <textarea class="form-control" id="address" name="address" rows="3"><?php echo $userAdd ?></textarea>
+                                <textarea class="form-control" id="address" name="address" rows="3" required><?php echo $userAdd ?></textarea>
 
                             </div>
                         </div>
@@ -156,7 +156,7 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="phone">
                                     <h4>City</h4>
                                 </label>
-                                <input type="text" class="form-control" name="city" placeholder="Enter city" value="<?php echo $userCity ?>" />
+                                <input type="text" class="form-control" name="city" placeholder="Enter city" value="<?php echo $userCity ?>" required />
                             </div>
                         </div>
 
@@ -165,16 +165,16 @@ if (isset($_POST['save']) && $_POST['save'] == 1) {
                                 <label for="phone">
                                     <h4>State</h4>
                                 </label>
-                                <input type="text" class="form-control" name="state" placeholder="Enter state" value="<?php echo $userState ?>" />
+                                <input type="text" class="form-control" name="state" placeholder="Enter state" value="<?php echo $userState ?>" required />
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="phone">
-                                    <h4>Zip</h4>
+                                    <h4>Postcode</h4>
                                 </label>
-                                <input type="text" class="form-control" name="zip" id="zip" placeholder="Enter Zip" value="<?php echo $userZip ?>" />
+                                <input type="text" class="form-control" name="zip" id="zip" placeholder="Enter Zip" value="<?php echo $userZip ?>" required />
                             </div>
                         </div>
 

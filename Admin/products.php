@@ -51,7 +51,7 @@ include("../php/dbconnect.php");
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Code</th>
+                            <th>Product Code</th>
                             <th>Name</th>
                             <th class="text-center">Image</th>
                             <th class="text-center">Price</th>
