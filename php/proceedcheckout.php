@@ -10,22 +10,25 @@ $_SESSION['last'] = $_POST['lastname'];
 if (isset($_POST['set']) && isset($_SESSION['userID']) && $_SESSION['setmethod'] == 'selfc') {
     $datetimenow = date("Y-m-d H:i:s");
     $_SESSION['date'] = $datetimenow;
-    $total = $_SESSION['totalprice'];
-    $method = $_SESSION['setmethod'];
-    $id = $_SESSION['userID'];
-    $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID) 
-    VALUES ('$datetimenow', $total , '$method', 'received', $id);";
-    $result = mysqli_query($con, $query);
-    $orderID = mysqli_insert_id($con);
+    $total = $_SESSION['totalprice']; //get total payment amount
+    $method = $_SESSION['setmethod']; //get payment method
+    $id = $_SESSION['userID']; //get user id
+
+    $query = "INSERT into orderhistory (orderDate, orderPay, orderMethod, orderStatus, userID)
+    VALUES ('$datetimenow', $total , '$method', 'received', $id);"; //set query for creatting a transaction record
+    $result = mysqli_query($con, $query); //run the query
+
+    $orderID = mysqli_insert_id($con); //get last auto increment id, in this case is transaction id
     if ($result) {
         echo "<br> Success";
     }
     if (!empty($_SESSION["cart"])) {
+        // for each item in cart save the item and quantity into a record in a table with pointing to transaction id
         foreach ($_SESSION["cart"] as $product) {
             $prodCode = $product['productCode'];
             $quantity = $product['quantity'];
             $query = "INSERT into orderitem (orderID, productCode, quantity) 
-            VALUES ('$orderID', '$prodCode' , $quantity);";
+            VALUES ('$orderID', '$prodCode' , $quantity);"; //order id is pointing to last transaction's id
             $result = mysqli_query($con, $query);
         }
     }
